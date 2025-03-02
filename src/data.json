@@ -1,0 +1,697 @@
+{
+  "documents": [],
+  "id": 2659414,
+  "name": "Jahnstraße 5 - Berlin",
+  "title": "Familienparadies in Mahlsdorf Süd: 5-Zimmer-Haus mit Pool und separatem Gästehaus",
+  "unit_id": "",
+  "exposee_id": null,
+  "project_id": null,
+  "street": "Jahnstraße",
+  "house_number": "5",
+  "district": null,
+  "region": "Berlin",
+  "zip_code": "12623",
+  "city": "Berlin",
+  "country": "DEU",
+  "address": "Jahnstraße 5, 12623 Berlin, Deutschland",
+  "short_address": "Jahnstraße 5, 12623 Berlin",
+  "lat": 52.4894512,
+  "lng": 13.6115565,
+  "number_of_rooms": 5.0,
+  "price": 745000.0,
+  "base_rent": 0,
+  "living_space": 185.0,
+  "number_of_bed_rooms": 4,
+  "number_of_bath_rooms": 1,
+  "property_space_value": 185.0,
+  "currency": null,
+  "images": [
+    {
+      "id": 19442137,
+      "is_floorplan": false,
+      "is_private": false,
+      "title": "Wintergarten (Außen)",
+      "url": "https://images.propstack.de/photos/g7N7E6M1GAyHB9a1sn9XikuG/photo/2Rmk7R9XFJDDJonoiUVU549V/Wintergarten%20%28Aussen%29.png",
+      "big_url": "https://images.propstack.de/photos/g7N7E6M1GAyHB9a1sn9XikuG/photo/2Rmk7R9XFJDDJonoiUVU549V/big_Wintergarten%20%28Aussen%29.png",
+      "medium_url": "https://images.propstack.de/photos/g7N7E6M1GAyHB9a1sn9XikuG/photo/2Rmk7R9XFJDDJonoiUVU549V/medium_Wintergarten%20%28Aussen%29.png",
+      "thumb_url": "https://images.propstack.de/photos/g7N7E6M1GAyHB9a1sn9XikuG/photo/2Rmk7R9XFJDDJonoiUVU549V/thumb_Wintergarten%20%28Aussen%29.png",
+      "small_thumb_url": "https://images.propstack.de/photos/g7N7E6M1GAyHB9a1sn9XikuG/photo/2Rmk7R9XFJDDJonoiUVU549V/small_thumb_Wintergarten%20%28Aussen%29.png",
+      "square_url": "https://images.propstack.de/photos/g7N7E6M1GAyHB9a1sn9XikuG/photo/2Rmk7R9XFJDDJonoiUVU549V/square_Wintergarten%20%28Aussen%29.png",
+      "tags": null,
+      "position": 1,
+      "is_not_for_exposee": false
+    },
+    {
+      "id": 19442138,
+      "is_floorplan": false,
+      "is_private": false,
+      "title": "Hausansicht II",
+      "url": "https://images.propstack.de/photos/g7N7E6M1GAyHB9a1sn9XikuG/photo/eVJHjjiZL74o1csWeEDUaQgu/Hausansicht%20II.png",
+      "big_url": "https://images.propstack.de/photos/g7N7E6M1GAyHB9a1sn9XikuG/photo/eVJHjjiZL74o1csWeEDUaQgu/big_Hausansicht%20II.png",
+      "medium_url": "https://images.propstack.de/photos/g7N7E6M1GAyHB9a1sn9XikuG/photo/eVJHjjiZL74o1csWeEDUaQgu/medium_Hausansicht%20II.png",
+      "thumb_url": "https://images.propstack.de/photos/g7N7E6M1GAyHB9a1sn9XikuG/photo/eVJHjjiZL74o1csWeEDUaQgu/thumb_Hausansicht%20II.png",
+      "small_thumb_url": "https://images.propstack.de/photos/g7N7E6M1GAyHB9a1sn9XikuG/photo/eVJHjjiZL74o1csWeEDUaQgu/small_thumb_Hausansicht%20II.png",
+      "square_url": "https://images.propstack.de/photos/g7N7E6M1GAyHB9a1sn9XikuG/photo/eVJHjjiZL74o1csWeEDUaQgu/square_Hausansicht%20II.png",
+      "tags": null,
+      "position": 2,
+      "is_not_for_exposee": false
+    },
+    {
+      "id": 19442139,
+      "is_floorplan": false,
+      "is_private": false,
+      "title": "Wintergarten",
+      "url": "https://images.propstack.de/photos/g7N7E6M1GAyHB9a1sn9XikuG/photo/1faEFayZafBFm8VZ1DAH3ho8/Wintergarten.png",
+      "big_url": "https://images.propstack.de/photos/g7N7E6M1GAyHB9a1sn9XikuG/photo/1faEFayZafBFm8VZ1DAH3ho8/big_Wintergarten.png",
+      "medium_url": "https://images.propstack.de/photos/g7N7E6M1GAyHB9a1sn9XikuG/photo/1faEFayZafBFm8VZ1DAH3ho8/medium_Wintergarten.png",
+      "thumb_url": "https://images.propstack.de/photos/g7N7E6M1GAyHB9a1sn9XikuG/photo/1faEFayZafBFm8VZ1DAH3ho8/thumb_Wintergarten.png",
+      "small_thumb_url": "https://images.propstack.de/photos/g7N7E6M1GAyHB9a1sn9XikuG/photo/1faEFayZafBFm8VZ1DAH3ho8/small_thumb_Wintergarten.png",
+      "square_url": "https://images.propstack.de/photos/g7N7E6M1GAyHB9a1sn9XikuG/photo/1faEFayZafBFm8VZ1DAH3ho8/square_Wintergarten.png",
+      "tags": null,
+      "position": 3,
+      "is_not_for_exposee": false
+    },
+    {
+      "id": 19442140,
+      "is_floorplan": false,
+      "is_private": false,
+      "title": "Eingangsbereich",
+      "url": "https://images.propstack.de/photos/g7N7E6M1GAyHB9a1sn9XikuG/photo/phgNMwAJNh3mbg4GFXKmg5VS/Eingangsbereich.png",
+      "big_url": "https://images.propstack.de/photos/g7N7E6M1GAyHB9a1sn9XikuG/photo/phgNMwAJNh3mbg4GFXKmg5VS/big_Eingangsbereich.png",
+      "medium_url": "https://images.propstack.de/photos/g7N7E6M1GAyHB9a1sn9XikuG/photo/phgNMwAJNh3mbg4GFXKmg5VS/medium_Eingangsbereich.png",
+      "thumb_url": "https://images.propstack.de/photos/g7N7E6M1GAyHB9a1sn9XikuG/photo/phgNMwAJNh3mbg4GFXKmg5VS/thumb_Eingangsbereich.png",
+      "small_thumb_url": "https://images.propstack.de/photos/g7N7E6M1GAyHB9a1sn9XikuG/photo/phgNMwAJNh3mbg4GFXKmg5VS/small_thumb_Eingangsbereich.png",
+      "square_url": "https://images.propstack.de/photos/g7N7E6M1GAyHB9a1sn9XikuG/photo/phgNMwAJNh3mbg4GFXKmg5VS/square_Eingangsbereich.png",
+      "tags": null,
+      "position": 4,
+      "is_not_for_exposee": false
+    },
+    {
+      "id": 19442141,
+      "is_floorplan": false,
+      "is_private": false,
+      "title": "Küche I",
+      "url": "https://images.propstack.de/photos/g7N7E6M1GAyHB9a1sn9XikuG/photo/yCSKcHeHUh5yq4c4JPSXpKXm/Kuche%20I.png",
+      "big_url": "https://images.propstack.de/photos/g7N7E6M1GAyHB9a1sn9XikuG/photo/yCSKcHeHUh5yq4c4JPSXpKXm/big_Kuche%20I.png",
+      "medium_url": "https://images.propstack.de/photos/g7N7E6M1GAyHB9a1sn9XikuG/photo/yCSKcHeHUh5yq4c4JPSXpKXm/medium_Kuche%20I.png",
+      "thumb_url": "https://images.propstack.de/photos/g7N7E6M1GAyHB9a1sn9XikuG/photo/yCSKcHeHUh5yq4c4JPSXpKXm/thumb_Kuche%20I.png",
+      "small_thumb_url": "https://images.propstack.de/photos/g7N7E6M1GAyHB9a1sn9XikuG/photo/yCSKcHeHUh5yq4c4JPSXpKXm/small_thumb_Kuche%20I.png",
+      "square_url": "https://images.propstack.de/photos/g7N7E6M1GAyHB9a1sn9XikuG/photo/yCSKcHeHUh5yq4c4JPSXpKXm/square_Kuche%20I.png",
+      "tags": null,
+      "position": 5,
+      "is_not_for_exposee": false
+    },
+    {
+      "id": 19442143,
+      "is_floorplan": false,
+      "is_private": false,
+      "title": "Wohnzimmer _ Wintergarten",
+      "url": "https://images.propstack.de/photos/g7N7E6M1GAyHB9a1sn9XikuG/photo/hUNCo815SAaxfnwpRq3CieUB/Wohnzimmer%20_%20Wintergarten.png",
+      "big_url": "https://images.propstack.de/photos/g7N7E6M1GAyHB9a1sn9XikuG/photo/hUNCo815SAaxfnwpRq3CieUB/big_Wohnzimmer%20_%20Wintergarten.png",
+      "medium_url": "https://images.propstack.de/photos/g7N7E6M1GAyHB9a1sn9XikuG/photo/hUNCo815SAaxfnwpRq3CieUB/medium_Wohnzimmer%20_%20Wintergarten.png",
+      "thumb_url": "https://images.propstack.de/photos/g7N7E6M1GAyHB9a1sn9XikuG/photo/hUNCo815SAaxfnwpRq3CieUB/thumb_Wohnzimmer%20_%20Wintergarten.png",
+      "small_thumb_url": "https://images.propstack.de/photos/g7N7E6M1GAyHB9a1sn9XikuG/photo/hUNCo815SAaxfnwpRq3CieUB/small_thumb_Wohnzimmer%20_%20Wintergarten.png",
+      "square_url": "https://images.propstack.de/photos/g7N7E6M1GAyHB9a1sn9XikuG/photo/hUNCo815SAaxfnwpRq3CieUB/square_Wohnzimmer%20_%20Wintergarten.png",
+      "tags": null,
+      "position": 6,
+      "is_not_for_exposee": false
+    },
+    {
+      "id": 19442144,
+      "is_floorplan": false,
+      "is_private": false,
+      "title": "Essecke _ Bar II",
+      "url": "https://images.propstack.de/photos/g7N7E6M1GAyHB9a1sn9XikuG/photo/xV6Uz7AEzUwjJNa2nX7osc9B/Essecke%20_%20Bar%20II.png",
+      "big_url": "https://images.propstack.de/photos/g7N7E6M1GAyHB9a1sn9XikuG/photo/xV6Uz7AEzUwjJNa2nX7osc9B/big_Essecke%20_%20Bar%20II.png",
+      "medium_url": "https://images.propstack.de/photos/g7N7E6M1GAyHB9a1sn9XikuG/photo/xV6Uz7AEzUwjJNa2nX7osc9B/medium_Essecke%20_%20Bar%20II.png",
+      "thumb_url": "https://images.propstack.de/photos/g7N7E6M1GAyHB9a1sn9XikuG/photo/xV6Uz7AEzUwjJNa2nX7osc9B/thumb_Essecke%20_%20Bar%20II.png",
+      "small_thumb_url": "https://images.propstack.de/photos/g7N7E6M1GAyHB9a1sn9XikuG/photo/xV6Uz7AEzUwjJNa2nX7osc9B/small_thumb_Essecke%20_%20Bar%20II.png",
+      "square_url": "https://images.propstack.de/photos/g7N7E6M1GAyHB9a1sn9XikuG/photo/xV6Uz7AEzUwjJNa2nX7osc9B/square_Essecke%20_%20Bar%20II.png",
+      "tags": null,
+      "position": 7,
+      "is_not_for_exposee": false
+    },
+    {
+      "id": 19442145,
+      "is_floorplan": false,
+      "is_private": false,
+      "title": "Elternzimmer",
+      "url": "https://images.propstack.de/photos/g7N7E6M1GAyHB9a1sn9XikuG/photo/dLgxNc9Z6xk3BDCwW4pdypqh/Elternzimmer.png",
+      "big_url": "https://images.propstack.de/photos/g7N7E6M1GAyHB9a1sn9XikuG/photo/dLgxNc9Z6xk3BDCwW4pdypqh/big_Elternzimmer.png",
+      "medium_url": "https://images.propstack.de/photos/g7N7E6M1GAyHB9a1sn9XikuG/photo/dLgxNc9Z6xk3BDCwW4pdypqh/medium_Elternzimmer.png",
+      "thumb_url": "https://images.propstack.de/photos/g7N7E6M1GAyHB9a1sn9XikuG/photo/dLgxNc9Z6xk3BDCwW4pdypqh/thumb_Elternzimmer.png",
+      "small_thumb_url": "https://images.propstack.de/photos/g7N7E6M1GAyHB9a1sn9XikuG/photo/dLgxNc9Z6xk3BDCwW4pdypqh/small_thumb_Elternzimmer.png",
+      "square_url": "https://images.propstack.de/photos/g7N7E6M1GAyHB9a1sn9XikuG/photo/dLgxNc9Z6xk3BDCwW4pdypqh/square_Elternzimmer.png",
+      "tags": null,
+      "position": 8,
+      "is_not_for_exposee": false
+    },
+    {
+      "id": 19442146,
+      "is_floorplan": false,
+      "is_private": false,
+      "title": "Ankleidraum",
+      "url": "https://images.propstack.de/photos/g7N7E6M1GAyHB9a1sn9XikuG/photo/fPbdnQyvp1smoZhejxwXENu3/Ankleidraum.png",
+      "big_url": "https://images.propstack.de/photos/g7N7E6M1GAyHB9a1sn9XikuG/photo/fPbdnQyvp1smoZhejxwXENu3/big_Ankleidraum.png",
+      "medium_url": "https://images.propstack.de/photos/g7N7E6M1GAyHB9a1sn9XikuG/photo/fPbdnQyvp1smoZhejxwXENu3/medium_Ankleidraum.png",
+      "thumb_url": "https://images.propstack.de/photos/g7N7E6M1GAyHB9a1sn9XikuG/photo/fPbdnQyvp1smoZhejxwXENu3/thumb_Ankleidraum.png",
+      "small_thumb_url": "https://images.propstack.de/photos/g7N7E6M1GAyHB9a1sn9XikuG/photo/fPbdnQyvp1smoZhejxwXENu3/small_thumb_Ankleidraum.png",
+      "square_url": "https://images.propstack.de/photos/g7N7E6M1GAyHB9a1sn9XikuG/photo/fPbdnQyvp1smoZhejxwXENu3/square_Ankleidraum.png",
+      "tags": null,
+      "position": 9,
+      "is_not_for_exposee": false
+    },
+    {
+      "id": 19442147,
+      "is_floorplan": false,
+      "is_private": false,
+      "title": "Gästezimmer",
+      "url": "https://images.propstack.de/photos/g7N7E6M1GAyHB9a1sn9XikuG/photo/uwiNu2xDSxjeTVRTcUeMERBh/Gastezimmer.png",
+      "big_url": "https://images.propstack.de/photos/g7N7E6M1GAyHB9a1sn9XikuG/photo/uwiNu2xDSxjeTVRTcUeMERBh/big_Gastezimmer.png",
+      "medium_url": "https://images.propstack.de/photos/g7N7E6M1GAyHB9a1sn9XikuG/photo/uwiNu2xDSxjeTVRTcUeMERBh/medium_Gastezimmer.png",
+      "thumb_url": "https://images.propstack.de/photos/g7N7E6M1GAyHB9a1sn9XikuG/photo/uwiNu2xDSxjeTVRTcUeMERBh/thumb_Gastezimmer.png",
+      "small_thumb_url": "https://images.propstack.de/photos/g7N7E6M1GAyHB9a1sn9XikuG/photo/uwiNu2xDSxjeTVRTcUeMERBh/small_thumb_Gastezimmer.png",
+      "square_url": "https://images.propstack.de/photos/g7N7E6M1GAyHB9a1sn9XikuG/photo/uwiNu2xDSxjeTVRTcUeMERBh/square_Gastezimmer.png",
+      "tags": null,
+      "position": 10,
+      "is_not_for_exposee": false
+    },
+    {
+      "id": 19442148,
+      "is_floorplan": false,
+      "is_private": false,
+      "title": "Büro",
+      "url": "https://images.propstack.de/photos/g7N7E6M1GAyHB9a1sn9XikuG/photo/ZirZ3VNxBtzPJcbSZqKc5msQ/Buro.png",
+      "big_url": "https://images.propstack.de/photos/g7N7E6M1GAyHB9a1sn9XikuG/photo/ZirZ3VNxBtzPJcbSZqKc5msQ/big_Buro.png",
+      "medium_url": "https://images.propstack.de/photos/g7N7E6M1GAyHB9a1sn9XikuG/photo/ZirZ3VNxBtzPJcbSZqKc5msQ/medium_Buro.png",
+      "thumb_url": "https://images.propstack.de/photos/g7N7E6M1GAyHB9a1sn9XikuG/photo/ZirZ3VNxBtzPJcbSZqKc5msQ/thumb_Buro.png",
+      "small_thumb_url": "https://images.propstack.de/photos/g7N7E6M1GAyHB9a1sn9XikuG/photo/ZirZ3VNxBtzPJcbSZqKc5msQ/small_thumb_Buro.png",
+      "square_url": "https://images.propstack.de/photos/g7N7E6M1GAyHB9a1sn9XikuG/photo/ZirZ3VNxBtzPJcbSZqKc5msQ/square_Buro.png",
+      "tags": null,
+      "position": 11,
+      "is_not_for_exposee": false
+    },
+    {
+      "id": 19442149,
+      "is_floorplan": false,
+      "is_private": false,
+      "title": "Bad II",
+      "url": "https://images.propstack.de/photos/g7N7E6M1GAyHB9a1sn9XikuG/photo/Wf9AcvEXhjzNcgZdBYzS8GSe/Bad%20II.png",
+      "big_url": "https://images.propstack.de/photos/g7N7E6M1GAyHB9a1sn9XikuG/photo/Wf9AcvEXhjzNcgZdBYzS8GSe/big_Bad%20II.png",
+      "medium_url": "https://images.propstack.de/photos/g7N7E6M1GAyHB9a1sn9XikuG/photo/Wf9AcvEXhjzNcgZdBYzS8GSe/medium_Bad%20II.png",
+      "thumb_url": "https://images.propstack.de/photos/g7N7E6M1GAyHB9a1sn9XikuG/photo/Wf9AcvEXhjzNcgZdBYzS8GSe/thumb_Bad%20II.png",
+      "small_thumb_url": "https://images.propstack.de/photos/g7N7E6M1GAyHB9a1sn9XikuG/photo/Wf9AcvEXhjzNcgZdBYzS8GSe/small_thumb_Bad%20II.png",
+      "square_url": "https://images.propstack.de/photos/g7N7E6M1GAyHB9a1sn9XikuG/photo/Wf9AcvEXhjzNcgZdBYzS8GSe/square_Bad%20II.png",
+      "tags": null,
+      "position": 12,
+      "is_not_for_exposee": false
+    },
+    {
+      "id": 19442150,
+      "is_floorplan": false,
+      "is_private": false,
+      "title": "Pool",
+      "url": "https://images.propstack.de/photos/g7N7E6M1GAyHB9a1sn9XikuG/photo/hn9rxzDQUQcdUfXUKATShrdx/Pool.png",
+      "big_url": "https://images.propstack.de/photos/g7N7E6M1GAyHB9a1sn9XikuG/photo/hn9rxzDQUQcdUfXUKATShrdx/big_Pool.png",
+      "medium_url": "https://images.propstack.de/photos/g7N7E6M1GAyHB9a1sn9XikuG/photo/hn9rxzDQUQcdUfXUKATShrdx/medium_Pool.png",
+      "thumb_url": "https://images.propstack.de/photos/g7N7E6M1GAyHB9a1sn9XikuG/photo/hn9rxzDQUQcdUfXUKATShrdx/thumb_Pool.png",
+      "small_thumb_url": "https://images.propstack.de/photos/g7N7E6M1GAyHB9a1sn9XikuG/photo/hn9rxzDQUQcdUfXUKATShrdx/small_thumb_Pool.png",
+      "square_url": "https://images.propstack.de/photos/g7N7E6M1GAyHB9a1sn9XikuG/photo/hn9rxzDQUQcdUfXUKATShrdx/square_Pool.png",
+      "tags": null,
+      "position": 13,
+      "is_not_for_exposee": false
+    },
+    {
+      "id": 19442151,
+      "is_floorplan": false,
+      "is_private": false,
+      "title": "Hausansicht (vorne)",
+      "url": "https://images.propstack.de/photos/g7N7E6M1GAyHB9a1sn9XikuG/photo/DKY7VDzJE74WgdsmdsLAcqce/Hausansicht%20%28vorne%29.png",
+      "big_url": "https://images.propstack.de/photos/g7N7E6M1GAyHB9a1sn9XikuG/photo/DKY7VDzJE74WgdsmdsLAcqce/big_Hausansicht%20%28vorne%29.png",
+      "medium_url": "https://images.propstack.de/photos/g7N7E6M1GAyHB9a1sn9XikuG/photo/DKY7VDzJE74WgdsmdsLAcqce/medium_Hausansicht%20%28vorne%29.png",
+      "thumb_url": "https://images.propstack.de/photos/g7N7E6M1GAyHB9a1sn9XikuG/photo/DKY7VDzJE74WgdsmdsLAcqce/thumb_Hausansicht%20%28vorne%29.png",
+      "small_thumb_url": "https://images.propstack.de/photos/g7N7E6M1GAyHB9a1sn9XikuG/photo/DKY7VDzJE74WgdsmdsLAcqce/small_thumb_Hausansicht%20%28vorne%29.png",
+      "square_url": "https://images.propstack.de/photos/g7N7E6M1GAyHB9a1sn9XikuG/photo/DKY7VDzJE74WgdsmdsLAcqce/square_Hausansicht%20%28vorne%29.png",
+      "tags": null,
+      "position": 14,
+      "is_not_for_exposee": false
+    },
+    {
+      "id": 19442152,
+      "is_floorplan": false,
+      "is_private": false,
+      "title": "Garten I",
+      "url": "https://images.propstack.de/photos/g7N7E6M1GAyHB9a1sn9XikuG/photo/rMuPWkZ2SiyqYLvL2nZaMDtd/Garten%20I.png",
+      "big_url": "https://images.propstack.de/photos/g7N7E6M1GAyHB9a1sn9XikuG/photo/rMuPWkZ2SiyqYLvL2nZaMDtd/big_Garten%20I.png",
+      "medium_url": "https://images.propstack.de/photos/g7N7E6M1GAyHB9a1sn9XikuG/photo/rMuPWkZ2SiyqYLvL2nZaMDtd/medium_Garten%20I.png",
+      "thumb_url": "https://images.propstack.de/photos/g7N7E6M1GAyHB9a1sn9XikuG/photo/rMuPWkZ2SiyqYLvL2nZaMDtd/thumb_Garten%20I.png",
+      "small_thumb_url": "https://images.propstack.de/photos/g7N7E6M1GAyHB9a1sn9XikuG/photo/rMuPWkZ2SiyqYLvL2nZaMDtd/small_thumb_Garten%20I.png",
+      "square_url": "https://images.propstack.de/photos/g7N7E6M1GAyHB9a1sn9XikuG/photo/rMuPWkZ2SiyqYLvL2nZaMDtd/square_Garten%20I.png",
+      "tags": null,
+      "position": 15,
+      "is_not_for_exposee": false
+    },
+    {
+      "id": 19442153,
+      "is_floorplan": false,
+      "is_private": false,
+      "title": "Gästhaus (Außen)",
+      "url": "https://images.propstack.de/photos/g7N7E6M1GAyHB9a1sn9XikuG/photo/QPZV8i1Jf2iorkyPUSXpKWkm/Gasthaus%20%28Aussen%29.png",
+      "big_url": "https://images.propstack.de/photos/g7N7E6M1GAyHB9a1sn9XikuG/photo/QPZV8i1Jf2iorkyPUSXpKWkm/big_Gasthaus%20%28Aussen%29.png",
+      "medium_url": "https://images.propstack.de/photos/g7N7E6M1GAyHB9a1sn9XikuG/photo/QPZV8i1Jf2iorkyPUSXpKWkm/medium_Gasthaus%20%28Aussen%29.png",
+      "thumb_url": "https://images.propstack.de/photos/g7N7E6M1GAyHB9a1sn9XikuG/photo/QPZV8i1Jf2iorkyPUSXpKWkm/thumb_Gasthaus%20%28Aussen%29.png",
+      "small_thumb_url": "https://images.propstack.de/photos/g7N7E6M1GAyHB9a1sn9XikuG/photo/QPZV8i1Jf2iorkyPUSXpKWkm/small_thumb_Gasthaus%20%28Aussen%29.png",
+      "square_url": "https://images.propstack.de/photos/g7N7E6M1GAyHB9a1sn9XikuG/photo/QPZV8i1Jf2iorkyPUSXpKWkm/square_Gasthaus%20%28Aussen%29.png",
+      "tags": null,
+      "position": 16,
+      "is_not_for_exposee": false
+    },
+    {
+      "id": 19442154,
+      "is_floorplan": false,
+      "is_private": false,
+      "title": "Gästhaus (Wohnzimmer) I",
+      "url": "https://images.propstack.de/photos/g7N7E6M1GAyHB9a1sn9XikuG/photo/wH9vvSXCPi1FCt2PRaxBVuEw/Gasthaus%20%28Wohnzimmer%29%20I.png",
+      "big_url": "https://images.propstack.de/photos/g7N7E6M1GAyHB9a1sn9XikuG/photo/wH9vvSXCPi1FCt2PRaxBVuEw/big_Gasthaus%20%28Wohnzimmer%29%20I.png",
+      "medium_url": "https://images.propstack.de/photos/g7N7E6M1GAyHB9a1sn9XikuG/photo/wH9vvSXCPi1FCt2PRaxBVuEw/medium_Gasthaus%20%28Wohnzimmer%29%20I.png",
+      "thumb_url": "https://images.propstack.de/photos/g7N7E6M1GAyHB9a1sn9XikuG/photo/wH9vvSXCPi1FCt2PRaxBVuEw/thumb_Gasthaus%20%28Wohnzimmer%29%20I.png",
+      "small_thumb_url": "https://images.propstack.de/photos/g7N7E6M1GAyHB9a1sn9XikuG/photo/wH9vvSXCPi1FCt2PRaxBVuEw/small_thumb_Gasthaus%20%28Wohnzimmer%29%20I.png",
+      "square_url": "https://images.propstack.de/photos/g7N7E6M1GAyHB9a1sn9XikuG/photo/wH9vvSXCPi1FCt2PRaxBVuEw/square_Gasthaus%20%28Wohnzimmer%29%20I.png",
+      "tags": null,
+      "position": 17,
+      "is_not_for_exposee": false
+    },
+    {
+      "id": 19442155,
+      "is_floorplan": false,
+      "is_private": false,
+      "title": "Gästhaus (Kamin)",
+      "url": "https://images.propstack.de/photos/g7N7E6M1GAyHB9a1sn9XikuG/photo/Qnh7tdm9e2iU4Uqjurn7cDZs/Gasthaus%20%28Kamin%29.png",
+      "big_url": "https://images.propstack.de/photos/g7N7E6M1GAyHB9a1sn9XikuG/photo/Qnh7tdm9e2iU4Uqjurn7cDZs/big_Gasthaus%20%28Kamin%29.png",
+      "medium_url": "https://images.propstack.de/photos/g7N7E6M1GAyHB9a1sn9XikuG/photo/Qnh7tdm9e2iU4Uqjurn7cDZs/medium_Gasthaus%20%28Kamin%29.png",
+      "thumb_url": "https://images.propstack.de/photos/g7N7E6M1GAyHB9a1sn9XikuG/photo/Qnh7tdm9e2iU4Uqjurn7cDZs/thumb_Gasthaus%20%28Kamin%29.png",
+      "small_thumb_url": "https://images.propstack.de/photos/g7N7E6M1GAyHB9a1sn9XikuG/photo/Qnh7tdm9e2iU4Uqjurn7cDZs/small_thumb_Gasthaus%20%28Kamin%29.png",
+      "square_url": "https://images.propstack.de/photos/g7N7E6M1GAyHB9a1sn9XikuG/photo/Qnh7tdm9e2iU4Uqjurn7cDZs/square_Gasthaus%20%28Kamin%29.png",
+      "tags": null,
+      "position": 18,
+      "is_not_for_exposee": false
+    },
+    {
+      "id": 19442156,
+      "is_floorplan": false,
+      "is_private": false,
+      "title": "Gästhaus (Sauna)",
+      "url": "https://images.propstack.de/photos/g7N7E6M1GAyHB9a1sn9XikuG/photo/8AEK8Gg5Gf5vTB57UpYsnZ5U/Gasthaus%20%28Sauna%29.png",
+      "big_url": "https://images.propstack.de/photos/g7N7E6M1GAyHB9a1sn9XikuG/photo/8AEK8Gg5Gf5vTB57UpYsnZ5U/big_Gasthaus%20%28Sauna%29.png",
+      "medium_url": "https://images.propstack.de/photos/g7N7E6M1GAyHB9a1sn9XikuG/photo/8AEK8Gg5Gf5vTB57UpYsnZ5U/medium_Gasthaus%20%28Sauna%29.png",
+      "thumb_url": "https://images.propstack.de/photos/g7N7E6M1GAyHB9a1sn9XikuG/photo/8AEK8Gg5Gf5vTB57UpYsnZ5U/thumb_Gasthaus%20%28Sauna%29.png",
+      "small_thumb_url": "https://images.propstack.de/photos/g7N7E6M1GAyHB9a1sn9XikuG/photo/8AEK8Gg5Gf5vTB57UpYsnZ5U/small_thumb_Gasthaus%20%28Sauna%29.png",
+      "square_url": "https://images.propstack.de/photos/g7N7E6M1GAyHB9a1sn9XikuG/photo/8AEK8Gg5Gf5vTB57UpYsnZ5U/square_Gasthaus%20%28Sauna%29.png",
+      "tags": null,
+      "position": 19,
+      "is_not_for_exposee": false
+    },
+    {
+      "id": 19442157,
+      "is_floorplan": true,
+      "is_private": false,
+      "title": "Grundriss Einfamilienhaus",
+      "url": "https://images.propstack.de/photos/g7N7E6M1GAyHB9a1sn9XikuG/photo/ui7jRZuv8aSNp1DJR9yqRxKQ/GR.EG.jpg",
+      "big_url": "https://images.propstack.de/photos/g7N7E6M1GAyHB9a1sn9XikuG/photo/ui7jRZuv8aSNp1DJR9yqRxKQ/big_GR.EG.jpg",
+      "medium_url": "https://images.propstack.de/photos/g7N7E6M1GAyHB9a1sn9XikuG/photo/ui7jRZuv8aSNp1DJR9yqRxKQ/medium_GR.EG.jpg",
+      "thumb_url": "https://images.propstack.de/photos/g7N7E6M1GAyHB9a1sn9XikuG/photo/ui7jRZuv8aSNp1DJR9yqRxKQ/thumb_GR.EG.jpg",
+      "small_thumb_url": "https://images.propstack.de/photos/g7N7E6M1GAyHB9a1sn9XikuG/photo/ui7jRZuv8aSNp1DJR9yqRxKQ/small_thumb_GR.EG.jpg",
+      "square_url": "https://images.propstack.de/photos/g7N7E6M1GAyHB9a1sn9XikuG/photo/ui7jRZuv8aSNp1DJR9yqRxKQ/square_GR.EG.jpg",
+      "tags": null,
+      "position": 20,
+      "is_not_for_exposee": false
+    },
+    {
+      "id": 19442158,
+      "is_floorplan": true,
+      "is_private": false,
+      "title": "Grundriss Gästhaus",
+      "url": "https://images.propstack.de/photos/g7N7E6M1GAyHB9a1sn9XikuG/photo/hWf8kaGBC5B6cy3eBjjSPe1s/GR%20EG.jpg",
+      "big_url": "https://images.propstack.de/photos/g7N7E6M1GAyHB9a1sn9XikuG/photo/hWf8kaGBC5B6cy3eBjjSPe1s/big_GR%20EG.jpg",
+      "medium_url": "https://images.propstack.de/photos/g7N7E6M1GAyHB9a1sn9XikuG/photo/hWf8kaGBC5B6cy3eBjjSPe1s/medium_GR%20EG.jpg",
+      "thumb_url": "https://images.propstack.de/photos/g7N7E6M1GAyHB9a1sn9XikuG/photo/hWf8kaGBC5B6cy3eBjjSPe1s/thumb_GR%20EG.jpg",
+      "small_thumb_url": "https://images.propstack.de/photos/g7N7E6M1GAyHB9a1sn9XikuG/photo/hWf8kaGBC5B6cy3eBjjSPe1s/small_thumb_GR%20EG.jpg",
+      "square_url": "https://images.propstack.de/photos/g7N7E6M1GAyHB9a1sn9XikuG/photo/hWf8kaGBC5B6cy3eBjjSPe1s/square_GR%20EG.jpg",
+      "tags": null,
+      "position": 21,
+      "is_not_for_exposee": false
+    }
+  ],
+  "status": {
+    "id": 164042,
+    "name": "Vermarktung-Online",
+    "color": "#DC143C"
+  },
+  "free_from": "nach Vereinbarung ",
+  "rented": false,
+  "marketing_type": "BUY",
+  "furnishings": {
+    "lift": false,
+    "cellar": true,
+    "monument": false,
+    "energy_consumption_contains_warm_water": false,
+    "barrier_free": false,
+    "guest_toilet": true,
+    "built_in_kitchen": true,
+    "balcony": true,
+    "garden": true,
+    "lodger_flat": false,
+    "rented": false,
+    "summer_residence_practical": true,
+    "heating_costs_in_service_charge": false,
+    "flat_share_suitable": false,
+    "certificate_of_eligibility_needed": false,
+    "price_on_inquiry": false,
+    "short_term_constructible": false,
+    "building_permission": false,
+    "demolition": false,
+    "has_canteen": false,
+    "kitchen_complete": false,
+    "high_voltage": false,
+    "terrace": false,
+    "ramp": false,
+    "auto_lift": false,
+    "goods_lift": false,
+    "crane_runway": false
+  },
+  "fields": {
+    "construction_year": 1978,
+    "construction_year_unknown": false,
+    "condition": "teilweise renoviert",
+    "heating_type": "Zentralheizung",
+    "firing_types": "Öl",
+    "energy_certificate_availability": "liegt vor",
+    "building_energy_rating_type": "Bedarfsausweis",
+    "thermal_characteristic": "148,9"
+  },
+  "property_groups": [],
+  "hide_address": true,
+  "floorplans": [],
+  "links": [
+    {
+      "id": 893798,
+      "title": "3D Rundgang - Einfamilienhaus ",
+      "url": "https://tour.ogulo.com/B5TX",
+      "is_private": false,
+      "tags": [],
+      "is_embedable": true
+    },
+    {
+      "id": 893799,
+      "title": "3D Rundgang - Gästhaus",
+      "url": "https://tour.ogulo.com/DFtD",
+      "is_private": false,
+      "tags": [],
+      "is_embedable": true
+    }
+  ],
+  "required_fields": [
+    {
+      "name": "Preis",
+      "value": "745.000 €"
+    },
+    {
+      "name": "Wohnfläche ca.",
+      "value": "185 m²"
+    },
+    {
+      "name": "Grundstücksfläche ca.",
+      "value": "882 m²"
+    },
+    {
+      "name": "Zimmer",
+      "value": "5"
+    }
+  ],
+  "optional_fields": [
+    {
+      "key": "number_of_bed_rooms",
+      "name": "Anzahl Schlafzimmer",
+      "value": "4"
+    },
+    {
+      "key": "number_of_bath_rooms",
+      "name": "Anzahl Badezimmer",
+      "value": "1"
+    },
+    {
+      "key": "condition",
+      "name": "Objektzustand",
+      "value": "teilweise renoviert"
+    },
+    {
+      "key": "last_refurbishment",
+      "name": "Letzte Modernisierung",
+      "value": 2015
+    },
+    {
+      "key": "interior_quality",
+      "name": "Qualität der Ausstattung",
+      "value": "normal"
+    },
+    {
+      "key": "cellar",
+      "name": "Keller",
+      "value": true
+    },
+    {
+      "key": "guest_toilet",
+      "name": "Gäste-WC",
+      "value": true
+    },
+    {
+      "key": "built_in_kitchen",
+      "name": "Einbauküche",
+      "value": true
+    },
+    {
+      "key": "balcony",
+      "name": "Balkon / Terrasse",
+      "value": true
+    },
+    {
+      "key": "garden",
+      "name": "Garten / -mitbenutzung",
+      "value": true
+    },
+    {
+      "key": "summer_residence_practical",
+      "name": "Als Ferienwohnung geeignet",
+      "value": true
+    },
+    {
+      "key": "storeroom",
+      "name": "Abstellraum",
+      "value": true
+    },
+    {
+      "key": "chimney",
+      "name": "Kamin",
+      "value": true
+    },
+    {
+      "key": "swimming_pool",
+      "name": "Pool",
+      "value": true
+    },
+    {
+      "key": "sauna",
+      "name": "Sauna",
+      "value": true
+    },
+    {
+      "key": "alarm_system",
+      "name": "Alarmanlage",
+      "value": true
+    },
+    {
+      "key": "winter_garden",
+      "name": "Wintergarten",
+      "value": true
+    },
+    {
+      "key": "distance_to_pt",
+      "name": "Fußweg zu öffentl. Verkehrsmitteln",
+      "value": "7"
+    },
+    {
+      "key": "distance_to_mrs",
+      "name": "Fahrzeit nächster Hauptbahnhof",
+      "value": "5"
+    },
+    {
+      "key": "distance_to_airport",
+      "name": "Fahrzeit nächster Flughafen",
+      "value": "16"
+    },
+    {
+      "key": "distance_to_pt_in_km",
+      "name": "Entfernung zu öffentl. Verkehrsmitteln",
+      "value": "0,53"
+    },
+    {
+      "key": "distance_to_mrs_in_km",
+      "name": "Entfernung nächster Hauptbahnhof",
+      "value": "1,26"
+    },
+    {
+      "key": "distance_to_airport_in_km",
+      "name": "Entfernung nächster Flughafen",
+      "value": "17,05"
+    },
+    {
+      "key": "construction_year",
+      "name": "Baujahr ca.",
+      "value": 1978
+    },
+    {
+      "key": "building_type",
+      "name": "Haustyp",
+      "value": "Einfamilienhaus"
+    },
+    {
+      "key": "energy_certificate_start_date",
+      "name": "Energieausweis: Ausstellungsdatum",
+      "value": "17.08.2022"
+    },
+    {
+      "key": "energy_certificate_end_date",
+      "name": "Energieausweis: gültig bis",
+      "value": "16.08.2032"
+    },
+    {
+      "key": "building_energy_rating_type",
+      "name": "Energieausweistyp",
+      "value": "Bedarfsausweis"
+    },
+    {
+      "key": "energy_efficiency_class",
+      "name": "Energieeffizienzklasse",
+      "value": "E"
+    },
+    {
+      "key": "firing_types",
+      "name": "Wesentlicher Energieträger",
+      "value": "Öl"
+    },
+    {
+      "key": "thermal_characteristic",
+      "name": "Endenergiebedarf",
+      "value": "148,9 kWh/(m²*a)"
+    },
+    {
+      "key": "heating_type",
+      "name": "Heizungsart",
+      "value": "Zentralheizung"
+    },
+    {
+      "key": "equipment_technology_construction_year",
+      "name": "Baujahr Anlagentechnik",
+      "value": 1995
+    }
+  ],
+  "custom_fields": {
+    "research": 123295,
+    "einkauf": 123295,
+    "verkauf": 123295,
+    "preis_garage": null,
+    "zustandig": 123295,
+    "kaufpreis_nur_bei_preis_auf_anfrage": null,
+    "objekt_webseiten_url": null,
+    "digital_makler": null,
+    "bewertung_link_fur_digital_makler": null,
+    "web_expose_digital_makler": null,
+    "himmelsausrichtung": null,
+    "pool": [135033],
+    "bieterverfahren_link": null,
+    "bieterverfahren_link_fur_et_makler": null,
+    "auf_der_hh_startseite_anzeigen": true,
+    "weitere_einheiten": null,
+    "preis_auf_anfrage": null
+  },
+  "description_note": "Dieses geräumige Einfamilienhaus mit Gästehaus auf einem großzügigen Grundstück von ca. 880 m² bietet die ideale Kulisse für Familien mit Kindern oder Paare. Mit 5 Zimmern im Einfamilienhaus und zusätzlichem Platz im Gästehaus steht Ihnen eine Fülle von Möglichkeiten offen, um Ihr Zuhause nach Ihren Wünschen zu gestalten.",
+  "location_note": "Inmitten des idyllischen Stadtteils Mahlsdorf Süd in Berlin eröffnen sich eine Fülle von Vorzügen, die das tägliche Leben angenehm gestalten und für Entspannung und Bequemlichkeit sorgen.\n\nNur eine Minute zu Fuß entfernt befindet sich ein Getränkemarkt und eine Zahnarztpraxis, und der nächste Supermarkt ist nur sechs Gehminuten entfernt.\n\nFamilien mit Kindern werden die Vielzahl an Bildungseinrichtungen in der Umgebung schätzen. Mahlsdorf Süd bietet eine breite Palette von Kitas, Kindergärten, Grundschulen und weiterführenden Schulen, die eine hochwertige Bildung und Betreuung gewährleisten. Zudem sind renommierte Universitäten und Hochschulen in Berlin bequem erreichbar, um eine breite Auswahl an Studienmöglichkeiten zu bieten.\n\nDie Freizeitmöglichkeiten in der Nähe sind ebenso vielfältig wie ansprechend. In nur wenigen Minuten befinden Sie sich an den drei Kaulsdorfer Seen und dem Berliner Balkon, ein Aussichtspunkt, von dem sich wunderbar der Sonnenuntergang beobachten lässt. Und wenn Sie Lust auf Veranstaltungen und Trubel haben, sind Sie nicht weit von der Berliner Innenstadt entfernt.\n\nMahlsdorf Süd ist ausgezeichnet angebunden, was das Erkunden der Stadt und der Umgebung mühelos macht. Die Haltestelle Eichenhofweg ist in unmittelbarer Nähe, sodass Sie bequem und schnell zu Ihren Zielen gelangen. Ebenso ist die nächste Autobahnauffahrt leicht erreichbar, was die Erkundung der Umgebung und die Anreise zu entfernteren Orten unkompliziert gestaltet.",
+  "furnishing_note": "Die Hauptresidenz mit rund 130 m² verfügt über fünf einladende Zimmer, darunter vier geräumige Schlafzimmer, die perfekt sind, um sich zurückzuziehen und Ruhe zu finden. Das Wohnzimmer ist ein Ort des geselligen Beisammenseins und der Wintergarten, der das ganze Jahr über einladend ist, erweitert Ihren Wohnraum und bringt die natürliche Umgebung näher.\n\nDie Liebe zum Detail und die Sorgfalt, die in diese Immobilie investiert wurden, sind unübersehbar. Die Fassade ist mit Klinkersteinen verkleidet, die so angebracht wurden, dass eine optimale Isolierung gewährleistet ist. Jedes Fenster des Hauses wurde ausgetauscht und verfügt über eine Doppelverglasung aus Kunststoff. Der beheizte Wintergarten ist mit zwei Klimaanlagen und einer elektrischen Markise ausgestattet, um für Komfort zu sorgen.\n\nIm Elternschlafzimmer finden Sie eine zusätzliche Klimaanlage, die für angenehme Temperaturen sorgt. Die moderne Einbauküche, komplett mit Geschirrspüler, Mikrowelle und Backofen, ist bereits Teil des Angebots. \n\nDas Badezimmer wurde vor einigen Jahren umfassend saniert und bietet Annehmlichkeiten wie eine frei stehende Badewanne, eine moderne Duschkabine und eine Fußbodenheizung unter den zeitgemäßen Fliesen.\n\nIm Teilunterkeller des Hauses befindet sich die zentrale Öl-Heizungsanlage, die in perfektem Zustand ist und jedes Jahr gewissenhaft überprüft wird.\n\nDas Gästehaus auf dem hinteren Teil des Grundstücks bietet zusätzlichen Platz und Luxus. Mit etwa 53 m² Wohnfläche, einem Kamin, einer eigenen Küche, einem Badezimmer mit Dusche und einer Sauna, ist es ein eigenständiges Refugium für Gäste oder dient als Ort der Entspannung und Entdeckung.\n\nDas Gästehaus ist mit einer Gasheizung ausgestattet, um Komfort und Behaglichkeit zu gewährleisten. \n\nEin weiteres Highlight ist der Swimmingpool auf dem Grundstück, der an warmen Tagen für erfrischende Momente sorgt. Ebenso lädt ein kleiner Teich mit Fischen und einer Holzbrücke zum Verweilen ein.",
+  "other_note": "Wir sind stolz darauf, Ihnen ein Netz von qualifizierten Handwerkern anbieten zu können, die Ihnen bei jedem Heimwerkerprojekt, das Ihnen vorschwebt, behilflich sein können. Ganz gleich, ob Sie eine neue Küche, ein neues Bad oder andere Renovierungsarbeiten benötigen, unsere Handwerker haben die Erfahrung und das Fachwissen, um dies zu realisieren.\n\nZusätzlich dazu bieten wir auch Unterstützung bei der Finanzierung und der Anmietung von allen Arten von Immobilien. Wir verstehen, dass die Suche nach dem perfekten Objekt eine entmutigende Aufgabe sein kann, deshalb sind wir hier, um Ihnen bei jedem Schritt zu helfen. Von der Suche nach der richtigen Immobilie bis hin zur Sicherstellung der Finanzierung – wir sind dafür da, den Prozess so reibungslos und stressfrei wie möglich zu gestalten. \n\nWir sind bestrebt, Ihnen den besten Service und die höchste Verarbeitungsqualität zu bieten. Wenn Sie Fragen haben oder einen Beratungstermin vereinbaren möchten, zögern Sie bitte nicht, uns zu kontaktieren. Wir freuen uns auf die Zusammenarbeit mit Ihnen.\n\nDie angegebene Käuferprovision in Höhe von 3,57% (inkl. MwSt.) ist verdient und fällig mit Beurkundung des notariellen Kaufvertrages.",
+  "service_charge": null,
+  "heating_costs": null,
+  "total_rent": null,
+  "parking_space_price": null,
+  "deposit": null,
+  "courtage": "3,57%",
+  "courtage_note": "Die angegebene Käuferprovision (inkl. MwSt.) ist verdient und fällig mit Beurkundung des notariellen Kaufvertrages.",
+  "condition": "teilweise renoviert",
+  "heating_type": "Zentralheizung",
+  "firing_types": "Öl",
+  "energy_certificate_availability": "liegt vor",
+  "building_energy_rating_type": "Bedarfsausweis",
+  "object_type": "LIVING",
+  "rs_type": "HOUSE",
+  "sold_date": null,
+  "price_per_sqm": 4027.03,
+  "long_description_note": null,
+  "long_location_note": null,
+  "long_furnishing_note": null,
+  "long_other_note": null,
+  "valuation_price_from": null,
+  "valuation_price_to": null,
+  "usable_floor_space": null,
+  "additional_area": null,
+  "net_floor_space": null,
+  "broker": {
+    "id": 255388,
+    "salutation": "mr",
+    "academic_title": null,
+    "first_name": "Ilan",
+    "last_name": "Fishman",
+    "name": "Ilan Fishman",
+    "avatar": "https://images.propstack.de/photos/g7N7E6M1GAyHB9a1sn9XikuG/avatar/61kuLvZeX2Lt6MPCaHLHw3ma/thumb_HomeEase-Portarit-Ilan.png",
+    "avatar_url": "https://images.propstack.de/photos/g7N7E6M1GAyHB9a1sn9XikuG/avatar/61kuLvZeX2Lt6MPCaHLHw3ma/HomeEase-Portarit-Ilan.png",
+    "old_crm_id": null,
+    "position": "Geschäftsführer",
+    "email": "ilan@homeease.de",
+    "phone": "",
+    "cell": "+4917622024779",
+    "public_phone": null,
+    "public_cell": "+49 176 2202 4779",
+    "public_email": "ilan@homeease.de",
+    "color": "#5F9EA0",
+    "locale": "de",
+    "connected": true,
+    "team_id": null,
+    "department_ids": [],
+    "abstract": null,
+    "description": null,
+    "custom_fields": {
+      "qualifikation": {
+        "value": "Immobilienkaufmann",
+        "pretty_value": "Immobilienkaufmann"
+      },
+      "manager": {
+        "value": null,
+        "pretty_value": null
+      }
+    },
+    "shop": {
+      "id": 126407,
+      "name": "HomeEase GmbH",
+      "color": "#437063",
+      "locale": "de",
+      "logo_url": "https://images.propstack.de/photos/g7N7E6M1GAyHB9a1sn9XikuG/logo/g7N7E6M1GAyHB9a1sn9XikuG/HomeEase-Logotype-Emblem.png",
+      "alt_logo_url": "https://images.propstack.de/photos/g7N7E6M1GAyHB9a1sn9XikuG/alt_logo/g7N7E6M1GAyHB9a1sn9XikuG/HomeEase-Logotype-Claim-Secondary-DarkCompass-ForLightBG_HiRes.png",
+      "watermark_url": null,
+      "favicon_url": null,
+      "subdomain": "homeease-274208",
+      "domain_name": "www.homeease.de",
+      "email": "contact@homeese.de",
+      "phone": "+49 17622024779",
+      "available_licenses": 1
+    },
+    "team": null
+  }
+}

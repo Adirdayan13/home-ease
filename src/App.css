@@ -1,38 +1,132 @@
-.App {
+:root {
+  --home-ease-teal: #437063;
+  --home-ease-bronze: #937941;
+  --home-ease-light-yellow: #ede291;
+  --home-ease-yellow: #fbee66;
+  --home-ease-white: #fdfbe5;
+  --home-ease-light: #e7dfbf;
+  --home-ease-dark: #1f3835;
+  --home-ease-black: #00130e;
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  p,
+  span {
+    font-family: 'Poppins', serif;
+  }
+
+  h1 {
+    font-size: 22pt !important;
+    font-weight: 600 !important;
+  }
+
+  h2 {
+    font-size: 16pt !important;
+    font-weight: 700 !important;
+  }
+  h3 {
+    font-size: 9pt !important;
+    font-weight: 600 !important;
+  }
+  h4 {
+    font-size: 7pt !important;
+    font-weight: 400 !important;
+  }
+  h5 {
+    font-size: 7pt !important;
+    font-weight: 600 !important;
+  }
+}
+.home-ease-svg {
+  width: 100%;
+  height: 100%;
+}
+.par2 {
+  font-size: 9pt !important;
+  word-break: break-word !important;
+  color: var(--home-ease-black);
+}
+
+.poppins-light {
+  font-weight: 300 !important;
+}
+
+.poppins-regular {
+  font-weight: 400 !important;
+}
+
+.poppins-semibold {
+  font-weight: 600 !important;
+}
+.poppins-bold {
+  font-weight: 700 !important;
+}
+
+/* Map */
+
+.leaflet-container {
+  height: 100%;
+  width: 100%;
+}
+
+.custom-fa-marker i {
+  font-size: 36px;
+  color: var(--home-ease-teal);
+}
+
+.custom-fa-marker-hover i {
+  font-size: 36px;
+  color: var(--home-ease-bronze);
+}
+
+.leaflet-tooltip {
+  background-color: var(--home-ease-yellow) !important;
+  border: none !important;
+  box-shadow: none;
+  border-radius: 40px !important;
+  padding: 8px !important;
+}
+
+.leaflet-tooltip-top:before {
+  border-top-color: var(--home-ease-yellow) !important;
+}
+
+/* Cards */
+
+.card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card-hover {
+  transform: translateY(-10px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.card-body {
+  background: var(--home-ease-white) !important;
+  color: var(--home-ease-dark) !important;
+  border-radius: 0.375rem;
+}
+
+.card-img-bg {
+  width: 100%;
+  height: 300px; /* Adjust the height as needed */
+  background-size: cover;
+  background-position: center;
+}
+
+.carousel-item {
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.carousel-control-prev,
+.carousel-control-next {
+  filter: invert(100%) sepia(0%) saturate(100%) hue-rotate(0deg);
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.markercluster-map {
+  height: 90vh;
 }
