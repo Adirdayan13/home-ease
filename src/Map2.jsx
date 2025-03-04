@@ -7,7 +7,6 @@ import {
 } from 'react-leaflet';
 import { useNavigate } from 'react-router-dom';
 import L from 'leaflet';
-import abc from './data2.json';
 import 'leaflet/dist/leaflet.css';
 import './App.css';
 
@@ -66,7 +65,7 @@ export default function Map2(props) {
         attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
       />
       <LayerGroup>
-        {spreadMarkers(abc).map((el) => {
+        {spreadMarkers(data).map((el) => {
           const isIconHovered = hovered === el?.id;
           return (
             <Marker

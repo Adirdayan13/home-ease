@@ -1,22 +1,29 @@
-import React from 'react';
+import Map2 from './Map2';
 import { Container, Row, Col } from 'react-bootstrap';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import Card from './Card';
 import { Link } from 'react-router-dom';
-import abc from './data2.json';
-import Map2 from './Map2';
+import useSWRImmutable from 'swr/immutable';
+import { fetcher } from './utils';
 import './App.css';
 
-const MapListLayout = () => {
-  const [data, setData] = useState(abc);
+const Home = () => {
   const [hovered, setHovered] = useState(null);
-
-  useEffect(() => {
-    // fetch('https://api.propstack.de/v1/units?status=164134,164042,164043&expand=true',
-    // { headers: {'X-API-KEY': ''} })
-    // .then(response => response.json())
-    // .then(data => setData(data));
-  }, []);
+  const { data, error, isLoading } = useSWRImmutable(
+    `https://api.propstack.de/v1/units?status=164134,164042,164043&expand=true`,
+    fetcher
+  );
+  
+  if (isLoading) {
+    return (
+      <div className="vh-100 d-flex justify-content-center align-items-center" style={{ backgroundColor: 'var(--home-ease-white)' }}>
+        <div className="spinner-border" role="status">
+          <span className="sr-only">Loading...</span>
+        </div>
+      </div>
+    );
+  }
+  
 
   return (
     <Container fluid className="vh-100">
@@ -28,7 +35,6 @@ const MapListLayout = () => {
           </div>
         </Col>
 
-        {/* Cards Section */}
         <Col
           md={6}
           className="offset-md-6 overflow-auto h-100 p-3"
@@ -40,7 +46,7 @@ const MapListLayout = () => {
             </h1>
             {data?.length && (
               <h3 style={{ color: 'var(--home-ease-white)', marginBottom: 16 }}>
-                {`${data?.length} Immobillien`}
+                {`${data.length} Immobillien`}
               </h3>
             )}
             {data.map((item) => (
@@ -57,4 +63,4 @@ const MapListLayout = () => {
   );
 };
 
-export default MapListLayout;
+export default Home;
