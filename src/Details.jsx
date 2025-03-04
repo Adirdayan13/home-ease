@@ -11,6 +11,15 @@ const fetcher = (url) =>
     headers: { 'X-API-KEY': '' },
   }).then((response) => response.json());
 
+  const generateCol = (title, value, position) => (
+    <Col xs={12} md={6} className="p-0">
+      <div className={`d-flex justify-content-between mx-1 mb-md-1 mb-sm-2 px-4 py-2 mb-2 row-${position}`}>
+        <span className="par2">{title}</span>
+        <span className="par2">{value}</span>
+      </div>
+    </Col>
+  );
+
 const Details = () => {
   const { id } = useParams();
   const navigate = useNavigate();
@@ -21,7 +30,7 @@ const Details = () => {
 
   if (isLoading) {
     return (
-      <div className="h-100 d-flex justify-content-center align-items-center">
+      <div className="vh-100 d-flex justify-content-center align-items-center" style={{ backgroundColor: 'var(--home-ease-white)' }}>
         <div className="spinner-border" role="status">
           <span className="sr-only">Loading...</span>
         </div>
@@ -29,7 +38,6 @@ const Details = () => {
     );
   }
 
-  if (data)
     return (
       <div
         style={{
@@ -41,12 +49,16 @@ const Details = () => {
         <div className="container">
           {data && (
             <div>
-              <h1 style={{ color: 'var(--home-ease-teal)' }}>
-                {data?.title?.value}
+              {data.title?.value && (
+                <>
+                <h1 style={{ color: 'var(--home-ease-teal)' }}>
+                {data.title?.value}
               </h1>
               <h3 style={{ color: 'var(--home-ease-black)', margin: '22px 0' }}>
                 Wohnung Kauf
               </h3>
+                </>
+              )}
               <CarouselComponent images={data.images} />
               <h2
                 style={{
@@ -59,799 +71,46 @@ const Details = () => {
               </h2>
               <div className="container">
                 <Row className="justify-content-center mt-2">
-                  {/* First Column (Light on Both Desktop & Mobile) */}
-                  <Col xs={12} md={6} className="p-0">
-                    <div
-                      className="d-flex justify-content-between mx-1 mb-md-0 mb-sm-2 px-4 py-2"
-                      style={{ background: 'var(--home-ease-light)' }}
-                    >
-                      <span className="par2">Einheitennummer</span>
-                      <span className="par2">
-                        {data?.hide_address ? data?.zip_code : data.address}
-                      </span>
-                    </div>
-                  </Col>
-
-                  {/* Second Column (Light on Desktop, Bronze on Mobile) */}
-                  <Col xs={12} md={6} className="p-0">
-                    <div
-                      className="d-flex justify-content-between mx-1 mb-0 mb-sm-1 px-4 py-2 d-md-flex d-none"
-                      style={{ background: 'var(--home-ease-light)' }}
-                    >
-                      <span className="par2">
-                        {data?.number_of_rooms?.label}
-                      </span>
-                      <span className="par2">
-                        {data?.number_of_rooms?.value}
-                      </span>
-                    </div>
-                    <div
-                      className="d-flex justify-content-between mx-1 mb-0 mb-sm-1 px-4 py-2 d-md-none"
-                      style={{ background: 'var(--home-ease-bronze)' }}
-                    >
-                      <span className="par2">
-                        {data?.number_of_rooms?.label}
-                      </span>
-                      <span className="par2">
-                        {data?.number_of_rooms?.value}
-                      </span>
-                    </div>
-                  </Col>
-                </Row>
-                <Row className="justify-content-center mt-2">
-                  {/* Third Column (Bronze on Desktop, Light on Mobile) */}
-                  <Col xs={12} md={6} className="p-0">
-                    <div
-                      className="d-flex justify-content-between mx-1 mb-md-0 mb-sm-2 px-4 py-2 d-md-flex d-none"
-                      style={{ background: 'var(--home-ease-bronze)' }}
-                    >
-                      {/* TODO - Check kategorie*/}
-                      <span className="par2">Kategorie</span>
-                      <span className="par2">Kauf - Wohnung</span>
-                    </div>
-                    <div
-                      className="d-flex justify-content-between mx-1 mb-md-0 mb-sm-2 px-4 py-2 d-md-none"
-                      style={{ background: 'var(--home-ease-light)' }}
-                    >
-                      <span className="par2">Kategorie</span>
-                      <span className="par2">Kauf - Wohnung</span>
-                    </div>
-                  </Col>
-
-                  {/* Fourth Column (Bronze on Desktop, Light on Mobile) */}
-                  <Col xs={12} md={6} className="p-0">
-                    <div
-                      className="d-flex justify-content-between mx-1 mb-0 mb-sm-1 px-4 py-2"
-                      style={{ background: 'var(--home-ease-bronze)' }}
-                    >
-                      <span className="par2">{data?.free_from?.label}</span>
-                      <span className="par2">{data?.free_from?.value}</span>
-                    </div>
-                  </Col>
-                </Row>
-                <Row className="justify-content-center mt-2">
-                  {/* First Column (Light on Both Desktop & Mobile) */}
-                  <Col xs={12} md={6} className="p-0">
-                    <div
-                      className="d-flex justify-content-between mx-1 mb-md-0 mb-sm-2 px-4 py-2"
-                      style={{ background: 'var(--home-ease-light)' }}
-                    >
-                      <span className="par2">
-                        {data?.construction_year?.label}
-                      </span>
-                      <span className="par2">
-                        {data?.construction_year?.value}
-                      </span>
-                    </div>
-                  </Col>
-
-                  {/* Second Column (Light on Desktop, Bronze on Mobile) */}
-                  <Col xs={12} md={6} className="p-0">
-                    <div
-                      className="d-flex justify-content-between mx-1 mb-0 mb-sm-1 px-4 py-2 d-md-flex d-none"
-                      style={{ background: 'var(--home-ease-light)' }}
-                    >
-                      <span className="par2">{data?.courtage?.label}</span>
-                      <span className="par2">{data?.courtage?.value}</span>
-                    </div>
-                    <div
-                      className="d-flex justify-content-between mx-1 mb-0 mb-sm-1 px-4 py-2 d-md-none"
-                      style={{ background: 'var(--home-ease-bronze)' }}
-                    >
-                      <span className="par2">{data?.courtage?.label}</span>
-                      <span className="par2">{data?.courtage?.value}</span>
-                    </div>
-                  </Col>
-                </Row>
-                <Row className="justify-content-center mt-2">
-                  {/* Third Column (Bronze on Desktop, Light on Mobile) */}
-                  <Col xs={12} md={6} className="p-0">
-                    <div
-                      className="d-flex justify-content-between mx-1 mb-md-0 mb-sm-2 px-4 py-2 d-md-flex d-none"
-                      style={{ background: 'var(--home-ease-bronze)' }}
-                    >
-                      <span className="par2">{data?.condition?.label}</span>
-                      <span className="par2">{data?.condition?.value}</span>
-                    </div>
-                    <div
-                      className="d-flex justify-content-between mx-1 mb-md-0 mb-sm-2 px-4 py-2 d-md-none"
-                      style={{ background: 'var(--home-ease-light)' }}
-                    >
-                      <span className="par2">{data?.condition?.label}</span>
-                      <span className="par2">{data?.condition?.value}</span>
-                    </div>
-                  </Col>
-
-                  {/* Fourth Column (Bronze on Desktop, Light on Mobile) */}
-                  <Col xs={12} md={6} className="p-0">
-                    <div
-                      className="d-flex justify-content-between mx-1 mb-0 mb-sm-1 px-4 py-2"
-                      style={{ background: 'var(--home-ease-bronze)' }}
-                    >
-                      <span className="par2">{data?.price?.label}</span>
-                      <span className="par2">{data?.price?.value}</span>
-                    </div>
-                  </Col>
-                </Row>
-
-                <Row className="justify-content-center mt-2">
-                  {/* First Column (Light on Both Desktop & Mobile) */}
-                  <Col xs={12} md={6} className="p-0">
-                    <div
-                      className="d-flex justify-content-between mx-1 mb-md-0 mb-sm-2 px-4 py-2"
-                      style={{ background: 'var(--home-ease-light)' }}
-                    >
-                      <span className="par2">{data?.building_type?.label}</span>
-                      <span className="par2">{data?.building_type?.value}</span>
-                    </div>
-                  </Col>
-
-                  {/* Second Column (Light on Desktop, Bronze on Mobile) */}
-                  <Col xs={12} md={6} className="p-0">
-                    <div
-                      className="d-flex justify-content-between mx-1 mb-0 mb-sm-1 px-4 py-2 d-md-flex d-none"
-                      style={{ background: 'var(--home-ease-light)' }}
-                    >
-                      <span className="par2">
-                        {data?.interior_quality?.label}
-                      </span>
-                      <span className="par2">
-                        {data?.interior_quality?.value}
-                      </span>
-                    </div>
-                    <div
-                      className="d-flex justify-content-between mx-1 mb-0 mb-sm-1 px-4 py-2 d-md-none"
-                      style={{ background: 'var(--home-ease-bronze)' }}
-                    >
-                      <span className="par2">
-                        {data?.interior_quality?.label}
-                      </span>
-                      <span className="par2">
-                        {data?.interior_quality?.value}
-                      </span>
-                    </div>
-                  </Col>
-                </Row>
-                <Row className="justify-content-center mt-2">
-                  {/* Third Column (Bronze on Desktop, Light on Mobile) */}
-                  <Col xs={12} md={6} className="p-0">
-                    <div
-                      className="d-flex justify-content-between mx-1 mb-md-0 mb-sm-2 px-4 py-2 d-md-flex d-none"
-                      style={{ background: 'var(--home-ease-bronze)' }}
-                    >
-                      <span className="par2">
-                        {data?.last_refurbishment?.label}
-                      </span>
-                      <span className="par2">
-                        {data?.last_refurbishment?.value}
-                      </span>
-                    </div>
-                    <div
-                      className="d-flex justify-content-between mx-1 mb-md-0 mb-sm-2 px-4 py-2 d-md-none"
-                      style={{ background: 'var(--home-ease-light)' }}
-                    >
-                      <span className="par2">
-                        {data?.last_refurbishment?.label}
-                      </span>
-                      <span className="par2">
-                        {data?.last_refurbishment?.value}
-                      </span>
-                    </div>
-                  </Col>
-
-                  {/* Fourth Column (Bronze on Desktop, Light on Mobile) */}
-                  <Col xs={12} md={6} className="p-0">
-                    <div
-                      className="d-flex justify-content-between mx-1 mb-0 mb-sm-1 px-4 py-2"
-                      style={{ background: 'var(--home-ease-bronze)' }}
-                    >
-                      <span className="par2">
-                        {data?.number_of_bed_rooms?.label}
-                      </span>
-                      <span className="par2">
-                        {data?.number_of_bed_rooms?.value}
-                      </span>
-                    </div>
-                  </Col>
-                </Row>
-
-                <Row className="justify-content-center mt-2">
-                  {/* First Column (Light on Both Desktop & Mobile) */}
-                  <Col xs={12} md={6} className="p-0">
-                    <div
-                      className="d-flex justify-content-between mx-1 mb-md-0 mb-sm-2 px-4 py-2"
-                      style={{ background: 'var(--home-ease-light)' }}
-                    >
-                      <span className="par2">
-                        {data?.number_of_bath_rooms?.label}
-                      </span>
-                      <span className="par2">
-                        {data?.number_of_bath_rooms?.value}
-                      </span>
-                    </div>
-                  </Col>
-
-                  {/* Second Column (Light on Desktop, Bronze on Mobile) */}
-                  <Col xs={12} md={6} className="p-0">
-                    <div
-                      className="d-flex justify-content-between mx-1 mb-0 mb-sm-1 px-4 py-2 d-md-flex d-none"
-                      style={{ background: 'var(--home-ease-light)' }}
-                    >
-                      <span className="par2">{data?.living_space?.label}</span>
-                      <span className="par2">{data?.living_space?.value}</span>
-                    </div>
-                    <div
-                      className="d-flex justify-content-between mx-1 mb-0 mb-sm-1 px-4 py-2 d-md-none"
-                      style={{ background: 'var(--home-ease-bronze)' }}
-                    >
-                      <span className="par2">{data?.living_space?.label}</span>
-                      <span className="par2">{data?.living_space?.value}</span>
-                    </div>
-                  </Col>
-                </Row>
-                <Row className="justify-content-center mt-2">
-                  {/* Third Column (Bronze on Desktop, Light on Mobile) */}
-                  <Col xs={12} md={6} className="p-0">
-                    <div
-                      className="d-flex justify-content-between mx-1 mb-md-0 mb-sm-2 px-4 py-2 d-md-flex d-none"
-                      style={{ background: 'var(--home-ease-bronze)' }}
-                    >
-                      <span className="par2">{data?.plot_area?.label}</span>
-                      <span className="par2">{data?.plot_area?.value}</span>
-                    </div>
-                    <div
-                      className="d-flex justify-content-between mx-1 mb-md-0 mb-sm-2 px-4 py-2 d-md-none"
-                      style={{ background: 'var(--home-ease-light)' }}
-                    >
-                      <span className="par2">{data?.plot_area?.label}</span>
-                      <span className="par2">{data?.plot_area?.value}</span>
-                    </div>
-                  </Col>
-
-                  {/* Fourth Column (Bronze on Desktop, Light on Mobile) */}
-                  <Col xs={12} md={6} className="p-0">
-                    <div
-                      className="d-flex justify-content-between mx-1 mb-0 mb-sm-1 px-4 py-2"
-                      style={{ background: 'var(--home-ease-bronze)' }}
-                    >
-                      <span className="par2">
-                        {data?.summer_residence_practical?.label}
-                      </span>
-                      <span className="par2">
-                        {data?.summer_residence_practical?.value}
-                      </span>
-                    </div>
-                  </Col>
-                </Row>
-
-                <Row className="justify-content-center mt-2">
-                  {/* First Column (Light on Both Desktop & Mobile) */}
-                  <Col xs={12} md={6} className="p-0">
-                    <div
-                      className="d-flex justify-content-between mx-1 mb-md-0 mb-sm-2 px-4 py-2"
-                      style={{ background: 'var(--home-ease-light)' }}
-                    >
-                      <span className="par2">{data?.cellar?.label}</span>
-                      <span className="par2">
-                        {data?.cellar?.value ? 'Ja' : 'Nein'}
-                      </span>
-                    </div>
-                  </Col>
-
-                  {/* Second Column (Light on Desktop, Bronze on Mobile) */}
-                  <Col xs={12} md={6} className="p-0">
-                    <div
-                      className="d-flex justify-content-between mx-1 mb-0 mb-sm-1 px-4 py-2 d-md-flex d-none"
-                      style={{ background: 'var(--home-ease-light)' }}
-                    >
-                      <span className="par2">
-                        {data?.built_in_kitchen?.label}
-                      </span>
-                      <span className="par2">
-                        {data?.built_in_kitchen?.value ? 'Ja' : 'Nein'}
-                      </span>
-                    </div>
-                    <div
-                      className="d-flex justify-content-between mx-1 mb-0 mb-sm-1 px-4 py-2 d-md-none"
-                      style={{ background: 'var(--home-ease-bronze)' }}
-                    >
-                      <span className="par2">
-                        {data?.built_in_kitchen?.label}
-                      </span>
-                      <span className="par2">
-                        {data?.built_in_kitchen?.value ? 'Ja' : 'Nein'}
-                      </span>
-                    </div>
-                  </Col>
-                </Row>
-                <Row className="justify-content-center mt-2">
-                  {/* Third Column (Bronze on Desktop, Light on Mobile) */}
-                  <Col xs={12} md={6} className="p-0">
-                    <div
-                      className="d-flex justify-content-between mx-1 mb-md-0 mb-sm-2 px-4 py-2 d-md-flex d-none"
-                      style={{ background: 'var(--home-ease-bronze)' }}
-                    >
-                      <span className="par2">{data?.guest_toilet?.label}</span>
-                      <span className="par2">
-                        {data?.guest_toilet?.value ? 'Ja' : 'Nein'}
-                      </span>
-                    </div>
-                    <div
-                      className="d-flex justify-content-between mx-1 mb-md-0 mb-sm-2 px-4 py-2 d-md-none"
-                      style={{ background: 'var(--home-ease-light)' }}
-                    >
-                      <span className="par2">{data?.guest_toilet?.label}</span>
-                      <span className="par2">
-                        {data?.guest_toilet?.value ? 'Ja' : 'Nein'}
-                      </span>
-                    </div>
-                  </Col>
-
-                  {/* Fourth Column (Bronze on Desktop, Light on Mobile) */}
-                  <Col xs={12} md={6} className="p-0">
-                    <div
-                      className="d-flex justify-content-between mx-1 mb-0 mb-sm-1 px-4 py-2"
-                      style={{ background: 'var(--home-ease-bronze)' }}
-                    >
-                      <span className="par2">{data?.balcony?.label}</span>
-                      <span className="par2">
-                        {data?.balcony?.value ? 'Ja' : 'Nein'}
-                      </span>
-                    </div>
-                  </Col>
-                </Row>
-
-                <Row className="justify-content-center mt-2">
-                  {/* First Column (Light on Both Desktop & Mobile) */}
-                  <Col xs={12} md={6} className="p-0">
-                    <div
-                      className="d-flex justify-content-between mx-1 mb-md-0 mb-sm-2 px-4 py-2"
-                      style={{ background: 'var(--home-ease-light)' }}
-                    >
-                      <span className="par2">{data?.garden?.label}</span>
-                      <span className="par2">
-                        {data?.garden?.value ? 'Ja' : 'Nein'}
-                      </span>
-                    </div>
-                  </Col>
-
-                  {/* Second Column (Light on Desktop, Bronze on Mobile) */}
-                  <Col xs={12} md={6} className="p-0">
-                    <div
-                      className="d-flex justify-content-between mx-1 mb-0 mb-sm-1 px-4 py-2 d-md-flex d-none"
-                      style={{ background: 'var(--home-ease-light)' }}
-                    >
-                      <span className="par2">{data?.winter_garden?.label}</span>
-                      <span className="par2">
-                        {data?.winter_garden?.value ? 'Ja' : 'Nein'}
-                      </span>
-                    </div>
-                    <div
-                      className="d-flex justify-content-between mx-1 mb-0 mb-sm-1 px-4 py-2 d-md-none"
-                      style={{ background: 'var(--home-ease-bronze)' }}
-                    >
-                      <span className="par2">{data?.winter_garden?.label}</span>
-                      <span className="par2">
-                        {data?.winter_garden?.value ? 'Ja' : 'Nein'}
-                      </span>
-                    </div>
-                  </Col>
-                </Row>
-                <Row className="justify-content-center mt-2">
-                  {/* Third Column (Bronze on Desktop, Light on Mobile) */}
-                  <Col xs={12} md={6} className="p-0">
-                    <div
-                      className="d-flex justify-content-between mx-1 mb-md-0 mb-sm-2 px-4 py-2 d-md-flex d-none"
-                      style={{ background: 'var(--home-ease-bronze)' }}
-                    >
-                      <span className="par2">{data?.storeroom?.label}</span>
-                      <span className="par2">
-                        {data?.storeroom?.value ? 'Ja' : 'Nein'}
-                      </span>
-                    </div>
-                    <div
-                      className="d-flex justify-content-between mx-1 mb-md-0 mb-sm-2 px-4 py-2 d-md-none"
-                      style={{ background: 'var(--home-ease-light)' }}
-                    >
-                      <span className="par2">{data?.storeroom?.label}</span>
-                      <span className="par2">
-                        {data?.storeroom?.value ? 'Ja' : 'Nein'}
-                      </span>
-                    </div>
-                  </Col>
-
-                  {/* Fourth Column (Bronze on Desktop, Light on Mobile) */}
-                  <Col xs={12} md={6} className="p-0">
-                    <div
-                      className="d-flex justify-content-between mx-1 mb-0 mb-sm-1 px-4 py-2"
-                      style={{ background: 'var(--home-ease-bronze)' }}
-                    >
-                      <span className="par2">{data?.chimney?.label}</span>
-                      <span className="par2">
-                        {data?.chimney?.value ? 'Ja' : 'Nein'}
-                      </span>
-                    </div>
-                  </Col>
-                </Row>
-
-                <Row className="justify-content-center mt-2">
-                  {/* First Column (Light on Both Desktop & Mobile) */}
-                  <Col xs={12} md={6} className="p-0">
-                    <div
-                      className="d-flex justify-content-between mx-1 mb-md-0 mb-sm-2 px-4 py-2"
-                      style={{ background: 'var(--home-ease-light)' }}
-                    >
-                      <span className="par2">{data?.swimming_pool?.label}</span>
-                      <span className="par2">
-                        {data?.swimming_pool?.value ? 'Ja' : 'Nein'}
-                      </span>
-                    </div>
-                  </Col>
-
-                  {/* Second Column (Light on Desktop, Bronze on Mobile) */}
-                  <Col xs={12} md={6} className="p-0">
-                    <div
-                      className="d-flex justify-content-between mx-1 mb-0 mb-sm-1 px-4 py-2 d-md-flex d-none"
-                      style={{ background: 'var(--home-ease-light)' }}
-                    >
-                      <span className="par2">{data?.sauna?.label}</span>
-                      <span className="par2">
-                        {data?.sauna?.value ? 'Ja' : 'Nein'}
-                      </span>
-                    </div>
-                    <div
-                      className="d-flex justify-content-between mx-1 mb-0 mb-sm-1 px-4 py-2 d-md-none"
-                      style={{ background: 'var(--home-ease-bronze)' }}
-                    >
-                      <span className="par2">{data?.sauna?.label}</span>
-                      <span className="par2">
-                        {data?.sauna?.value ? 'Ja' : 'Nein'}
-                      </span>
-                    </div>
-                  </Col>
-                </Row>
-                <Row className="justify-content-center mt-2">
-                  {/* Third Column (Bronze on Desktop, Light on Mobile) */}
-                  <Col xs={12} md={6} className="p-0">
-                    <div
-                      className="d-flex justify-content-between mx-1 mb-md-0 mb-sm-2 px-4 py-2 d-md-flex d-none"
-                      style={{ background: 'var(--home-ease-bronze)' }}
-                    >
-                      <span className="par2">{data?.alarm_system?.label}</span>
-                      <span className="par2">
-                        {data?.alarm_system?.value ? 'Ja' : 'Nein'}
-                      </span>
-                    </div>
-                    <div
-                      className="d-flex justify-content-between mx-1 mb-md-0 mb-sm-2 px-4 py-2 d-md-none"
-                      style={{ background: 'var(--home-ease-light)' }}
-                    >
-                      <span className="par2">{data?.alarm_system?.label}</span>
-                      <span className="par2">
-                        {data?.alarm_system?.value ? 'Ja' : 'Nein'}
-                      </span>
-                    </div>
-                  </Col>
-
-                  {/* Fourth Column (Bronze on Desktop, Light on Mobile) */}
-                  <Col xs={12} md={6} className="p-0">
-                    <div
-                      className="d-flex justify-content-between mx-1 mb-0 mb-sm-1 px-4 py-2"
-                      style={{ background: 'var(--home-ease-bronze)' }}
-                    >
-                      <span className="par2">
-                        {data?.energy_certificate_availability?.label}
-                      </span>
-                      <span className="par2">
-                        {data?.energy_certificate_availability?.value}
-                      </span>
-                    </div>
-                  </Col>
-                </Row>
-
-                <Row className="justify-content-center mt-2">
-                  {/* First Column (Light on Both Desktop & Mobile) */}
-                  <Col xs={12} md={6} className="p-0">
-                    <div
-                      className="d-flex justify-content-between mx-1 mb-md-0 mb-sm-2 px-4 py-2"
-                      style={{ background: 'var(--home-ease-light)' }}
-                    >
-                      <span className="par2">
-                        {data?.building_energy_rating_type?.label}
-                      </span>
-                      <span className="par2">
-                        {data?.building_energy_rating_type?.value}
-                      </span>
-                    </div>
-                  </Col>
-
-                  {/* Second Column (Light on Desktop, Bronze on Mobile) */}
-                  <Col xs={12} md={6} className="p-0">
-                    <div
-                      className="d-flex justify-content-between mx-1 mb-0 mb-sm-1 px-4 py-2 d-md-flex d-none"
-                      style={{ background: 'var(--home-ease-light)' }}
-                    >
-                      <span className="par2">
-                        {data?.energy_certificate_start_date?.label}
-                      </span>
-                      <span className="par2">
-                        {data?.energy_certificate_start_date?.value}
-                      </span>
-                    </div>
-                    <div
-                      className="d-flex justify-content-between mx-1 mb-0 mb-sm-1 px-4 py-2 d-md-none"
-                      style={{ background: 'var(--home-ease-bronze)' }}
-                    >
-                      <span className="par2">
-                        {data?.energy_certificate_start_date?.label}
-                      </span>
-                      <span className="par2">
-                        {data?.energy_certificate_start_date?.value}
-                      </span>
-                    </div>
-                  </Col>
-                </Row>
-                <Row className="justify-content-center mt-2">
-                  {/* Third Column (Bronze on Desktop, Light on Mobile) */}
-                  <Col xs={12} md={6} className="p-0">
-                    <div
-                      className="d-flex justify-content-between mx-1 mb-md-0 mb-sm-2 px-4 py-2 d-md-flex d-none"
-                      style={{ background: 'var(--home-ease-bronze)' }}
-                    >
-                      <span className="par2">
-                        {data?.energy_certificate_end_date?.label}
-                      </span>
-                      <span className="par2">
-                        {data?.energy_certificate_end_date?.value}
-                      </span>
-                    </div>
-                    <div
-                      className="d-flex justify-content-between mx-1 mb-md-0 mb-sm-2 px-4 py-2 d-md-none"
-                      style={{ background: 'var(--home-ease-light)' }}
-                    >
-                      <span className="par2">
-                        {data?.energy_certificate_end_date?.label}
-                      </span>
-                      <span className="par2">
-                        {data?.energy_certificate_end_date?.value}
-                      </span>
-                    </div>
-                  </Col>
-
-                  {/* Fourth Column (Bronze on Desktop, Light on Mobile) */}
-                  <Col xs={12} md={6} className="p-0">
-                    <div
-                      className="d-flex justify-content-between mx-1 mb-0 mb-sm-1 px-4 py-2"
-                      style={{ background: 'var(--home-ease-bronze)' }}
-                    >
-                      <span className="par2">
-                        {data?.thermal_characteristic?.label}
-                      </span>
-                      <span className="par2">
-                        {data?.thermal_characteristic?.value}
-                      </span>
-                    </div>
-                  </Col>
-                </Row>
-
-                <Row className="justify-content-center mt-2">
-                  {/* First Column (Light on Both Desktop & Mobile) */}
-                  <Col xs={12} md={6} className="p-0">
-                    <div
-                      className="d-flex justify-content-between mx-1 mb-md-0 mb-sm-2 px-4 py-2"
-                      style={{ background: 'var(--home-ease-light)' }}
-                    >
-                      <span className="par2">{data?.heating_type?.label}</span>
-                      <span className="par2">{data?.heating_type?.value}</span>
-                    </div>
-                  </Col>
-
-                  {/* Second Column (Light on Desktop, Bronze on Mobile) */}
-                  <Col xs={12} md={6} className="p-0">
-                    <div
-                      className="d-flex justify-content-between mx-1 mb-0 mb-sm-1 px-4 py-2 d-md-flex d-none"
-                      style={{ background: 'var(--home-ease-light)' }}
-                    >
-                      <span className="par2">{data?.firing_types?.label}</span>
-                      <span className="par2">{data?.firing_types?.value}</span>
-                    </div>
-                    <div
-                      className="d-flex justify-content-between mx-1 mb-0 mb-sm-1 px-4 py-2 d-md-none"
-                      style={{ background: 'var(--home-ease-bronze)' }}
-                    >
-                      <span className="par2">{data?.firing_types?.label}</span>
-                      <span className="par2">{data?.firing_types?.value}</span>
-                    </div>
-                  </Col>
-                </Row>
-                <Row className="justify-content-center mt-2">
-                  {/* Third Column (Bronze on Desktop, Light on Mobile) */}
-                  <Col xs={12} md={6} className="p-0">
-                    <div
-                      className="d-flex justify-content-between mx-1 mb-md-0 mb-sm-2 px-4 py-2 d-md-flex d-none"
-                      style={{ background: 'var(--home-ease-bronze)' }}
-                    >
-                      <span className="par2">
-                        {data?.energy_efficiency_class?.label}
-                      </span>
-                      <span className="par2">
-                        {data?.energy_efficiency_class?.value}
-                      </span>
-                    </div>
-                    <div
-                      className="d-flex justify-content-between mx-1 mb-md-0 mb-sm-2 px-4 py-2 d-md-none"
-                      style={{ background: 'var(--home-ease-light)' }}
-                    >
-                      <span className="par2">
-                        {data?.energy_efficiency_class?.label}
-                      </span>
-                      <span className="par2">
-                        {data?.energy_efficiency_class?.value}
-                      </span>
-                    </div>
-                  </Col>
-
-                  {/* Fourth Column (Bronze on Desktop, Light on Mobile) */}
-                  <Col xs={12} md={6} className="p-0">
-                    <div
-                      className="d-flex justify-content-between mx-1 mb-0 mb-sm-1 px-4 py-2"
-                      style={{ background: 'var(--home-ease-bronze)' }}
-                    >
-                      <span className="par2">
-                        {data?.equipment_technology_construction_year?.label}
-                      </span>
-                      <span className="par2">
-                        {data?.equipment_technology_construction_year?.value}
-                      </span>
-                    </div>
-                  </Col>
-                </Row>
-
-                <Row className="justify-content-center mt-2">
-                  {/* First Column (Light on Both Desktop & Mobile) */}
-                  <Col xs={12} md={6} className="p-0">
-                    <div
-                      className="d-flex justify-content-between mx-1 mb-md-0 mb-sm-2 px-4 py-2"
-                      style={{ background: 'var(--home-ease-light)' }}
-                    >
-                      <span className="par2">
-                        {data?.distance_to_pt?.label}
-                      </span>
-                      <span className="par2">
-                        {data?.distance_to_pt?.value} Min.
-                      </span>
-                    </div>
-                  </Col>
-
-                  {/* Second Column (Light on Desktop, Bronze on Mobile) */}
-                  <Col xs={12} md={6} className="p-0">
-                    <div
-                      className="d-flex justify-content-between mx-1 mb-0 mb-sm-1 px-4 py-2 d-md-flex d-none"
-                      style={{ background: 'var(--home-ease-light)' }}
-                    >
-                      <span className="par2">
-                        {data?.distance_to_mrs?.label}
-                      </span>
-                      <span className="par2">
-                        {data?.distance_to_mrs?.value} Min.
-                      </span>
-                    </div>
-                    <div
-                      className="d-flex justify-content-between mx-1 mb-0 mb-sm-1 px-4 py-2 d-md-none"
-                      style={{ background: 'var(--home-ease-bronze)' }}
-                    >
-                      <span className="par2">
-                        {data?.distance_to_mrs?.label}
-                      </span>
-                      <span className="par2">
-                        {data?.distance_to_mrs?.value} Min.
-                      </span>
-                    </div>
-                  </Col>
-                </Row>
-                <Row className="justify-content-center mt-2">
-                  {/* Third Column (Bronze on Desktop, Light on Mobile) */}
-                  <Col xs={12} md={6} className="p-0">
-                    <div
-                      className="d-flex justify-content-between mx-1 mb-md-0 mb-sm-2 px-4 py-2 d-md-flex d-none"
-                      style={{ background: 'var(--home-ease-bronze)' }}
-                    >
-                      <span className="par2">
-                        {data?.distance_to_airport?.label}
-                      </span>
-                      <span className="par2">
-                        {data?.distance_to_airport?.value} Min.
-                      </span>
-                    </div>
-                    <div
-                      className="d-flex justify-content-between mx-1 mb-md-0 mb-sm-2 px-4 py-2 d-md-none"
-                      style={{ background: 'var(--home-ease-light)' }}
-                    >
-                      <span className="par2">
-                        {data?.distance_to_airport?.label}
-                      </span>
-                      <span className="par2">
-                        {data?.distance_to_airport?.value} Min.
-                      </span>
-                    </div>
-                  </Col>
-
-                  {/* Fourth Column (Bronze on Desktop, Light on Mobile) */}
-                  <Col xs={12} md={6} className="p-0">
-                    <div
-                      className="d-flex justify-content-between mx-1 mb-0 mb-sm-1 px-4 py-2"
-                      style={{ background: 'var(--home-ease-bronze)' }}
-                    >
-                      <span className="par2">
-                        {data?.equipment_technology_construction_year?.label}
-                      </span>
-                      <span className="par2">
-                        {data?.equipment_technology_construction_year?.value}
-                      </span>
-                    </div>
-                  </Col>
-                </Row>
-                <Row className="justify-content-center mt-2">
-                  {/* First Column (Light on Both Desktop & Mobile) */}
-                  <Col xs={12} md={6} className="p-0">
-                    <div
-                      className="d-flex justify-content-between mx-1 mb-md-0 mb-sm-2 px-4 py-2"
-                      style={{ background: 'var(--home-ease-light)' }}
-                    >
-                      <span className="par2">
-                        {data?.air_conditioning?.label}
-                      </span>
-                      <span className="par2">
-                        {data?.air_conditioning?.value}
-                      </span>
-                    </div>
-                  </Col>
-
-                  {/* Second Column (Light on Desktop, Bronze on Mobile) */}
-                  <Col xs={12} md={6} className="p-0">
-                    <div
-                      className="d-flex justify-content-between mx-1 mb-0 mb-sm-1 px-4 py-2 d-md-flex d-none"
-                      style={{ background: 'var(--home-ease-light)' }}
-                    >
-                      <span className="par2">
-                        {data?.energy_certificate_creation_date?.label}
-                      </span>
-                      <span className="par2">
-                        {data?.energy_certificate_creation_date?.value}
-                      </span>
-                    </div>
-                    <div
-                      className="d-flex justify-content-between mx-1 mb-0 mb-sm-1 px-4 py-2 d-md-none"
-                      style={{ background: 'var(--home-ease-bronze)' }}
-                    >
-                      <span className="par2">
-                        {data?.energy_certificate_creation_date?.label}
-                      </span>
-                      <span className="par2">
-                        {data?.energy_certificate_creation_date?.value}
-                      </span>
-                    </div>
-                  </Col>
+                  {generateCol('Einheitennummer', (data.hide_address ? data.zip_code : data.address), '1-1')}
+                  {generateCol(data.number_of_rooms?.label, data.number_of_rooms?.value, '1-2')}
+                  {generateCol('Kategorie', 'Kauf - Wohnung', '2-1')}
+                  {generateCol(data.free_from?.label, data.free_from?.value, '2-2')}
+                  {generateCol(data.construction_year?.label, data.construction_year?.value, '1-1')}
+                  {generateCol(data.courtage?.label, data.courtage?.value, '1-2')}
+                  {generateCol(data.condition?.label, data.condition?.value, '2-1')}
+                  {generateCol(data.price?.label, data.price?.value, '2-2')}
+                  {generateCol(data.building_type?.label, data.building_type?.value, '1-1')}
+                  {generateCol(data.interior_quality?.label, data.interior_quality?.value, '1-2')}
+                  {generateCol(data.last_refurbishment?.label, data.last_refurbishment?.value, '2-1')}
+                  {generateCol(data.number_of_bed_rooms?.label, data.number_of_bed_rooms?.value, '2-2')}
+                  {generateCol(data.number_of_bath_rooms?.label, data.number_of_bath_rooms?.value, '1-1')}
+                  {generateCol(data.living_space?.label, data.living_space?.value, '1-2')}
+                  {generateCol(data.plot_area?.label, data.plot_area?.value, '2-1')}
+                  {generateCol(data.summer_residence_practical?.label, data?.summer_residence_practical?.value ? 'Ja' : 'Nein', '2-2')}
+                  {generateCol(data.cellar?.label, data?.cellar?.value ? 'Ja' : 'Nein', '1-1')}
+                  {generateCol(data.built_in_kitchen?.label, data?.built_in_kitchen?.value ? 'Ja' : 'Nein', '1-2')}
+                  {generateCol(data.guest_toilet?.label, data?.guest_toilet?.value ? 'Ja' : 'Nein', '2-1')}
+                  {generateCol(data.balcony?.label, data?.balcony?.value ? 'Ja' : 'Nein', '2-2')}
+                  {generateCol(data.garden?.label, data?.garden?.value ? 'Ja' : 'Nein', '1-1')}
+                  {generateCol(data.winter_garden?.label, data?.winter_garden?.value ? 'Ja' : 'Nein', '1-2')}
+                  {generateCol(data.storeroom?.label, data?.storeroom?.value ? 'Ja' : 'Nein', '2-1')}
+                  {generateCol(data.chimney?.label, data?.chimney?.value ? 'Ja' : 'Nein', '2-2')}
+                  {generateCol(data.swimming_pool?.label, data?.swimming_pool?.value ? 'Ja' : 'Nein', '1-1')}
+                  {generateCol(data.sauna?.label, data?.sauna?.value ? 'Ja' : 'Nein', '1-2')}
+                  {generateCol(data.alarm_system?.label, data?.alarm_system?.value ? 'Ja' : 'Nein', '2-1')}
+                  {generateCol(data.energy_certificate_availability?.label, data?.energy_certificate_availability?.value, '2-2')}
+                  {generateCol(data.building_energy_rating_type?.label, data?.building_energy_rating_type?.value, '1-1')}
+                  {generateCol(data.energy_certificate_start_date?.label, data?.energy_certificate_start_date?.value, '1-2')}
+                  {generateCol(data.energy_certificate_end_date?.label, data?.energy_certificate_end_date?.value, '2-1')}
+                  {generateCol(data.thermal_characteristic?.label, data?.thermal_characteristic?.value, '2-2')}
+                  {generateCol(data.heating_type?.label, data?.heating_type?.value, '1-1')}
+                  {generateCol(data.energy_efficiency_class?.label, data?.energy_efficiency_class?.value, '1-2')}
+                  {generateCol(data.equipment_technology_construction_year?.label, data?.equipment_technology_construction_year?.value, '2-1')}
+                  {generateCol(data.distance_to_pt?.label, `${data?.distance_to_pt?.value} Min.`, '2-2')}
+                  {generateCol(data.distance_to_mrs?.label, `${data?.distance_to_mrs?.value} Min.`, '1-1')}
+                  {generateCol(data.distance_to_airport?.label, `${data?.distance_to_airport?.value} Min.`, '1-2')}
+                  {generateCol(data.air_conditioning?.label, data?.air_conditioning?.value ? 'Ja' : 'Nein', '2-1')}
+                  {generateCol(data.energy_certificate_creation_date?.label, data?.energy_certificate_creation_date?.value, '2-2')}
                 </Row>
 
                 <h2
@@ -912,7 +171,7 @@ const Details = () => {
                 </h2>
                 <Col md={12} style={{ height: '250px' }}>
                   <div className="w-100 h-100 bg-secondary text-white d-flex align-items-center justify-content-center">
-                    <Map2 data={[data]} centerFromData />
+                    <Map2 data={[data]} singleMarker />
                   </div>
                 </Col>
               </div>
@@ -920,7 +179,7 @@ const Details = () => {
           )}
           {error && (
             <h1 style={{ color: 'var(--home-ease-teal)', textAlign: 'center' }}>
-              Error accured
+              Error accured, please try again later.
             </h1>
           )}
         </div>

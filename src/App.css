@@ -7,6 +7,7 @@
   --home-ease-light: #e7dfbf;
   --home-ease-dark: #1f3835;
   --home-ease-black: #00130e;
+
   h1,
   h2,
   h3,
@@ -38,6 +39,29 @@
   h5 {
     font-size: 7pt !important;
     font-weight: 600 !important;
+  }
+  .row-1-1 {
+    background-color: var(--home-ease-light);
+  }
+  .row-1-2 {
+    background-color: var(--home-ease-light);
+  }
+  .row-2-1 {
+    background-color: var(--home-ease-bronze);
+  }
+  .row-2-2 {
+    background-color: var(--home-ease-bronze);
+  }
+  @media (max-width: 768px) {
+    .row-1-2 {
+      background-color: var(--home-ease-bronze);
+    }
+    .row-2-1 {
+      background-color: var(--home-ease-light);
+    }
+    .row-2-2 {
+      background-color: var(--home-ease-bronze);
+    }
   }
 }
 .home-ease-svg {
