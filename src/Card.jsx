@@ -57,8 +57,8 @@ const Card = (props) => {
 										</div>			
 										<div className="d-flex flex-column flex-wrap">
 											<h3 className="mb-0">
-												{item.living_space?.value}
-												<sup>2</sup>
+												{item.living_space?.value}m
+												<sup> 2</sup>
 											</h3>
 											<h4 className="mb-0">{item.living_space?.label}</h4>
 										</div>
@@ -86,8 +86,8 @@ const Card = (props) => {
 										</div>										
 										<div className="d-flex flex-column">
 											<h3 className="mb-0">
-												{item?.plot_area?.value}
-												<sup>2</sup>
+												{item?.plot_area?.value}m
+												<sup> 2</sup>
 											</h3>
 											<h4 className="mb-0">{item?.plot_area?.label}</h4>
 										</div>
