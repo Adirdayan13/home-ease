@@ -6,6 +6,8 @@ import {
   LayerGroup,
 } from 'react-leaflet';
 import { useNavigate } from 'react-router-dom';
+import "leaflet-gesture-handling/dist/leaflet-gesture-handling.css";
+import { GestureHandling } from "leaflet-gesture-handling";
 import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
 import './App.css';
@@ -52,6 +54,7 @@ function spreadMarkers(arr) {
 export default function Map2(props) {
   const { data, singleMarker, hovered, setHovered } = props ?? {};
   const navigate = useNavigate();
+  L.Map.addInitHook("addHandler", "gestureHandling", GestureHandling);
 
   return (
     <MapContainer
@@ -59,6 +62,7 @@ export default function Map2(props) {
         singleMarker ? [data?.[0]?.lat, data?.[0]?.lng] : [52.52, 13.455]
       }
       zoom={singleMarker ? 14 : 11.5}
+      gestureHandling={true}
     >
       <TileLayer
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"

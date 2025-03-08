@@ -36,12 +36,12 @@ const CarouselComponent = ({ images }) => {
           {images.map((image, i) => (
             <Carousel.Item key={i}>
               <img
-                className="d-block"
+                className="he-carousel-img d-block"
                 style={{
                   height: '540px',
                   objectFit: 'cover',
-                  width: '75%',
                   margin: 'auto',
+                  borderRadius: 4
                 }}
                 src={image.big_url}
                 alt="Slide"

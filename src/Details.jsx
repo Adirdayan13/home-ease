@@ -1,4 +1,4 @@
-import { useNavigate } from 'react-router';
+// import { useNavigate } from 'react-router';
 import { useParams } from 'react-router-dom';
 import useSWRImmutable from 'swr/immutable';
 import CarouselComponent from './CarouselComponent';
@@ -29,7 +29,7 @@ const classNames = ["1-1", "1-2", "2-1", "2-2"];
   
   const Details = () => {
     const { id } = useParams();
-    const navigate = useNavigate();
+    // const navigate = useNavigate();
     const { data, error, isLoading } = useSWRImmutable(
       `https://api.propstack.de/v1/units/${id}?new=1&locale="de`,
       fetcher
@@ -91,81 +91,42 @@ const classNames = ["1-1", "1-2", "2-1", "2-2"];
 
     return (
       <div
-        style={{
-          backgroundColor: 'var(--home-ease-white)',
-          paddingTop: 40,
-          minHeight: '100vh',
-        }}
+        className="he-white-b"
+        style={{ paddingTop: 40, minHeight: '100vh' }}
       >
         <div className="container">
-          {error && (
-            <h1 style={{ color: 'var(--home-ease-teal)', textAlign: 'center' }}>
-              Error accured, please try again later.
-            </h1>
-          )}
+          {error && <h1 className="he-teal-c text-center">Error accured, please try again later.</h1>}
           {data && (
             <div>
               {data.title?.value && (
                 <>
-                <h1 style={{ color: 'var(--home-ease-teal)' }}>
-                {data.title?.value}
-              </h1>
-              <h3 style={{ color: 'var(--home-ease-black)', margin: '22px 0' }}>
-                Wohnung Kauf
-              </h3>
+                <h1 className="he-teal-c">{data.title?.value}</h1>
+                <h3 className="he-black-c" style={{ margin: '22px 0' }}>
+                  Wohnung Kauf
+                </h3>
                 </>
               )}
               <CarouselComponent images={data.images} />
-              <h2
-                style={{
-                  color: 'var(--home-ease-bronze)',
-                  marginTop: 80,
-                  marginBottom: 32,
-                }}
-              >
+              <h2 className="he-bronze-c" style={{ marginTop: 80, marginBottom: 32 }}>
                 Objektdaten
               </h2>
               <div className="container">
                 <Row className="justify-content-center mt-2">
                   {dataToMap.map((el, idx) => el?.value ? generateCol(el, idx) : null)}
                 </Row>
-                <h2
-                  style={{
-                    color: 'var(--home-ease-bronze)',
-                    marginTop: 80,
-                    marginBottom: 32,
-                  }}
-                >
+                <h2 className='he-bronze-c' style={{ marginTop: 80, marginBottom: 32 }}>
                   {data?.description_note?.label}
                 </h2>
                 <span className="par2">{data?.description_note?.value}</span>
-                <h2
-                  style={{
-                    color: 'var(--home-ease-bronze)',
-                    marginTop: 40,
-                    marginBottom: 32,
-                  }}
-                >
+                <h2 className='he-bronze-c' style={{ marginTop: 80, marginBottom: 32 }}>
                   {data?.furnishing_note?.label}
                 </h2>
                 <span className="par2">{data?.furnishing_note?.value}</span>
-                <h2
-                  style={{
-                    color: 'var(--home-ease-bronze)',
-                    marginTop: 40,
-                    marginBottom: 32,
-                  }}
-                >
+                <h2 className='he-bronze-c' style={{ marginTop: 80, marginBottom: 32 }}>
                   {data?.location_note?.label}
                 </h2>
                 <span className="par2">{data?.location_note?.value}</span>
-                <h2
-                  style={{
-                    color: 'var(--home-ease-bronze)',
-                    marginTop: 40,
-                    marginBottom: 32,
-                  }}
-                >
+                <h2 className='he-bronze-c' style={{ marginTop: 80, marginBottom: 32 }}>
                   {data?.other_note?.label}
                 </h2>
                 <span className="par2">{data?.other_note?.value}</span>
@@ -176,13 +137,7 @@ const classNames = ["1-1", "1-2", "2-1", "2-2"];
                   </a>
                 ))}
                 </div>
-                <h2
-                  style={{
-                    color: 'var(--home-ease-bronze)',
-                    marginTop: 80,
-                    marginBottom: 32,
-                  }}
-                >
+                <h2 className='he-bronze-c' style={{ marginTop: 80, marginBottom: 32 }}>
                   Karte
                 </h2>
                 <Col md={12} style={{ height: '450px' }}>

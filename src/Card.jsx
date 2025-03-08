@@ -5,7 +5,6 @@ import euroIcon from './icons/HE-IC-Money.svg';
 import roomIcon from './icons/HE-IC-Rooms.svg';
 import resizeIcon from './icons/HE-IC-Size.svg';
 
-
 const Card = (props) => {
 	const {
 		item,
@@ -26,7 +25,7 @@ const Card = (props) => {
 			>
 				<Link
 					to={`/details/${item.id}`}
-					className="text-decoration-none"
+					className="text-decoration-none d-flex flex-column h-100"
 				>
 					<div
 						style={{
@@ -37,9 +36,9 @@ const Card = (props) => {
 						className="card-img-bg"
 					/>
 					<div className="card-body d-flex flex-column">
-						<div class="container">
-							<div class="row">
-								<div class="col px-0">
+						<div className="container">
+							<div className="row">
+								<div className="col px-0">
 									<div className="d-flex flex-row align-items-center">
 										<div style={{ width: 44, height: 44, padding: '5px' }} className="d-flex align-items-center justify-content-center">
 											<ReactSVG className="home-ease-svg" src={euroIcon} wrapper="svg"/>
@@ -50,7 +49,7 @@ const Card = (props) => {
 										</div>
 									</div>
 								</div>
-								<div class="col px-0">
+								<div className="col px-0">
 								<div className="d-flex flex-row align-items-center">
 										<div style={{ width: 44, height: 44, padding: '5px' }} className="d-flex align-items-center justify-content-center">
 											<ReactSVG className="home-ease-svg" src={resizeIcon} wrapper="svg"/>
@@ -64,8 +63,8 @@ const Card = (props) => {
 										</div>
 									</div>
 								</div>
-								<div class="w-100"></div>
-								<div class="col px-0">
+								<div className="w-100"></div>
+								<div className="col px-0">
 									<div className="d-flex flex-row align-items-center">
 										<div style={{ width: 44, height: 44, padding: '5px' }} className="d-flex align-items-center justify-content-center">
 											<ReactSVG className="home-ease-svg" src={roomIcon} wrapper="svg"/>
@@ -79,7 +78,7 @@ const Card = (props) => {
 									</div>
 								</div>
 								{item?.plot_area?.value && (
-									<div class="col px-0">
+									<div className="col px-0">
 									<div className="d-flex flex-row align-items-center">
 										<div style={{ width: 44, height: 44, padding: '5px' }} className="d-flex align-items-center justify-content-center">
 											<ReactSVG className="home-ease-svg" src={resizeIcon} wrapper="svg"/>

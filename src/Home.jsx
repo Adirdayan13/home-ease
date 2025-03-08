@@ -2,7 +2,7 @@ import Map2 from './Map2';
 import { Container, Row, Col } from 'react-bootstrap';
 import { useState } from 'react';
 import Card from './Card';
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 import useSWRImmutable from 'swr/immutable';
 import { fetcher } from './utils';
 import './App.css';
@@ -23,7 +23,7 @@ const Home = () => {
       </div>
     );
   }
-  
+
 
   return (
     <Container fluid className="vh-100">
@@ -37,20 +37,18 @@ const Home = () => {
 
         <Col
           md={6}
-          className="offset-md-6 overflow-auto h-100 p-3"
-          style={{ background: 'var(--home-ease-dark)' }}
+          className="offset-md-6 overflow-auto h-100 p-3 he-dark-b"
         >
           <Row>
-            <h1 style={{ color: 'var(--home-ease-yellow)' }}>
-              Unser Immobillenangebot
-            </h1>
+            <h1 className="he-yellow-c">Unser Immobillenangebot</h1>
             {data?.length && (
-              <h3 style={{ color: 'var(--home-ease-white)', marginBottom: 16 }}>
+              <h3 className="he-white-c mb-3">
                 {`${data.length} Immobillien`}
               </h3>
             )}
             {data.map((item) => (
               <Card
+                key={item.id}
                 item={item}
                 hovered={hovered}
                 setHovered={setHovered}
