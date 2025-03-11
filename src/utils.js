@@ -1,5 +1,5 @@
 export const fetcher = (url) => fetch(url, {
-	headers: { 'X-API-KEY': '3OvpePa234ctjeIuPIqo7T8fTTCfBOgm8JDpCsDm' },
+	headers: { 'X-API-KEY': process.env.REACT_APP_API_KEY },
 }).then((response) => response.json());
 
 export const translate = (val) => {

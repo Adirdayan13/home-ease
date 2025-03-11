@@ -149,7 +149,7 @@ const classNames = ["1-1", "1-2", "2-1", "2-2"];
             </div>
           )}
         </div>
-        <Contact />
+        <Contact title={data.title} />
       </div>
     );
   };

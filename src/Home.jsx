@@ -2,7 +2,6 @@ import Map2 from './Map2';
 import { Container, Row, Col } from 'react-bootstrap';
 import { useState } from 'react';
 import Card from './Card';
-// import { Link } from 'react-router-dom';
 import useSWRImmutable from 'swr/immutable';
 import { fetcher } from './utils';
 import './App.css';
@@ -13,7 +12,7 @@ const Home = () => {
     `https://api.propstack.de/v1/units?status=164134,164042,164043&expand=true`,
     fetcher
   );
-  
+
   if (isLoading) {
     return (
       <div className="vh-100 d-flex justify-content-center align-items-center" style={{ backgroundColor: 'var(--home-ease-white)' }}>
