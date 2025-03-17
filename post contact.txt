@@ -1,0 +1,16 @@
+https://crm.propstack.de/public/iframes/g7N7E6M1GAyHB9a1sn9XikuG/SiHLZhPqvg2LTM1oCLsK8L54
+
+contact[salutation]: mr
+contact[first_name]: Adir
+contact[last_name]: Dayan
+contact[street]: asd
+contact[zip_code]: 123
+contact[city]: ads
+contact[phone]: 123456
+contact[email]: adir@adir.com
+contact[body]: בדיקה
+
+Kontakt aufnehmen
+Ihre Anfrage zu Objekt , Familienparadies in Mahlsdorf Süd: 5-Zimmer-Haus mit Pool und separatem Gästehaus
+
+Vielen Dank, Ihre Anfrage wurde erfolgreich abgeschickt! Wir werden uns in Kürze bei Ihnen melden.
