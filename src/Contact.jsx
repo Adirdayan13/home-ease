@@ -4,6 +4,7 @@ import * as Yup from 'yup';
 import { useState } from 'react';
 import { useParams } from 'react-router-dom';
 import portrait from './HomeEase-Portrait-Ilan.png';
+import { myVeryLimitedAccessKey } from './utils';
 
 // Quelle - homepage
 // Status - kunde
@@ -72,7 +73,7 @@ const Contact = () => {
                 // Create Contact
                 await fetch('https://api.propstack.de/v1/contacts', {
                   headers: {
-                    'X-API-KEY': process.env.REACT_APP_API_KEY,
+                    'X-API-KEY': myVeryLimitedAccessKey,
                     'Content-Type': 'application/json',
                   },
                   method: 'POST',
@@ -99,7 +100,7 @@ const Contact = () => {
                     // Create task
                     await fetch('https://api.propstack.de/v1/tasks', {
                       headers: {
-                        'X-API-KEY': process.env.REACT_APP_API_KEY,
+                        'X-API-KEY': myVeryLimitedAccessKey,
                         'Content-Type': 'application/json',
                       },
                       method: 'POST',

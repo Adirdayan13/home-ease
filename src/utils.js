@@ -1,5 +1,7 @@
+export const myVeryLimitedAccessKey = '3OvpePa234ctjeIuPIqo7T8fTTCfBOgm8JDpCsDm';
+
 export const fetcher = (url) => fetch(url, {
-	headers: { 'X-API-KEY': process.env.REACT_APP_API_KEY },
+	headers: { 'X-API-KEY': myVeryLimitedAccessKey },
 }).then((response) => response.json());
 
 export const translate = (val) => {
