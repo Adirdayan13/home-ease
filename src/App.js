@@ -2,7 +2,6 @@ import './App.css';
 import { Routes, Route } from 'react-router-dom';
 import Home from './Home';
 import Details from './Details';
-// import NotFound from './NotFound';
 
 function App() {
   return (
