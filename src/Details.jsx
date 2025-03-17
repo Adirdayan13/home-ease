@@ -1,51 +1,39 @@
-// import { useNavigate } from 'react-router';
 import { useParams } from 'react-router-dom';
 import useSWRImmutable from 'swr/immutable';
 import CarouselComponent from './CarouselComponent';
 import { Col, Row } from 'react-bootstrap';
-import Map2 from './Map2';
-import { fetcher, formatToCurrency, translate } from './utils';
+import Map2 from './Map';
+import { alignChildren, fetcher, formatToCurrency, translate } from './utils';
 import Contact from './Contact';
 import './App.css';
 
 const classNames = ["1-1", "1-2", "2-1", "2-2"];
-  const generateCol = (el, idx) => (
-    <Col xs={12} md={6} className="p-0" key={el.label}>
-      <div className={`d-flex justify-content-between mx-1 mb-md-1 mb-sm-2 px-4 py-2 mb-2 row-${classNames[idx % 4]}`}>
-        <span className="par2">{el.label}</span>
-        {typeof el.value === 'boolean' && <span className="par2">Ja</span>}
-        {typeof el.value !== 'boolean' && (
-          <span className="par2">
-            {el.value}
-            {el.addM2 ? 'm ' : null}
-            {el.addM2 ? <sup>2</sup>  : null}
-            {el.addKwh ? ' kWh/(m²*a)' : null}
-          </span>
-        )}
-      </div>
-    </Col>
-  );
+const generateCol = (el, idx) => (
+  <Col xs={12} md={6} className="p-0" key={el.label}>
+    <div className={`d-flex justify-content-between mx-1 mb-md-1 mb-sm-2 px-4 py-2 mb-2 row-${classNames[idx % 4]}`}>
+      <span className="par2">{el.label}</span>
+      {typeof el.value === 'boolean' && <span className="par2">Ja</span>}
+      {typeof el.value !== 'boolean' && (
+        <span className="par2">
+          {el.value}
+          {el.addM2 ? 'm ' : null}
+          {el.addM2 ? <sup>2</sup>  : null}
+          {el.addKwh ? ' kWh/(m²*a)' : null}
+        </span>
+      )}
+    </div>
+  </Col>
+);
 
   
   const Details = () => {
     const { id } = useParams();
-    // const navigate = useNavigate();
     const { data, error, isLoading } = useSWRImmutable(
       `https://api.propstack.de/v1/units/${id}?new=1&locale="de`,
       fetcher
     );
-  
-    if (isLoading) {
-      return (
-        <div className="vh-100 d-flex justify-content-center align-items-center" style={{ backgroundColor: 'var(--home-ease-white)' }}>
-          <div className="spinner-border" role="status">
-            <span className="sr-only">Loading...</span>
-          </div>
-        </div>
-      );
-    };
+
     if (data) {
-      
       const dataToMap = [
         {label: 'Einheitennummer', value: data.zip_code},
         {label: 'Kategorie', value: translate(data?.marketing_type)},
@@ -95,7 +83,12 @@ const classNames = ["1-1", "1-2", "2-1", "2-2"];
         style={{ paddingTop: 40, minHeight: '100vh' }}
       >
         <div className="container">
-          {error && <h1 className="he-teal-c text-center">Error accured, please try again later.</h1>}
+          {isLoading && alignChildren(
+            <div className="spinner-border" role="status">
+              <span className="sr-only">Loading...</span>
+            </div>
+          )}
+          {error && alignChildren(<h1 className="he-teal-c text-center">Error accured, please try again later.</h1>)}
           {data && (
             <div>
               {data.title?.value && (
@@ -133,7 +126,7 @@ const classNames = ["1-1", "1-2", "2-1", "2-2"];
                 <div style={{ marginTop: 40 }}>
                 {data?.links.map((el) => (
                   <a href={el?.url} target="_blank" rel="noopener noreferrer" key={el?.id} style={{ display: 'block', width: 'fit-content' }}>
-                    <h2 style={{ color: 'var(--home-ease-bronze)' }}>{el?.title}</h2>
+                    <h2 className="he-bronze-c">{el?.title}</h2>
                   </a>
                 ))}
                 </div>
@@ -149,7 +142,7 @@ const classNames = ["1-1", "1-2", "2-1", "2-2"];
             </div>
           )}
         </div>
-        <Contact title={data.title} />
+        <Contact />
       </div>
     );
   };

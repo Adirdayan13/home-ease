@@ -24,10 +24,10 @@ const validationSchema = Yup.object({
   body: Yup.string().required('Nachricht darf nicht leer sein'),
 });
 
-const Contact = ({ title }) => {
+const Contact = () => {
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
-  const { id } = useParams(); // Extracts "id" from URL
+  const { id, title } = useParams(); // Extracts "id" from URL
 
   return (
     <div

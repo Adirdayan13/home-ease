@@ -14,7 +14,6 @@ const Card = (props) => {
 
 	return (
 		<Col key={item.id} xs={12} sm={6} lg={6} md={12} className="mb-4">
-			{/* <div className="col-6 mb-4" key={index}> */}
 			<div
 				onMouseEnter={() => setHovered(item.id)}
 				onMouseLeave={() => setHovered(null)}
@@ -24,7 +23,7 @@ const Card = (props) => {
 				}`}
 			>
 				<Link
-					to={`/details/${item.id}`}
+					to={`/details/${item.id}/${item.title.value}`}
 					className="text-decoration-none d-flex flex-column h-100"
 				>
 					<div

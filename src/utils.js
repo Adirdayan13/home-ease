@@ -8,3 +8,9 @@ export const translate = (val) => {
 }
 
 export const formatToCurrency = (amount) =>  amount ? "€ " + new Intl.NumberFormat('de-DE', { minimumFractionDigits: 2 }).format(amount) : null;
+
+export const alignChildren = (children) => (
+	<div className="vh-100 w-100 d-flex align-items-center justify-content-center">
+		{children}
+	</div>
+);
