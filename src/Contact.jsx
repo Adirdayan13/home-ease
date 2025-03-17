@@ -27,6 +27,7 @@ const validationSchema = Yup.object({
 const Contact = () => {
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
+  const [isError, setIsError] = useState(null);
   const { id, title } = useParams(); // Extracts "id" from URL
 
   return (
@@ -63,6 +64,7 @@ const Contact = () => {
             validationSchema={validationSchema}
             onSubmit={async (values) => {
               setIsLoading(true);
+              setIsError(null);
               const today = new Date();
               const nextYear = new Date(today);
               nextYear.setFullYear(nextYear.getFullYear() + 1);
@@ -88,8 +90,12 @@ const Contact = () => {
                       group_ids: [410460] // Merkmale = Kunde: Kaufinteressent
                     },
                   }),
-                }).then((res) => res.json())
+                })
+                  .then((res) => res.json())
                   .then(async (res) => {
+                    if (res.errors) {
+                      throw new Error(res.errors[0]);
+                    }
                     // Create task
                     await fetch('https://api.propstack.de/v1/tasks', {
                       headers: {
@@ -99,19 +105,30 @@ const Contact = () => {
                       method: 'POST',
                       body: JSON.stringify({
                         task: {
-                          title: title.value,
+                          title: title,
                           property_ids: [id],
                           client_ids: [res.id],
                           is_reminder: true,
                         },
                       }),
-                    });
-                  })
-                  .then(() => {
-                    setIsLoading(false);
-                    setIsSubmitted(true);
+                    })
+                      .then((res) => res.json())
+                      .then((res) => {
+                        if (res.errors) {
+                          throw new Error(res.errors[0]);
+                        }
+                        setIsLoading(false);
+                        setIsSubmitted(true);
+                      })
+                      .catch((error) => {
+                        setIsError(error);
+                        setIsLoading(false);
+                        setIsSubmitted(false);
+                        console.error('Error:', error);
+                      });
                   });
               } catch (error) {
+                setIsError(error);
                 setIsLoading(false);
                 setIsSubmitted(false);
                 console.error('Error:', error);
@@ -225,6 +242,12 @@ const Contact = () => {
                   Übermittlung ihrer Telefonnummer die ausdrückliche
                   Einverständniserklärung zur telefonischen Kontaktaufnahme.
                 </h4>
+
+                {isError && (
+                  <h3 className="mt-3 text-center he-yellow-c">
+                    Error has accured, please try again later.
+                  </h3>
+                )}
                 <button
                   className="he-teal-b he-white-c mt-3"
                   style={{
@@ -239,11 +262,11 @@ const Contact = () => {
                 >
                   {isLoading ? (
                     <div
-                      class="spinner-border spinner-border-sm"
+                      className="spinner-border spinner-border-sm"
                       role="status"
                       aria-hidden="true"
                     >
-                      <span class="sr-only">Loading...</span>
+                      <span className="sr-only">Loading...</span>
                     </div>
                   ) : (
                     <h3 className="m-0">Submit</h3>

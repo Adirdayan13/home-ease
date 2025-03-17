@@ -14,18 +14,18 @@ const CarouselComponent = ({ images }) => {
 
   // Handle wrap-around logic
   if (startIdx < 0) {
-    startIdx = images.length + startIdx; // Wrap from the end
+    startIdx = images?.length + startIdx; // Wrap from the end
   }
 
   // Create the sliced array dynamically
   const thumbnailList = [
-    ...images.slice(startIdx, startIdx + thumbnailsToShow), // Main part
-    ...images.slice(
+    ...images?.slice(startIdx, startIdx + thumbnailsToShow), // Main part
+    ...images?.slice(
       0,
-      Math.max(0, startIdx + thumbnailsToShow - images.length)
+      Math.max(0, startIdx + thumbnailsToShow - images?.length)
     ), // Wrap-around part
   ].slice(0, thumbnailsToShow);
-  if (images.length) {
+  if (images?.length) {
     return (
       <>
         <Carousel
@@ -33,7 +33,7 @@ const CarouselComponent = ({ images }) => {
           onSelect={handleSelect}
           indicators={false}
         >
-          {images.map((image, i) => (
+          {images?.map((image, i) => (
             <Carousel.Item key={i}>
               <img
                 className="he-carousel-img d-block"
@@ -51,7 +51,7 @@ const CarouselComponent = ({ images }) => {
         </Carousel>
         <div className="d-flex w-100 overflow-hidden justify-content-center mt-3">
           {thumbnailList.map((image, i) => {
-            const realIndex = (startIdx + i) % images.length; // Get actual index
+            const realIndex = (startIdx + i) % images?.length; // Get actual index
             return (
               <img
                 key={i}

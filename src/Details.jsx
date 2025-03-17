@@ -105,7 +105,7 @@ const generateCol = (el, idx) => (
               </h2>
               <div className="container">
                 <Row className="justify-content-center mt-2">
-                  {dataToMap.map((el, idx) => el?.value ? generateCol(el, idx) : null)}
+                  {dataToMap?.map((el, idx) => el?.value ? generateCol(el, idx) : null)}
                 </Row>
                 <h2 className='he-bronze-c' style={{ marginTop: 80, marginBottom: 32 }}>
                   {data?.description_note?.label}
@@ -124,7 +124,7 @@ const generateCol = (el, idx) => (
                 </h2>
                 <span className="par2">{data?.other_note?.value}</span>
                 <div style={{ marginTop: 40 }}>
-                {data?.links.map((el) => (
+                {data?.links?.map((el) => (
                   <a href={el?.url} target="_blank" rel="noopener noreferrer" key={el?.id} style={{ display: 'block', width: 'fit-content' }}>
                     <h2 className="he-bronze-c">{el?.title}</h2>
                   </a>
