@@ -1,5 +1,6 @@
 {
   "name": "home-ease",
+  "homepage": "https://github.com/Adirdayan13/home-ease",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -11,6 +12,7 @@
     "bootstrap": "^5.3.3",
     "cra-template": "1.2.0",
     "formik": "^2.4.6",
+    "gh-pages": "^6.3.0",
     "leaflet": "^1.9.4",
     "leaflet-gesture-handling": "^1.2.2",
     "react": "^19.0.0",
@@ -24,6 +26,8 @@
     "yup": "^1.6.1"
   },
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
