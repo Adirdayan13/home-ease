@@ -36,9 +36,7 @@ const generateCol = (el, idx) => (
 
     if (data) {
       const dataToMap = [
-        data?.hide_address
-          ? {label: 'Einheitennummer', value: data.zip_code}
-          : {label: 'Adresse', value: data.short_address},
+        {label: 'Adresse', value: data.hide_address ? data.zip_code  : data.short_address},
         {label: 'Kategorie', value: translate(data?.marketing_type)},
         {label: 'Unterkategorie', value: data.apartment_type?.value ?? data?.building_type?.value},
         {label: data.construction_year?.label, value: data.construction_year?.value},
