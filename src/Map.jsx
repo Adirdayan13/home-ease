@@ -95,7 +95,7 @@ export default function Map2(props) {
                   direction="top"
                   offset={[7, -10]}
                 >
-                  {formatCurrency(el.price?.value)}
+                  {formatCurrency(el.price?.value ?? el?.base_rent?.value)}
                 </Tooltip>
               )}
             </Marker>
