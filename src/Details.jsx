@@ -1,4 +1,4 @@
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import useSWRImmutable from 'swr/immutable';
 import CarouselComponent from './CarouselComponent';
 import { Col, Row } from 'react-bootstrap';
@@ -28,6 +28,7 @@ const generateCol = (el, idx) => (
   
   const Details = () => {
     const { id } = useParams();
+    const navigate = useNavigate();
     const { data, error, isLoading } = useSWRImmutable(
       `https://api.propstack.de/v1/units/${id}?new=1&locale="de`,
       fetcher
@@ -35,7 +36,9 @@ const generateCol = (el, idx) => (
 
     if (data) {
       const dataToMap = [
-        {label: 'Einheitennummer', value: data.zip_code},
+        data?.hide_address
+          ? {label: 'Einheitennummer', value: data.zip_code}
+          : {label: 'Adresse', value: data.short_address},
         {label: 'Kategorie', value: translate(data?.marketing_type)},
         {label: 'Unterkategorie', value: data.apartment_type?.value ?? data?.building_type?.value},
         {label: data.construction_year?.label, value: data.construction_year?.value},
@@ -77,6 +80,8 @@ const generateCol = (el, idx) => (
         {label: data.air_conditioning?.label, value: data.air_conditioning?.value},
       ].filter((el) => el?.value)
 
+    const isFloorPlanImages = (bool) => data?.images.filter((el) => bool ? el?.title.toLowerCase()?.includes('grundriss') : !el?.title.toLowerCase()?.includes('grundriss'));
+
     return (
       <div
         className="he-white-b"
@@ -91,6 +96,12 @@ const generateCol = (el, idx) => (
           {error && alignChildren(<h1 className="he-teal-c text-center">Error accured, please try again later.</h1>)}
           {data && (
             <div>
+              <button
+                onClick={() => navigate('/')}
+                style={{ background: 'transparent', border: 'none', cursor: 'pointer', fontSize: 12, marginBottom: 16 }}
+              >
+                <i className="fa-solid fa-chevron-left"></i> Zurück
+              </button>
               {data.title?.value && (
                 <>
                 <h1 className="he-teal-c">{data.title?.value}</h1>
@@ -99,7 +110,7 @@ const generateCol = (el, idx) => (
                 </h3>
                 </>
               )}
-              <CarouselComponent images={data.images} />
+              <CarouselComponent images={isFloorPlanImages(false)} />
               <h2 className="he-bronze-c" style={{ marginTop: 80, marginBottom: 32 }}>
                 Objektdaten
               </h2>
@@ -138,6 +149,14 @@ const generateCol = (el, idx) => (
                     <Map2 data={[data]} singleMarker />
                   </div>
                 </Col>
+                {isFloorPlanImages(true).length > 0 && (
+                  <Col sm={12}>
+                    <h2 className='he-bronze-c' style={{ marginTop: 80, marginBottom: 32 }}>
+                      Ein Grundriss, der neue Maßstäbe setzt
+                    </h2>
+                    <CarouselComponent images={isFloorPlanImages(true)} />
+                  </Col>
+                )}
               </div>
             </div>
           )}

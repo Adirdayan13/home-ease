@@ -9,52 +9,52 @@
   --home-ease-black: #00130e;
 
   .he-teal-c {
-    color: var(--home-ease-teal);
+    color: var(--home-ease-teal) !important;
   }
   .he-teal-b {
-    background: var(--home-ease-teal);
+    background: var(--home-ease-teal) !important;
   }
   .he-bronze-c {
-    color: var(--home-ease-bronze);
+    color: var(--home-ease-bronze) !important;
   }
   .he-bronze-b {
-    background: var(--home-ease-bronze);
+    background: var(--home-ease-bronze) !important;
   }
   .he-light-yellow-c {
-    color: var(--home-ease-light-yellow);
+    color: var(--home-ease-light-yellow) !important;
   }
   .he-light-yellow-b {
-    background: var(--home-ease-light-yellow);
+    background: var(--home-ease-light-yellow) !important;
   }
   .he-yellow-c {
-    color: var(--home-ease-yellow);
+    color: var(--home-ease-yellow) !important;
   }
   .he-yellow-b {
-    background: var(--home-ease-yellow);
+    background: var(--home-ease-yellow) !important;
   }
   .he-white-c {
-    color: var(--home-ease-white);
+    color: var(--home-ease-white) !important;
   }
   .he-white-b {
-    background: var(--home-ease-white);
+    background: var(--home-ease-white) !important;
   }
   .he-light-c {
-    color: var(--home-ease-light);
+    color: var(--home-ease-light) !important;
   }
   .he-light-b {
-    background: var(--home-ease-light);
+    background: var(--home-ease-light) !important;
   }
   .he-dark-c {
-    color: var(--home-ease-dark);
+    color: var(--home-ease-dark) !important;
   }
   .he-dark-b {
-    background: var(--home-ease-dark);
+    background: var(--home-ease-dark) !important;
   }
   .he-black-c {
-    color: var(--home-ease-black);
+    color: var(--home-ease-black) !important;
   }
   .he-black-b {
-    background: var(--home-ease-black);
+    background: var(--home-ease-black) !important;
   }
   h1,
   h2,
@@ -101,9 +101,6 @@
   .row-2-2 {
     background-color: var(--home-ease-bronze);
   }
-  .he-carousel-img {
-    width: 75%;
-  }
   @media (max-width: 768px) {
     .row-1-2 {
       background-color: var(--home-ease-bronze);
@@ -115,7 +112,7 @@
       background-color: var(--home-ease-bronze);
     }
     .he-carousel-img {
-      width: 100%;
+      width: -webkit-fill-available !important;
     }
   }
 }
@@ -197,6 +194,28 @@
   background-position: center;
 }
 
+.carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: transparent;
+  color: rgba(0, 0, 0, 0.5);
+  border: none;
+  padding: 12px 18px;
+  font-size: 24px;
+  cursor: pointer;
+  border-radius: 50%;
+  z-index: 10;
+}
+
+.carousel-btn.left {
+  left: 2%;
+}
+
+.carousel-btn.right {
+  right: 2%;
+}
+
 .carousel-item {
   text-align: center;
 }
@@ -227,6 +246,8 @@ input[type='number'].no-spinner::-webkit-inner-spin-button {
 }
 .contact-input::placeholder {
   padding: 3px 0 3px 8px;
+  color: var(--home-ease-light) !important;
+  opacity: 1;
 }
 option {
   background-color: transparent;
