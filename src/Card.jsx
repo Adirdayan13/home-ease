@@ -42,9 +42,9 @@ const Card = (props) => {
 									<div className="d-flex flex-row align-items-center">
 										<div style={{ width: 44, height: 44, padding: '5px' }} className="d-flex align-items-center justify-content-center">
 											<ReactSVG className="home-ease-svg" src={euroIcon} wrapper="svg"/>
-										</div>										
+										</div>
 										<div className="py-2">
-											<h3 className="mb-0" style={{ whiteSpace: 'nowrap' }}>{formatToCurrency(item?.price?.value)}</h3>
+											<h3 className="mb-0" style={{ whiteSpace: 'nowrap' }}>{formatToCurrency(item?.price?.value ?? item?.base_rent?.value)}</h3>
 											<h4 className="mb-0">{item?.price?.label}</h4>
 										</div>
 									</div>

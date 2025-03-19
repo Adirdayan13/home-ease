@@ -42,7 +42,7 @@ const generateCol = (el, idx) => (
         {label: 'Kategorie', value: translate(data?.marketing_type)},
         {label: 'Unterkategorie', value: data.apartment_type?.value ?? data?.building_type?.value},
         {label: data.construction_year?.label, value: data.construction_year?.value},
-        {label: data.price?.label, value: formatToCurrency(data.price?.value)},
+        {label: data.price?.label, value: formatToCurrency(data.price?.value ?? data?.base_rent?.value)},
         {label: data.courtage?.label, value: data.courtage?.value},
         {label: data.free_from?.label, value: data.free_from?.value},
         {label: data.condition?.label, value: data.condition?.value},
