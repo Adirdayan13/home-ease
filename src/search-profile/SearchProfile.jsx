@@ -158,11 +158,6 @@ const SearchProfile = () => {
                       </Col>
                     </Col>
                     <Col xs={12} md={8}>
-                      <ErrorMessage
-                        name="marketing_type"
-                        component="div"
-                        style={{ color: 'red' }}
-                      />
                       <FormBootstrap.Select
                         aria-label="marketing_type"
                         name="marketing_type" // Add name attribute
@@ -185,11 +180,6 @@ const SearchProfile = () => {
                       </Col>
                     </Col>
                     <Col xs={12} md={8}>
-                      <ErrorMessage
-                        name="rs_types"
-                        component="div"
-                        style={{ color: 'red' }}
-                      />
                       <FormBootstrap.Select
                         aria-label="rs_types"
                         name="rs_types" // Add name attribute
@@ -226,16 +216,11 @@ const SearchProfile = () => {
                     <Col xs={12} md={8}>
                       <Row>
                         <Col xs={12} md={6}>
-                          <ErrorMessage
-                            name="cities"
-                            component="div"
-                            style={{ color: 'red' }}
-                          />
                           <FormBootstrap.Group controlId="cities">
                             <FormBootstrap.Control
                               type="text"
                               placeholder="Stadt"
-                              className="contact-input mb-1"
+                              className="contact-input"
                               name="cities"
                               style={{
                                 backgroundColor: 'transparent',
@@ -251,7 +236,7 @@ const SearchProfile = () => {
                               {cities.map((city, index) => (
                                 <Badge
                                   key={index}
-                                  className="me-1 mb-1 he-yellow-b he-dark-c"
+                                  className="me-1 mb-3 he-yellow-b he-dark-c"
                                   style={{ cursor: 'pointer' }}
                                   onClick={() => removeCity(index)}
                                 >
@@ -262,11 +247,6 @@ const SearchProfile = () => {
                           </FormBootstrap.Group>
                         </Col>
                         <Col xs={12} md={6}>
-                          <ErrorMessage
-                            name="region"
-                            component="div"
-                            style={{ color: 'red' }}
-                          />
                           <FormBootstrap.Group controlId="region">
                             <FormBootstrap.Select
                               value={selectedRegion}
@@ -275,7 +255,7 @@ const SearchProfile = () => {
                                 handleChange(e); // Add onChange handler
                               }}
                               name="region"
-                              className="contact-input mb-1"
+                              className="contact-input"
                               style={{
                                 backgroundColor: 'transparent',
                                 color: 'var(--home-ease-light)',
@@ -296,7 +276,7 @@ const SearchProfile = () => {
                     </Col>
                   </Row>
 
-                  <Row className="mb-1 mt-4">
+                  <Row className="mb-1 mt-2">
                     <Col xs={12} md={4}>
                       <h3>Preis</h3>
                     </Col>
@@ -304,31 +284,21 @@ const SearchProfile = () => {
                     <Col xs={12} md={8}>
                       <Row>
                         <Col xs={12} md={6}>
-                          <ErrorMessage
-                            name="price"
-                            component="div"
-                            style={{ color: 'red' }}
-                          />
                           <Field
                             id="price"
                             name="price"
                             placeholder="Von"
                             type="number"
-                            className="contact-input"
+                            className="no-spinner contact-input"
                           />
                         </Col>
                         <Col xs={12} md={6}>
-                          <ErrorMessage
-                            name="price_to"
-                            component="div"
-                            style={{ color: 'red' }}
-                          />
                           <Field
                             id="price_to"
                             name="price_to"
                             placeholder="Bis"
                             type="number"
-                            className="contact-input"
+                            className="no-spinner contact-input"
                           />
                         </Col>
                       </Row>
@@ -343,31 +313,21 @@ const SearchProfile = () => {
                     <Col xs={12} md={8}>
                       <Row>
                         <Col xs={12} md={6}>
-                          <ErrorMessage
-                            name="number_of_rooms"
-                            component="div"
-                            style={{ color: 'red' }}
-                          />
                           <Field
                             id="number_of_rooms"
                             name="number_of_rooms"
                             placeholder="Von"
                             type="number"
-                            className="contact-input"
+                            className="no-spinner contact-input"
                           />
                         </Col>
                         <Col xs={12} md={6}>
-                          <ErrorMessage
-                            name="number_of_rooms_to"
-                            component="div"
-                            style={{ color: 'red' }}
-                          />
                           <Field
                             id="number_of_rooms_to"
                             name="number_of_rooms_to"
                             placeholder="Bis"
                             type="number"
-                            className="contact-input"
+                            className="no-spinner contact-input"
                           />
                         </Col>
                       </Row>
