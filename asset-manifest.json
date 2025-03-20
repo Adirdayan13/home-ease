@@ -1,18 +1,18 @@
 {
   "files": {
-    "main.css": "/home-ease/static/css/main.860c6430.css",
+    "main.css": "/home-ease/static/css/main.7c5be205.css",
     "main.js": "/home-ease/static/js/main.e54c68c6.js",
     "static/js/453.2fc2d6d7.chunk.js": "/home-ease/static/js/453.2fc2d6d7.chunk.js",
     "index.html": "/home-ease/index.html",
     "static/media/HE-IC-Size.svg": "/home-ease/static/media/HE-IC-Size.5c0815e0be45335495c85be053d88e61.svg",
     "static/media/HE-IC-Money.svg": "/home-ease/static/media/HE-IC-Money.2e81c7c8c5db854761d258b065262f71.svg",
     "static/media/HE-IC-Rooms.svg": "/home-ease/static/media/HE-IC-Rooms.eef11ae6ed11e10aa93f0b9c2daec30e.svg",
-    "main.860c6430.css.map": "/home-ease/static/css/main.860c6430.css.map",
+    "main.7c5be205.css.map": "/home-ease/static/css/main.7c5be205.css.map",
     "main.e54c68c6.js.map": "/home-ease/static/js/main.e54c68c6.js.map",
     "453.2fc2d6d7.chunk.js.map": "/home-ease/static/js/453.2fc2d6d7.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.860c6430.css",
+    "static/css/main.7c5be205.css",
     "static/js/main.e54c68c6.js"
   ]
 }
