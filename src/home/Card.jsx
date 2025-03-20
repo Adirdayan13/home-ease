@@ -1,10 +1,10 @@
 import { Col } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { ReactSVG } from 'react-svg'
-import euroIcon from './icons/HE-IC-Money.svg';
-import roomIcon from './icons/HE-IC-Rooms.svg';
-import resizeIcon from './icons/HE-IC-Size.svg';
-import { formatToCurrency } from "./utils";
+import euroIcon from '../icons/HE-IC-Money.svg';
+import roomIcon from '../icons/HE-IC-Rooms.svg';
+import resizeIcon from '../icons/HE-IC-Size.svg';
+import { formatToCurrency } from "../utils";
 
 const Card = (props) => {
 	const {
@@ -44,8 +44,8 @@ const Card = (props) => {
 											<ReactSVG className="home-ease-svg" src={euroIcon} wrapper="svg"/>
 										</div>
 										<div className="py-2">
-											<h3 className="mb-0" style={{ whiteSpace: 'nowrap' }}>{formatToCurrency(item?.price?.value ?? item?.base_rent?.value)}</h3>
-											<h4 className="mb-0">{item?.price?.label}</h4>
+											<h3 className="mb-0" style={{ whiteSpace: 'nowrap' }}>{item.price_on_inquiry.value ? item.price_on_inquiry.label : formatToCurrency(item?.price?.value ?? item?.base_rent?.value)}</h3>
+											{!item.price_on_inquiry.value && <h4 className="mb-0">{item?.price?.label}</h4>}
 										</div>
 									</div>
 								</div>
@@ -57,7 +57,7 @@ const Card = (props) => {
 										<div className="d-flex flex-column flex-wrap">
 											<h3 className="mb-0" style={{ whiteSpace: 'nowrap'}}>
 												{item.living_space?.value} m
-												<sup> 2</sup>
+												<sup>2</sup>
 											</h3>
 											<h4 className="mb-0">{item.living_space?.label}</h4>
 										</div>
@@ -85,8 +85,8 @@ const Card = (props) => {
 										</div>										
 										<div className="d-flex flex-column">
 											<h3 className="mb-0" style={{ whiteSpace: 'nowrap'}}>
-												{item?.plot_area?.value}m
-												<sup> 2</sup>
+												{item?.plot_area?.value} m
+												<sup>2</sup>
 											</h3>
 											<h4 className="mb-0">{item?.plot_area?.label}</h4>
 										</div>

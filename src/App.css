@@ -253,3 +253,7 @@ option {
   background-color: transparent;
   color: black;
 }
+
+.he-pre-line {
+  white-space: pre-line;
+}

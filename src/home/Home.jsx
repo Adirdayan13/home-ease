@@ -1,10 +1,11 @@
 import Map from './Map';
-import { Container, Row, Col } from 'react-bootstrap';
-import { useState } from 'react';
 import Card from './Card';
+import { useState } from 'react';
+import { Container, Row, Col } from 'react-bootstrap';
+import { fetcher } from '../utils';
 import useSWRImmutable from 'swr/immutable';
-import { alignChildren, fetcher } from './utils';
-import './App.css';
+import AlignChildren from '../AlignChildren';
+import '../App.css';
 
 const Home = () => {
   const [hovered, setHovered] = useState(null);
@@ -13,16 +14,21 @@ const Home = () => {
     fetcher
   );
 
-  return (
-    <Container fluid className="vh-100 he-white-b">
-      {isLoading && alignChildren(
+  if (isLoading) {
+    return (
+      <AlignChildren>
         <div className="spinner-border" role="status">
           <span className="sr-only">Loading...</span>
         </div>
-      )}
-      {error && alignChildren(
-        <h1 className="he-dark-c text-center">Error accured, please try again later.</h1>
-      )}
+      </AlignChildren>
+    );
+  }
+  if (error) {
+    return <AlignChildren><h1>Ein unerwarteter Fehler ist aufgetreten. Bitte versuchen Sie es erneut.</h1></AlignChildren>
+  }
+
+  return (
+    <Container fluid className="vh-100 he-white-b">
       {data && (
         <Row className="h-100">
           {/* Map Section (Hidden on md and smaller) */}
@@ -32,13 +38,10 @@ const Home = () => {
             </div>
           </Col>
 
-          <Col
-            md={6}
-            className="offset-md-6 overflow-auto h-100 p-3 he-dark-b"
-          >
+          <Col md={6} className="offset-md-6 overflow-auto h-100 p-3 he-dark-b">
             <Row>
               <h1 className="he-yellow-c">Unser Immobillenangebot</h1>
-              {data?.length && (
+              {data?.length > 0 && (
                 <h3 className="he-white-c mb-3">
                   {`${data.length} Immobillien`}
                 </h3>

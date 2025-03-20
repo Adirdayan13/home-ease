@@ -1,7 +1,7 @@
 import { Routes, Route } from 'react-router-dom';
-import Home from './Home';
-import Details from './Details';
-import SearchProfile from './SearchProfile';
+import Home from './home/Home';
+import Details from './details/Details';
+import SearchProfile from './search-profile/SearchProfile';
 import './App.css';
 
 function App() {

@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { myVeryLimitedAccessKey } from './utils';
+import { myVeryLimitedAccessKey } from '../utils';
 
 const germanRegions = [
   'Baden-Württemberg',

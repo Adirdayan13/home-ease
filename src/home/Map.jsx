@@ -10,7 +10,7 @@ import "leaflet-gesture-handling/dist/leaflet-gesture-handling.css";
 import { GestureHandling } from "leaflet-gesture-handling";
 import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
-import './App.css';
+import '../App.css';
 
 const formatCurrency = (value) => {
   if (typeof value === 'string') value = parseInt(value, 10);
@@ -83,7 +83,7 @@ export default function Map2(props) {
                   if (!singleMarker) setHovered(null);
                 },
                 click: () => {
-                  if (!singleMarker) navigate(`/details/${el.id}`);
+                  if (!singleMarker) navigate(`/details/${el.id}/${el.title.value}`);
                 },
               }}
               key={el?.id}
@@ -95,7 +95,7 @@ export default function Map2(props) {
                   direction="top"
                   offset={[7, -10]}
                 >
-                  {formatCurrency(el.price?.value ?? el?.base_rent?.value)}
+                  {el.price_on_inquiry.value ? el.price_on_inquiry.label : formatCurrency(el.price?.value ?? el?.base_rent?.value)}
                 </Tooltip>
               )}
             </Marker>

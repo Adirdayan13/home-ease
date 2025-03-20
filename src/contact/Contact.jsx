@@ -1,8 +1,8 @@
 import { ErrorMessage, Field, Form, Formik } from 'formik';
 import { Col, Container, Row, Form as FormBootstrap } from 'react-bootstrap';
 import * as Yup from 'yup';
-import portrait from './HomeEase-Portrait-Ilan.png';
 import { useSubmit } from './useSubmit';
+import { useParams } from 'react-router-dom';
 
 const validationSchema = Yup.object({
   first_name: Yup.string().required('Vorname ist erforderlich'),
@@ -16,7 +16,8 @@ const validationSchema = Yup.object({
   message: Yup.string().required('Nachricht darf nicht leer sein'),
 });
 
-const Contact = () => {
+const Contact = ({ data }) => {
+  const { title } = useParams();
   const { isLoading, isError, isSubmitted, submit } = useSubmit();
 
   return (
@@ -31,8 +32,7 @@ const Contact = () => {
       <Container>
         <h1 className="he-yellow-c">Kontakt aufnehmen</h1>
         <h3 className="he-white-c" style={{ margin: '32px 0' }}>
-          Ihre Anfrage zu Objekt , Familienparadies in Mahlsdorf Süd:
-          5-Zimmer-Haus mit Pool und separatem Gästehaus
+          Ihre Anfrage zu Objekt , {title}
         </h3>
         {isSubmitted ? (
           <h2 className="he-white-c">
@@ -42,16 +42,16 @@ const Contact = () => {
         ) : (
           <Formik
             initialValues={{
-              salutation: '',
+              salutation: 'mr',
               first_name: '',
               last_name: '',
               home_cell: '',
               email: '',
               home_street: '',
+              home_house_number: '',
               home_zip_code: '',
               home_city: '',
-              message:
-                'Ich bin an dieser Immobilie interessiert. Bitte kontaktieren Sie mich.',
+              message:'Ich bin an dieser Immobilie interessiert. Bitte kontaktieren Sie mich.'
             }}
             validateOnBlur={true}
             validateOnChange={true}
@@ -169,17 +169,28 @@ const Contact = () => {
 
                   <Row className="mb-1">
                     <Col xs={12} md={4}>
-                      <Col xs={12}>
-                        <h3>Straße & Nr</h3>
-                      </Col>
+                      <h3>Straße & Nr</h3>
                     </Col>
                     <Col xs={12} md={8}>
-                      <Field
-                        id="home_street"
-                        name="home_street"
-                        type="home_street"
-                        className="contact-input"
-                      />
+                      <Row>
+                        <Col xs={12} md={6}>
+                          <Field
+                            id="home_street"
+                            name="home_street"
+                            placeholder="Straße"
+                            className="contact-input"
+                          />
+                        </Col>
+                        <Col xs={12} md={6}>
+                          <Field
+                            id="home_house_number"
+                            name="home_house_number"
+                            placeholder="Nr"
+                            type="number"
+                            className="no-spinner contact-input"
+                          />
+                        </Col>
+                      </Row>
                     </Col>
                   </Row>
                   <Row className="mb-1">
@@ -192,8 +203,8 @@ const Contact = () => {
                       <Field
                         id="home_zip_code"
                         name="home_zip_code"
-                        type="home_zip_code"
-                        className="contact-input"
+                        type="number"
+                        className="no-spinner contact-input"
                       />
                     </Col>
                   </Row>
@@ -233,9 +244,9 @@ const Contact = () => {
                 <h4 className="he-white-c">
                   Mit der Eingabe meiner Daten und Absendung der Anfrage erkläre
                   ich mich damit einverstanden, dass die Daten verschlüsselt an
-                  HomeEase GmbH weitergeleitet werden. Weitere Informationen
-                  erfahren Sie unter Datenschutz
+                  HomeEase GmbH weitergeleitet werden. Weitere
                 </h4>
+                <h4 className="he-white-c">Informationen erfahren Sie unter Datenschutz</h4>
                 <h4 className="he-white-c">
                   Verbraucher im Sinne des § 13 BGB geben uns mit der
                   Übermittlung ihrer Telefonnummer die ausdrückliche
@@ -244,7 +255,8 @@ const Contact = () => {
 
                 {isError && (
                   <h3 className="mt-3 text-center he-yellow-c">
-                    Error has accured, please try again later.
+                    Ein unerwarteter Fehler ist aufgetreten. Bitte versuchen Sie
+                    es erneut.
                   </h3>
                 )}
                 <button
@@ -276,33 +288,35 @@ const Contact = () => {
           </Formik>
         )}
         <Row className="d-flex gap-3 mt-5 pb-3">
-          <Col
-            xs={12}
-            lg={4}
-            className="d-flex justify-content-center justify-content-lg-start"
-          >
-            <img
-              src={portrait}
-              alt="portrait"
-              style={{ height: 250, objectFit: 'contain' }}
-            />
-          </Col>
+          {data?.broker?.avatar && (
+            <Col
+              xs={12}
+              lg={4}
+              className="d-flex justify-content-center justify-content-lg-start"
+            >
+              <img
+                src={data?.broker?.avatar}
+                alt="portrait"
+                style={{ height: 250, objectFit: 'contain' }}
+              />
+            </Col>
+          )}
           <Col
             xs={12}
             lg={3}
             className="d-flex flex-column align-items-center align-items-lg-start gap-2"
           >
             <h1 className="he-yellow-c">Kontakt</h1>
-            <h3 className="he-white-c">Ilan Fishman</h3>
-            <h3 className="he-white-c">Geschäftsführer</h3>
-            <a style={{ textDecoration: 'none' }} href="tel:+4917622024779">
-              <h3 className="he-white-c">+49 176 2022 4779</h3>
+            <h3 className="he-white-c">{data?.broker?.name}</h3>
+            <h3 className="he-white-c">{data?.broker?.position}</h3>
+            <a style={{ textDecoration: 'none' }} href={`tel:${data?.broker?.public_cell}`}>
+              <h3 className="he-white-c">{data?.broker?.public_cell}</h3>
             </a>
             <a
               style={{ textDecoration: 'none' }}
-              href="mailto:ilan@homeease.de"
+              href={`mailto:${data?.broker?.public_email}`}
             >
-              <h3 className="he-white-c">ilan@homeease.de</h3>
+              <h3 className="he-white-c">{data?.broker?.public_email}</h3>
             </a>
           </Col>
           <Col
