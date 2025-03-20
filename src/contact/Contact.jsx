@@ -244,9 +244,8 @@ const Contact = ({ data }) => {
                 <h4 className="he-white-c">
                   Mit der Eingabe meiner Daten und Absendung der Anfrage erkläre
                   ich mich damit einverstanden, dass die Daten verschlüsselt an
-                  HomeEase GmbH weitergeleitet werden. Weitere
+                  HomeEase GmbH weitergeleitet werden. Weitere Informationen erfahren Sie unter Datenschutz.
                 </h4>
-                <h4 className="he-white-c">Informationen erfahren Sie unter Datenschutz</h4>
                 <h4 className="he-white-c">
                   Verbraucher im Sinne des § 13 BGB geben uns mit der
                   Übermittlung ihrer Telefonnummer die ausdrückliche
