@@ -44,14 +44,15 @@ import { translate } from '../utils';
           {data && (
             <div>
               <button
+                className='he-dark-c p-0'
                 onClick={() => navigate('/')}
                 style={{ textDecoration: 'none', background: 'transparent', border: 'none', cursor: 'pointer', fontSize: 12, marginBottom: 16 }}
               >
                 <i className="fa-solid fa-chevron-left"></i> Zurück
               </button>
-              {data.title?.value && (
+              {data?.title?.value && (
                 <>
-                <h1 className="he-teal-c">{data.title?.value}</h1>
+                <h1 className="he-teal-c">{data.title.value}</h1>
                 <h3 className="he-black-c" style={{ margin: '22px 0' }}>
                   {translate(data?.rs_type)} {translate(data?.marketing_type)}
                 </h3>
