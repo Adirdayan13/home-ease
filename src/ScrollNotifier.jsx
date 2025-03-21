@@ -7,13 +7,12 @@ const ScrollNotifier = () => {
       const scrollHeight = document.documentElement.scrollHeight;
       const clientHeight = window.innerHeight;
 
-      // If user has reached the bottom of the iframe
       if (scrollTop + clientHeight >= scrollHeight - 1) {
         window.parent.postMessage("iframeScrolledToBottom", "*");
       }
     };
 
-    const handleTouchMove = () => {
+    const handleTouchEnd = () => {
       const scrollTop = window.scrollY;
       const scrollHeight = document.documentElement.scrollHeight;
       const clientHeight = window.innerHeight;
@@ -24,15 +23,15 @@ const ScrollNotifier = () => {
     };
 
     window.addEventListener("scroll", handleScroll);
-    window.addEventListener("touchmove", handleTouchMove);
+    window.addEventListener("touchend", handleTouchEnd); // Touchend triggers when user stops scrolling
 
     return () => {
       window.removeEventListener("scroll", handleScroll);
-      window.removeEventListener("touchmove", handleTouchMove);
+      window.removeEventListener("touchend", handleTouchEnd);
     };
   }, []);
 
-  return null; // Render nothing
+  return null; // Nothing is rendered
 };
 
 export default ScrollNotifier;
