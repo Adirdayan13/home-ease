@@ -7,11 +7,9 @@ const ScrollNotifier = () => {
       const scrollHeight = document.documentElement.scrollHeight;
       const clientHeight = window.innerHeight;
 
-      if (scrollTop + clientHeight >= scrollHeight - 1) {
-        window.parent.postMessage("iframeScrolledToBottom", "*");
-        document.body.style.overscrollBehavior = "contain"; // Prevent rubber-band effect
-      } else {
-        document.body.style.overscrollBehavior = "auto";
+      if (scrollTop + clientHeight >= scrollHeight - 5) {
+        // Notify the parent that the iframe has reached the bottom
+        window.parent.postMessage({ type: "iframeReachedBottom" }, "*");
       }
     };
 
