@@ -3,13 +3,19 @@ import { useEffect } from "react";
 const ScrollNotifier = () => {
   useEffect(() => {
     const handleScroll = () => {
-      const scrollTop = window.scrollY;
-      const scrollHeight = document.documentElement.scrollHeight;
+      const iframeDoc = document.documentElement;
+      const scrollTop = iframeDoc.scrollTop;
+      const scrollHeight = iframeDoc.scrollHeight;
       const clientHeight = window.innerHeight;
 
-      if (scrollTop + clientHeight >= scrollHeight - 5) {
-        // Notify the parent that the iframe has reached the bottom
+      if (scrollTop + clientHeight >= scrollHeight - 1) {
+        // Notify parent that iframe has reached the bottom
         window.parent.postMessage({ type: "iframeReachedBottom" }, "*");
+
+        // Prevent further scrolling inside the iframe
+        document.body.style.overflow = "hidden";
+      } else {
+        document.body.style.overflow = "auto";
       }
     };
 
@@ -17,7 +23,7 @@ const ScrollNotifier = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  return null; // No UI rendering
+  return null;
 };
 
 export default ScrollNotifier;
