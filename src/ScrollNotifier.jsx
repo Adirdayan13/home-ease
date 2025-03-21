@@ -7,23 +7,32 @@ const ScrollNotifier = () => {
       const scrollHeight = document.documentElement.scrollHeight;
       const clientHeight = window.innerHeight;
 
-      // Check if user has reached the bottom of the iframe
+      // If user has reached the bottom of the iframe
       if (scrollTop + clientHeight >= scrollHeight - 1) {
-        // Send message to the parent window
+        window.parent.postMessage("iframeScrolledToBottom", "*");
+      }
+    };
+
+    const handleTouchMove = () => {
+      const scrollTop = window.scrollY;
+      const scrollHeight = document.documentElement.scrollHeight;
+      const clientHeight = window.innerHeight;
+
+      if (scrollTop + clientHeight >= scrollHeight - 1) {
         window.parent.postMessage("iframeScrolledToBottom", "*");
       }
     };
 
     window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+    window.addEventListener("touchmove", handleTouchMove);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener("touchmove", handleTouchMove);
+    };
   }, []);
 
-  return (
-    <div style={{ height: "200vh", padding: "20px" }}>
-      <h1>Scroll Inside the Iframe</h1>
-      <p>Scroll to the bottom to notify the parent page.</p>
-    </div>
-  );
+  return null; // Render nothing
 };
 
 export default ScrollNotifier;
