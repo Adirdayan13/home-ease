@@ -12,14 +12,16 @@ const ScrollNotifier = () => {
         // Notify parent that iframe reached the bottom
         window.parent.postMessage("iframeReachedBottom", "*");
 
-        // Prevent further scrolling inside the iframe (fix for iOS)
+        // Stop further scrolling inside iframe
         document.body.style.overflow = "hidden";
-      } else {
-        document.body.style.overflow = "auto";
+
+        // Pass touch event to parent
+        event.preventDefault();
       }
     };
 
     window.addEventListener("touchmove", handleTouchMove, { passive: false });
+
     return () => window.removeEventListener("touchmove", handleTouchMove);
   }, []);
 
