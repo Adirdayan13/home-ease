@@ -52,20 +52,11 @@ export const useDetails = () => {
 			{label: 'Kategorie', value: translate(data?.marketing_type)},
 			{label: 'Unterkategorie', value: data.apartment_type?.value ?? data?.building_type?.value},
 			{label: data.construction_year?.label, value: data.construction_year?.value},
-			{label: data?.base_rent?.label,
-				value: formatToCurrency(
-					data.price_on_inquiry.value
-						? data.price_on_inquiry.label
-						: data?.base_rent?.value, true
-				)
+			{label: data?.price?.label, value: data.price_on_inquiry.value
+				? data.price_on_inquiry.label
+				:  formatToCurrency(data?.price?.value, true)
 			},
-			{label: data?.price?.label,
-				value: formatToCurrency(
-					data.price_on_inquiry.value
-						? data.price_on_inquiry.label
-						: data?.price?.value, true
-				)
-			},
+			{label: data?.base_rent?.label, value: formatToCurrency(data?.base_rent?.value, true)},
 			{label: data.service_charge?.label, value: formatToCurrency(data.service_charge?.value, true)},
 			{label: data.heating_costs?.label, value: formatToCurrency(data.heating_costs?.value, true)},
 			{label: data.total_rent?.label, value: formatToCurrency(data.total_rent?.value, true)},

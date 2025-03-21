@@ -9,7 +9,7 @@ import AlignChildren from '../AlignChildren';
 import { translate } from '../utils';
 
   
-  const Details = () => {
+  const Details = ({ brokers }) => {
     const navigate = useNavigate();
     const {
       data,
@@ -37,6 +37,8 @@ import { translate } from '../utils';
         </AlignChildren>
       )
     }
+
+    const broker = brokers.find((el) => el?.id === data?.broker?.id);
 
     return (
       <div className="he-white-b min-vh-100 pt-5">
@@ -99,7 +101,7 @@ import { translate } from '../utils';
             </div>
           )}
         </div>
-        <Contact data={data} />
+        <Contact broker={broker} />
       </div>
     );
 };

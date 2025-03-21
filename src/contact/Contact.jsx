@@ -3,6 +3,7 @@ import { Col, Container, Row, Form as FormBootstrap } from 'react-bootstrap';
 import * as Yup from 'yup';
 import { useSubmit } from './useSubmit';
 import { useParams } from 'react-router-dom';
+import logo from '../HomeEase-Logotype-Claim-Primary-Yellow_HiRes.jpeg'
 
 const validationSchema = Yup.object({
   first_name: Yup.string().required('Vorname ist erforderlich'),
@@ -16,7 +17,7 @@ const validationSchema = Yup.object({
   message: Yup.string().required('Nachricht darf nicht leer sein'),
 });
 
-const Contact = ({ data }) => {
+const Contact = ({ broker }) => {
   const { title } = useParams();
   const { isLoading, isError, isSubmitted, submit } = useSubmit();
 
@@ -287,37 +288,42 @@ const Contact = ({ data }) => {
           </Formik>
         )}
         <Row className="d-flex gap-3 mt-5 pb-3">
-          {data?.broker?.avatar && (
+          
             <Col
               xs={12}
               lg={4}
               className="d-flex justify-content-center justify-content-lg-start"
             >
               <img
-                src={data?.broker?.avatar}
+                src={broker?.avatar ?? logo}
                 alt="portrait"
                 style={{ height: 250, objectFit: 'contain' }}
               />
             </Col>
-          )}
-          <Col
-            xs={12}
-            lg={3}
-            className="d-flex flex-column align-items-center align-items-lg-start gap-2"
-          >
-            <h1 className="he-yellow-c">Kontakt</h1>
-            <h3 className="he-white-c">{data?.broker?.name}</h3>
-            <h3 className="he-white-c">{data?.broker?.position}</h3>
-            <a style={{ textDecoration: 'none' }} href={`tel:${data?.broker?.public_cell}`}>
-              <h3 className="he-white-c">{data?.broker?.public_cell}</h3>
-            </a>
-            <a
-              style={{ textDecoration: 'none' }}
-              href={`mailto:${data?.broker?.public_email}`}
+          {broker && (
+            <Col
+              xs={12}
+              lg={3}
+              className="d-flex flex-column align-items-center align-items-lg-start gap-2"
             >
-              <h3 className="he-white-c">{data?.broker?.public_email}</h3>
-            </a>
-          </Col>
+              <h1 className="he-yellow-c">Kontakt</h1>
+              {broker?.name && <h3 className="he-white-c">{broker?.name}</h3>}
+              {broker?.position && <h3 className="he-white-c">{broker?.position}</h3>}
+              {broker?.public_cell && (
+                <a style={{ textDecoration: 'none' }} href={`tel:${broker?.public_cell}`}>
+                  <h3 className="he-white-c">{broker?.public_cell}</h3>
+                </a>
+              )}
+              {broker?.public_email && (
+                <a
+                  style={{ textDecoration: 'none' }}
+                  href={`mailto:${broker?.public_email}`}
+                  >
+                  <h3 className="he-white-c">{broker?.public_email}</h3>
+                </a>
+              )}
+            </Col>
+          )}
           <Col
             xs={12}
             lg={3}

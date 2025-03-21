@@ -113,21 +113,13 @@ const CarouselComponent = ({ images }) => {
           {/* Custom Fixed Navigation Arrows */}
           <button
             className="carousel-btn left"
-            onClick={() =>
-              handleSelect(
-                currentIndex === 0 ? images.length - 1 : currentIndex - 1
-              )
-            }
+            onClick={() => handleSelect(currentIndex === 0 ? images.length - 1 : currentIndex - 1)}
           >
             ❮
           </button>
           <button
             className="carousel-btn right"
-            onClick={() =>
-              handleSelect(
-                currentIndex === images.length - 1 ? 0 : currentIndex + 1
-              )
-            }
+            onClick={() => handleSelect(currentIndex === images.length - 1 ? 0 : currentIndex + 1)}
           >
             ❯
           </button>
