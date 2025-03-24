@@ -5,7 +5,7 @@ const ScrollNotifier = () => {
         const handleScrollOrTouchEnd = () => {
             const scrollableElement = document.documentElement || document.body;
             const atBottom = scrollableElement.scrollHeight - scrollableElement.scrollTop <= scrollableElement.clientHeight + 5;
-
+            console.log('adir', { scrollableElement, atBottom})
             if (atBottom) {
                 window.parent.postMessage({ type: "iframeReachedBottom" }, "*");
             }
