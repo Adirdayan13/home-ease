@@ -3,7 +3,7 @@ import { Col, Container, Row, Form as FormBootstrap } from 'react-bootstrap';
 import * as Yup from 'yup';
 import { useSubmit } from './useSubmit';
 import { useParams } from 'react-router-dom';
-import logo from '../HomeEase-Logotype-Claim-Primary-Yellow_HiRes.jpeg'
+import logo from '../icons/HomeEase-Symbol.svg'
 
 const validationSchema = Yup.object({
   first_name: Yup.string().required('Vorname ist erforderlich'),
