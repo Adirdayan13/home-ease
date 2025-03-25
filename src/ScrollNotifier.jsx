@@ -3,7 +3,7 @@ import { useEffect } from "react";
 const ScrollNotifier = () => {
     useEffect(() => {
         const handleScrollOrTouchEnd = () => {
-            const scrollableElement = document.documentElement || document.body;
+            const scrollableElement = document.body;
             const atBottom = scrollableElement.scrollHeight - scrollableElement.scrollTop <= scrollableElement.clientHeight + 5;
             console.log('adir', { scrollableElement, atBottom})
             if (atBottom) {
