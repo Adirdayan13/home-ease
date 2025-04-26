@@ -4,7 +4,6 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { HashRouter as Router } from 'react-router-dom'
-import ScrollNotifier from './ScrollNotifier';
 import './index.css';
 import 'bootstrap/dist/css/bootstrap.css';
 
@@ -12,7 +11,6 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <Router>
-      <ScrollNotifier />
       <App />
     </Router>
   </React.StrictMode>

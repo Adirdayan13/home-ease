@@ -15,6 +15,7 @@ export const useSubmit = () => {
   const [isSubmitted, setIsSubmitted] = useState(false);
   const { id, title } = useParams(); // Extracts "id" from URL
   const submit = async (values) => {
+    let client_id;
     setIsLoading(true);
     setIsError(null);
     const today = new Date();
@@ -45,7 +46,8 @@ export const useSubmit = () => {
       })
         .then((res) => res.json())
         .then(async (res) => {
-          if (res.errors) {
+          client_id = res.id;
+          if (res?.errors) {
             throw new Error(res.errors[0]);
           }
           // Create task
@@ -75,19 +77,41 @@ export const useSubmit = () => {
             }),
           })
             .then((res) => res.json())
-            .then((res) => {
-              if (res.errors) {
+            .then(async (res) => {
+              if (res?.errors) {
                 throw new Error(res.errors[0]);
               }
-              setIsLoading(false);
-              setIsSubmitted(true);
+              // Create a deal (make it qualified)
+              await fetch('https://api.propstack.de/v1/client_properties', {
+                headers: {
+                  'X-API-KEY': myVeryLimitedAccessKey,
+                  'Content-Type': 'application/json',
+                },
+                method: 'POST',
+                body: JSON.stringify({
+                  client_property: {
+                    client_id, // ID from contact creation
+                    title: `${values.first_name} ${values.last_name} - Anfrage`,
+                    property_id: [id], // Optional, if linked to a property
+                    deal_stage_id: 280132, // You need to find this ID in your Propstack pipeline
+                  }
+                })
+              }).then((res) => res.json())
+                .then((res) => {
+                  if (res?.errors) {
+                    throw new Error(res.errors[0]);
+                  }
+                  setIsLoading(false);
+                  setIsSubmitted(true);
+                })
+                .catch((error) => {
+                  setIsError(error);
+                  setIsLoading(false);
+                  setIsSubmitted(false);
+                  console.error('Error:', error);
+                });
             })
-            .catch((error) => {
-              setIsError(error);
-              setIsLoading(false);
-              setIsSubmitted(false);
-              console.error('Error:', error);
-            });
+            
         });
     } catch (error) {
       setIsError(error);

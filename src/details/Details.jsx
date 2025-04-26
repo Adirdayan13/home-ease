@@ -38,7 +38,7 @@ import { translate } from '../utils';
       )
     }
 
-    const broker = brokers.find((el) => el?.id === data?.broker?.id);
+    const broker = brokers?.find((el) => el?.id === data?.broker?.id);
 
     return (
       <div className="he-white-b min-vh-100 pt-5">
