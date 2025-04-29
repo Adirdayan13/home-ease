@@ -14,7 +14,7 @@ const Card = (props) => {
 	} = props;
 
 	return (
-		<Col key={item.id} xs={12} sm={6} lg={6} md={12} className="mb-4">
+		<Col key={item.id} xs={12} sm={6} lg={6} md={12} className="he-card mb-4">
 			<div
 				onMouseEnter={() => setHovered(item.id)}
 				onMouseLeave={() => setHovered(null)}
