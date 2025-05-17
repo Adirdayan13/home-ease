@@ -1,25 +1,6 @@
 import { useState } from 'react';
 import { myVeryLimitedAccessKey } from '../utils';
 
-const germanRegions = [
-  'Baden-Württemberg',
-  'Bayern',
-  'Berlin',
-  'Brandenburg',
-  'Bremen',
-  'Hamburg',
-  'Hessen',
-  'Mecklenburg-Vorpommern',
-  'Niedersachsen',
-  'Nordrhein-Westfalen',
-  'Rheinland-Pfalz',
-  'Saarland',
-  'Sachsen',
-  'Sachsen-Anhalt',
-  'Schleswig-Holstein',
-  'Thüringen',
-];
-
 export const useSubmitSearchProfile = () => {
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
@@ -28,24 +9,6 @@ export const useSubmitSearchProfile = () => {
   const [input, setInput] = useState('');
   const [selectedRegion, setSelectedRegion] = useState('');
 
-  const addCity = (city) => {
-    if (city && !cities.includes(city)) {
-      setCities([...cities, city]);
-      setInput(''); // Clear input after adding
-    }
-  };
-
-  const handleKeyDown = (e) => {
-    if (e.key === 'Enter' || e.key === ',') {
-      e.preventDefault();
-      addCity(input.trim());
-    }
-  };
-
-  const removeCity = (index) => {
-    setCities(cities.filter((_, i) => i !== index));
-  };
-
   const submit = async (values) => {
     let extendedValues = {
       ...values,
@@ -53,12 +16,6 @@ export const useSubmitSearchProfile = () => {
       cities: cities,
       rs_types: [values.rs_types],
     };
-    if (extendedValues.marketing_type === 'RENT') {
-      extendedValues.base_rent = values.price;
-      extendedValues.base_rent_to = values.price_to;
-      delete extendedValues.price;
-      delete extendedValues.price_to;
-    }
 
     setIsLoading(true);
     try {
@@ -113,12 +70,9 @@ export const useSubmitSearchProfile = () => {
     cities,
     input,
     selectedRegion,
-    germanRegions,
-    addCity,
-    handleKeyDown,
-    removeCity,
     setInput,
     submit,
     setSelectedRegion,
+    setCities
   };
 };
