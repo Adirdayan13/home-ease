@@ -6,10 +6,10 @@ const CategoryCheckboxes = ({
   selectedCategories,
   onChange,
 }) => {
-  const categories = rsTypeToCategories[selectedRsType] || [];
+  const categories = rsTypeToCategories?.[selectedRsType] || [];
 
   const toggleCheck = (value) => {
-    const updated = selectedCategories.includes(value)
+    const updated = selectedCategories?.includes(value)
       ? selectedCategories.filter((v) => v !== value)
       : [...selectedCategories, value];
     onChange(updated);
@@ -23,7 +23,7 @@ const CategoryCheckboxes = ({
             type="checkbox"
             id={`checkbox-${value}`}
             label={label}
-            checked={selectedCategories.includes(value)}
+            checked={selectedCategories?.includes(value)}
             onChange={() => toggleCheck(value)}
           />
         </div>

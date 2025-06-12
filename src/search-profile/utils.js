@@ -16,16 +16,17 @@ export const germanRegions = [
   'Schleswig-Holstein',
   'Thüringen',
 ];
-
-const investmentProperty = [
-  { value: 'SINGLE_FAMILY_HOUSE', label: 'Einfamilienhaus' },
-  { value: 'MULTI_FAMILY_HOUSE', label: 'Mehrfamilienhaus' },
+const INVESTMENT = [ // Anlageobjekt
+  { value: 'INVEST_MULTI_FAMILY_HOUSE', label: 'Eigentumswohnung' },
+  { value: 'INVEST_SINGLE_FAMILY_HOUSE', label: 'Einfamilienhaus' },
+  { value: 'INVEST_FREEHOLD_FLAT', label: 'Mehrfamilienhaus' },
+  { value: 'INVEST_LIVING_BUSINESS_HOUSE', label: 'Einfamilienhaus' },
   { value: 'INVEST_LIVING_BUSINESS_HOUSE', label: 'Wohn-/Geschäftshaus' },
-  { value: 'INVEST_HOUSING_ESTATE', label: 'Wohnanlage' },
   { value: 'INVEST_MICRO_APARTMENTS', label: 'Micro-Apartments' },
+  { value: 'INVEST_HOUSING_ESTATE', label: 'Wohnanlage' },
   { value: 'INVEST_OFFICE_BUILDING', label: 'Bürohaus' },
   { value: 'INVEST_COMMERCIAL_BUILDING', label: 'Geschäftshaus' },
-  { value: 'INVEST_OFFICE_AND_COMMERCIAL_BUILDING', label: 'Büro- und Geschäftshaus' },
+  { value: 'INVEST_OFFICE_AND_COMMERCIAL_BUILDING', label: 'Büro- und Geschäftshaus'},
   { value: 'INVEST_SHOP_SALES_FLOOR', label: 'Laden/Verkaufsfläche' },
   { value: 'INVEST_SUPERMARKET', label: 'Supermarkt' },
   { value: 'INVEST_SHOPPING_CENTRE', label: 'Einkaufszentrum' },
@@ -47,11 +48,11 @@ const investmentProperty = [
   { value: 'INVEST_CAR_PARK', label: 'Parkhaus' },
   { value: 'INVEST_PLOT', label: 'Grundstück' },
   { value: 'INVEST_COMMERCIAL_UNIT', label: 'Gewerbeeinheit' },
-  { value: 'INVEST_OTHER', label: 'Sonstiges' }
+  { value: 'INVEST_OTHER', label: 'Sonstiges' },
 ];
 
-const retail = [
-  { value: 'SHOWROOM_SPACE', label: 'Ausstellungsfläche' },
+const STORE = [ // Einzelhandel
+  { value: 'SHOWROOM_SPACE', label: 'Ausstellungsfläche' }, // TODO: Fix - go to Halle/Produktion
   { value: 'SHOPPING_CENTRE', label: 'Einkaufszentrum' },
   { value: 'FACTORY_OUTLET', label: 'Factory Outlet' },
   { value: 'DEPARTMENT_STORE', label: 'Kaufhaus' },
@@ -59,29 +60,33 @@ const retail = [
   { value: 'STORE', label: 'Laden' },
   { value: 'SELF_SERVICE_MARKET', label: 'SB-Markt' },
   { value: 'SALES_AREA', label: 'Verkaufsfläche' },
-  { value: 'SALES_HALL', label: 'Verkaufshalle' }
+  { value: 'SALES_HALL', label: 'Verkaufshalle' },
 ];
 
-const specializedTrade = [
+const SPECIAL_PURPOSE = [ // Spezialgewerbe
   { value: 'RESIDENCE', label: 'Anwesen' },
   { value: 'FARM', label: 'Bauernhof' },
   { value: 'LEISURE_FACILITY', label: 'Freizeitanlage' },
   { value: 'COMMERCIAL_UNIT', label: 'Gewerbeeinheit' },
   { value: 'INDUSTRIAL_AREA', label: 'Gewerbefläche' },
+  { value: 'COMMERCIAL_CENTRE', label: 'Gewerbepark' },
   { value: 'NURSING_HOME', label: 'Pflegeheim' },
   { value: 'ASSISTED_LIVING', label: 'Betreutes Wohnen' },
   { value: 'HORSE_FARM', label: 'Reiterhof' },
   { value: 'VINEYARD', label: 'Weingut' },
   { value: 'REPAIR_SHOP', label: 'Werkstatt' },
-  { value: 'SPECIAL_ESTATE', label: 'Spezialobjekt' }
+  { value: 'SPECIAL_ESTATE', label: 'Spezialobjekt' },
 ];
 
-const hallProduction = [
+const INDUSTRY = [ // Halle/Produktion
   { value: 'SHOWROOM_SPACE', label: 'Ausstellungsfläche' },
   { value: 'HALL', label: 'Halle' },
   { value: 'HIGH_LACK_STORAGE', label: 'Hochregallager' },
   { value: 'INDUSTRY_HALL', label: 'Industriehalle' },
-  { value: 'INDUSTRY_HALL_WITH_OPEN_AREA', label: 'Industriehalle mit Freifläche' },
+  {
+    value: 'INDUSTRY_HALL_WITH_OPEN_AREA',
+    label: 'Industriehalle mit Freifläche',
+  },
   { value: 'COLD_STORAGE', label: 'Kühlhaus' },
   { value: 'MULTIDECK_CABINET_STORAGE', label: 'Kühlregallager' },
   { value: 'STORAGE_WITH_OPEN_AREA', label: 'Lager mit Freifläche' },
@@ -89,10 +94,10 @@ const hallProduction = [
   { value: 'STORAGE_HALL', label: 'Lagerhalle' },
   { value: 'SERVICE_AREA', label: 'Servicefläche' },
   { value: 'SHIPPING_STORAGE', label: 'Speditionslager' },
-  { value: 'REPAIR_SHOP', label: 'Werkstatt' }
+  { value: 'REPAIR_SHOP', label: 'Werkstatt' }, // TODO: Fix - go to special purpose
 ];
 
-const gastronomyHotels = [
+const GASTRONOMY = [ // Gastronomie/Hotels
   { value: 'BAR_LOUNGE', label: 'Barbetrieb/Lounge' },
   { value: 'CAFE', label: 'Café' },
   { value: 'CLUB_DISCO', label: 'Club/Diskothek' },
@@ -102,10 +107,10 @@ const gastronomyHotels = [
   { value: 'HOTEL_RESIDENCE', label: 'Hotelanwesen' },
   { value: 'HOTEL_GARNI', label: 'Hotel garni' },
   { value: 'PENSION', label: 'Pension' },
-  { value: 'RESTAURANT', label: 'Restaurant' }
+  { value: 'RESTAURANT', label: 'Restaurant' },
 ];
 
-const officePractice = [
+const OFFICE = [ // Büro/Praxis
   { value: 'OFFICE_LOFT', label: 'Loft' },
   { value: 'STUDIO', label: 'Atelier' },
   { value: 'OFFICE', label: 'Büro' },
@@ -116,22 +121,22 @@ const officePractice = [
   { value: 'SURGERY', label: 'Praxis' },
   { value: 'SURGERY_FLOOR', label: 'Praxisetage' },
   { value: 'SURGERY_BUILDING', label: 'Praxishaus' },
-  { value: 'COMMERCIAL_CENTRE', label: 'Gewerbezentrum' },
+  { value: 'COMMERCIAL_CENTRE', label: 'Gewerbezentrum' }, // TODO: Fix - go to special purpose
   { value: 'LIVING_AND_COMMERCIAL_BUILDING', label: 'Wohn- und Geschäftsgebäude' },
-  { value: 'OFFICE_AND_COMMERCIAL_BUILDING', label: 'Büro- und Geschäftsgebäude' }
+  { value: 'OFFICE_AND_COMMERCIAL_BUILDING', label: 'Büro- und Geschäftsgebäude' },
 ];
 
-const garage = [
+const GARAGE = [ // Garage
   { value: 'GARAGE', label: 'Garage' },
   { value: 'STREET_PARKING', label: 'Außenstellplatz' },
   { value: 'CARPORT', label: 'Carport' },
   { value: 'DUPLEX', label: 'Duplex' },
   { value: 'CAR_PARK', label: 'Parkhaus' },
   { value: 'UNDERGROUND_GARAGE', label: 'Tiefgarage' },
-  { value: 'DOUBLE_GARAGE', label: 'Doppelgarage' }
+  { value: 'DOUBLE_GARAGE', label: 'Doppelgarage' },
 ];
 
-const house = [
+const HOUSE = [ // Haus
   { value: 'SINGLE_FAMILY_HOUSE', label: 'Einfamilienhaus' },
   { value: 'TWO_FAMILY_HOUSE', label: 'Zweifamilienhaus' },
   { value: 'TERRACE_HOUSE', label: 'Reihenhaus' },
@@ -148,10 +153,10 @@ const house = [
   { value: 'CASTLE_MANOR_HOUSE', label: 'Burg/Schloss' },
   { value: 'SPECIAL_REAL_ESTATE', label: 'Besondere Immobilie' },
   { value: 'TWIN_SINGLE_FAMILY_HOUSE', label: 'Doppeleinfamilienhaus' },
-  { value: 'SUMMER_RESIDENCE', label: 'Ferienhaus' }
+  { value: 'SUMMER_RESIDENCE', label: 'Ferienhaus' },
 ];
 
-const apartment = [
+const APARTMENT = [ // Wohnung
   { value: 'ROOF_STOREY', label: 'Dachgeschoss' },
   { value: 'LOFT', label: 'Loft' },
   { value: 'MAISONETTE', label: 'Maisonette' },
@@ -162,17 +167,122 @@ const apartment = [
   { value: 'RAISED_GROUND_FLOOR', label: 'Hochparterre' },
   { value: 'HALF_BASEMENT', label: 'Souterrain' },
   { value: 'ATTIKA', label: 'Attikawohnung' },
-  { value: 'OTHER', label: 'Sonstige' }
+  { value: 'OTHER', label: 'Sonstige' },
 ];
 
+export const rsTypeLabelMap = {
+  APARTMENT: 'Wohnung',
+  HOUSE: 'Haus',
+  GARAGE: 'Garage',
+  OFFICE: 'Büro',
+  GASTRONOMY: 'Gastronomie/Hotels',
+  INDUSTRIAL: 'Halle/Produktion',
+  SPECIAL_PURPOSE: 'Spezialobjekte',
+  RETAIL: 'Einzelhandel',
+  Anlageobjekt: 'Anlageobjekt',
+};
+
+export const categoryFields = {
+  APARTMENT: [ // Wohnung
+    { value: 'number_of_rooms', label: 'Zimmer' },
+    { value: 'number_of_rooms_to', label: 'Zimmer bis' },
+    { value: 'living_space', label: 'Wohnfläche (m²)' },
+    { value: 'living_space_to', label: 'Wohnfläche bis (m²)' },
+    { value: 'lift', label: 'Aufzug', type: 'boolean' },
+    { value: 'balcony', label: 'Balkon/Terrasse', type: 'boolean' },
+  ],
+  HOUSE: [ // Haus
+    { value: 'number_of_rooms', label: 'Zimmer' },
+    { value: 'number_of_rooms_to', label: 'Zimmer bis' },
+    { value: 'living_space', label: 'Wohnfläche (m²)' },
+    { value: 'living_space_to', label: 'Wohnfläche bis (m²)' },
+    { value: 'plot_area', label: 'Grundstücksfläche (m²)' },
+    { value: 'plot_area_to', label: 'Grundstücksfläche bis (m²)' },
+  ],
+  TRADE_SITE: [
+    { value: 'plot_area', label: 'Grundstücksfläche (m²)' },
+    { value: 'plot_area_to', label: 'Grundstücksfläche bis (m²)' },
+    { value: 'bgf', label: 'BGF (m²)' },
+    { value: 'bgf_to', label: 'BGF bis (m²)' },
+  ],
+  OFFICE: [ // Büro/Praxis
+    { value: 'number_of_rooms', label: 'Zimmer' },
+    { value: 'number_of_rooms_to', label: 'Zimmer bis' },
+    { value: 'living_space', label: 'Wohnfläche (m²)' },
+    { value: 'living_space_to', label: 'Wohnfläche bis (m²)' },
+    { value: 'plot_area', label: 'Grundstücksfläche (m²)' },
+    { value: 'plot_area_to', label: 'Grundstücksfläche bis (m²)' },
+    { value: 'lift', label: 'Aufzug', type: 'boolean' },
+    { value: 'barrier_free', label: 'Barrierefrei', type: 'boolean' },
+    { value: 'balcony', label: 'Balkon/Terrasse', type: 'boolean' },
+  ],
+  GASTRONOMY: [ // Gastronomie/Hotels
+    { value: 'number_of_rooms', label: 'Zimmer' },
+    { value: 'number_of_rooms_to', label: 'Zimmer bis' },
+    { value: 'living_space', label: 'Wohnfläche (m²)' },
+    { value: 'living_space_to', label: 'Wohnfläche bis (m²)' },
+    { value: 'plot_area', label: 'Grundstücksfläche (m²)' },
+    { value: 'plot_area_to', label: 'Grundstücksfläche bis (m²)' },
+    { value: 'lift', label: 'Aufzug', type: 'boolean' },
+    { value: 'barrier_free', label: 'Barrierefrei', type: 'boolean' },
+    { value: 'balcony', label: 'Balkon/Terrasse', type: 'boolean' },
+  ],
+  INDUSTRY: [ // Halle/Produktion
+   { value: 'number_of_rooms', label: 'Zimmer' },
+    { value: 'number_of_rooms_to', label: 'Zimmer bis' },
+    { value: 'living_space', label: 'Wohnfläche (m²)' },
+    { value: 'living_space_to', label: 'Wohnfläche bis (m²)' },
+    { value: 'plot_area', label: 'Grundstücksfläche (m²)' },
+    { value: 'plot_area_to', label: 'Grundstücksfläche bis (m²)' },
+    { value: 'lift', label: 'Aufzug', type: 'boolean' },
+    { value: 'barrier_free', label: 'Barrierefrei', type: 'boolean' },
+    { value: 'balcony', label: 'Balkon/Terrasse', type: 'boolean' },
+  ],
+  STORE: [ // Einzelhandel
+   { value: 'number_of_rooms', label: 'Zimmer' },
+    { value: 'number_of_rooms_to', label: 'Zimmer bis' },
+    { value: 'living_space', label: 'Wohnfläche (m²)' },
+    { value: 'living_space_to', label: 'Wohnfläche bis (m²)' },
+    { value: 'plot_area', label: 'Grundstücksfläche (m²)' },
+    { value: 'plot_area_to', label: 'Grundstücksfläche bis (m²)' },
+    { value: 'lift', label: 'Aufzug', type: 'boolean' },
+    { value: 'barrier_free', label: 'Barrierefrei', type: 'boolean' },
+    { value: 'balcony', label: 'Balkon/Terrasse', type: 'boolean' },
+  ],
+  SPECIAL_PURPOSE: [ // Spezialgewerbe
+    { value: 'number_of_rooms', label: 'Zimmer' },
+    { value: 'number_of_rooms_to', label: 'Zimmer bis' },
+    { value: 'living_space', label: 'Wohnfläche (m²)' },
+    { value: 'living_space_to', label: 'Wohnfläche bis (m²)' },
+    { value: 'plot_area', label: 'Grundstücksfläche (m²)' },
+    { value: 'plot_area_to', label: 'Grundstücksfläche bis (m²)' },
+    { value: 'lift', label: 'Aufzug', type: 'boolean' },
+    { value: 'barrier_free', label: 'Barrierefrei', type: 'boolean' },
+    { value: 'balcony', label: 'Balkon/Terrasse', type: 'boolean' },
+  ],
+  
+  INVESTMENT: [ // Anlageobjekt
+    { value: 'living_space', label: 'Wohnfläche (m²)' },
+    { value: 'living_space_to', label: 'Wohnfläche bis (m²)' },
+    { value: 'total_floor_space', label: 'Vermietbare Fläche (m²)' },
+    { value: 'total_floor_space_to', label: 'Vermietbare Fläche bis (m²)' },
+    { value: 'plot_area', label: 'Grundstücksfläche (m²)' },
+    { value: 'plot_area_to', label: 'Grundstücksfläche bis (m²)' },
+    { value: 'number_of_apartments', label: 'Wohnungseinheiten' },
+    { value: 'number_of_apartments_to', label: 'Wohnungseinheiten bis' },
+    { value: 'number_of_commercials', label: 'Gewerbeeinheiten' },
+    { value: 'number_of_commercials_to', label: 'Gewerbeeinheiten bis' },
+  ],
+};
+
 export const rsTypeToCategories = {
-  Wohnung: apartment,
-  Haus: house,
-  Garage: garage,
-  Büro: officePractice,
-  'Gastronomie/Hotels': gastronomyHotels,
-  Industrie: hallProduction,
-  SPECIAL_PURPOSE: specializedTrade,
-  Einzelhandel: retail,
-  INVESTMENT: investmentProperty,
+  APARTMENT: APARTMENT, // Wohnung
+  HOUSE: HOUSE, // Haus
+  GARAGE: GARAGE,// Garage
+  OFFICE: OFFICE, // Büro/Praxis
+  GASTRONOMY: GASTRONOMY, // Gastronomie/Hotels
+  INDUSTRY: INDUSTRY, // Halle/Produktion
+  STORE: STORE, // Einzelhandel
+  SPECIAL_PURPOSE: SPECIAL_PURPOSE, // Spezialgewerbe
+  INVESTMENT: INVESTMENT, // Anlageobjekt
 };

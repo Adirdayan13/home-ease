@@ -7,12 +7,12 @@ export const useSubmitSearchProfile = () => {
   const [isError, setIsError] = useState(null);
   const [cities, setCities] = useState([]);
   const [input, setInput] = useState('');
-  const [selectedRegion, setSelectedRegion] = useState('');
+  const [selectedRegions, setSelectedRegions] = useState([]);
 
   const submit = async (values) => {
     let extendedValues = {
       ...values,
-      regions: selectedRegion,
+      regions: selectedRegions,
       cities: cities,
       rs_types: [values.rs_types],
     };
@@ -69,10 +69,10 @@ export const useSubmitSearchProfile = () => {
     isSubmitted,
     cities,
     input,
-    selectedRegion,
+    selectedRegions,
     setInput,
     submit,
-    setSelectedRegion,
+    setSelectedRegions,
     setCities
   };
 };

@@ -1,4 +1,5 @@
-import { useEffect, useState } from 'react';
+import Select from 'react-select';
+import { useEffect, useRef, useState } from 'react';
 import { ErrorMessage, Field, Form, Formik } from 'formik';
 import {
   Col,
@@ -11,12 +12,21 @@ import * as Yup from 'yup';
 import { useSubmitSearchProfile } from './useSubmitSearchProfile';
 import CategoryCheckboxes from './CategoryCheckboxes';
 import { germanRegions, rsTypeToCategories } from './utils';
+import DynamicFields from './DynamicFields';
 
 const validationSchema = Yup.object({
   first_name: Yup.string().required('Vorname ist erforderlich'),
   last_name: Yup.string().required('Nachname ist erforderlich'),
+  regions: Yup.array()
+    .of(Yup.string().oneOf(germanRegions, 'Ungültige Region'))
+    .min(1, 'Mindestens eine Region muss ausgewählt werden')
+    .required('Region ist erforderlich'),
   cities: Yup.string().required('Stadt ist erforderlich'),
-  rs_types: Yup.string().required('Objekt ist erforderlich'),
+  rs_type: Yup.string().required('Objekt ist erforderlich'),
+  // rs_categories: Yup.array()
+  //   .of(Yup.string())
+  //   .min(1, 'Mindestens eine Objektart muss ausgewählt werden'),
+    // .required('Objektart ist erforderlich'),
   phone: Yup.string().matches(/^\d+$/, 'Nur Zahlen erlaubt'),
   email: Yup.string()
     .email('Ungültige E-Mail-Adresse')
@@ -32,24 +42,24 @@ const SearchProfile = () => {
     isError,
     cities,
     input,
-    selectedRegion,
+    selectedRegions,
     submit,
     setInput,
-    setSelectedRegion,
+    setSelectedRegions,
     setCities,
   } = useSubmitSearchProfile();
-
+  
+  const setFieldValueRef = useRef(null);
   const [selectedRsType, setSelectedRsType] = useState('');
-  const [selectedCategories, setSelectedCategories] = useState(
-    rsTypeToCategories['Wohnung'].map((item) => item.value)
-  );
 
-  useEffect(() => {
-    // reset categories when rs_type changes
-    setSelectedCategories(
-      rsTypeToCategories[selectedRsType]?.map((item) => item.value) || []
-    );
-  }, [selectedRsType]);
+useEffect(() => {
+  const defaultCategories =
+    rsTypeToCategories[selectedRsType]?.map((item) => item.value) || [];
+
+  if (setFieldValueRef.current) {
+    setFieldValueRef.current('rs_categories', defaultCategories);
+  }
+}, [selectedRsType]);
 
   return (
     <div className="he-dark-b" style={{ paddingTop: 40, minHeight: '100vh' }}>
@@ -63,12 +73,14 @@ const SearchProfile = () => {
         ) : (
           <Formik
             initialValues={{
-              first_name: '',
-              last_name: '',
-              phone: '',
-              email: '',
+              first_name: 'adir',
+              last_name: 'dayan',
+              phone: '007',
+              email: 'adirdayan@gmail.com',
               marketing_type: 'BUY',
-              rs_types: '',
+              rs_type: '',
+              rs_categories: [],
+              regions: [], // <-- new multiselect field
               cities: '',
               price: '',
               price_to: '',
@@ -80,9 +92,10 @@ const SearchProfile = () => {
             validateOnChange={true}
             validationSchema={validationSchema}
             // onSubmit={async (values) => submit(values)}
-            onSubmit={(values) => console.log({ values })}
+            onSubmit={(values) => submit(values)}
           >
             {({ errors, touched, handleChange, setFieldValue, values }) => {
+              setFieldValueRef.current = setFieldValue; // ✅ store in ref
               const addCityAndUpdateFormik = (city) => {
                 const trimmed = city.trim();
                 if (trimmed && !cities.includes(trimmed)) {
@@ -191,13 +204,13 @@ const SearchProfile = () => {
                       </Col>
                       <Col xs={12} md={8}>
                         <ErrorMessage
-                          name="rs_types"
+                          name="rs_type"
                           component="div"
                           style={{ color: 'red' }}
                         />
                         <FormBootstrap.Select
-                          aria-label="rs_types"
-                          name="rs_types"
+                          aria-label="rs_type"
+                          name="rs_type"
                           className="contact-input"
                           style={{
                             backgroundColor: 'transparent',
@@ -207,41 +220,37 @@ const SearchProfile = () => {
                           onChange={(e) => {
                             const newRsType = e.target.value;
                             setSelectedRsType(newRsType); // Update local state
-                            setFieldValue('rs_types', newRsType); // Update Formik value
+                            setFieldValue('rs_type', newRsType); // Update Formik value
                           }}
                         >
                           <option value=""></option>
-                          <option value="Wohnung">Wohnung</option>
-                          <option value="Haus">Haus</option>
-                          <option value="Garage">Garage</option>
-                          <option value="Büro">Büro/Praxis</option>
-                          <option value="Gastronomie/Hotels">
-                            Gastronomie/Hotels
-                          </option>
-                          <option value="Industrie">Industrie</option>
-                          <option value="Einzelhandel">Geschäft</option>
-                          <option value="SPECIAL_PURPOSE">
-                            Spezieller Zweck
-                          </option>
-                          <option value="INVESTMENT">Investieren</option>
+                          <option value="APARTMENT">Wohnung</option>
+                          <option value="HOUSE">Haus</option>
+                          <option value="TRADE_SITE">Grundstück</option>
+                          <option value="GARAGE">Garage</option>
+                          <option value="OFFICE">Büro/Praxis</option>
+                          <option value="GASTRONOMY">Gastronomie/Hotels</option>
+                          <option value="INDUSTRY">Halle/Produktion</option>
+                          <option value="STORE">Einzelhandel</option>
+                          <option value="SPECIAL_PURPOSE">Spezialgewerbe</option>
+                          <option value="INVESTMENT">Anlageobjekt</option>
                         </FormBootstrap.Select>
-                        {/* <option value="TRADE_SITE">Gewerbegrundstück</option>
-                          <option value="SHORT_TERM_ACCOMODATION">Kurzzeitunterkunft</option> */}
                       </Col>
                     </Row>
-                    {selectedRsType && (
+                    {selectedRsType && rsTypeToCategories?.[selectedRsType]?.length && (
                       <Row className="mb-1">
                         <Col xs={12} md={4}>
                           <Col xs={12}>
-                            <h3>ObjektType</h3>
+                            <h3>Objektart</h3>
                           </Col>
                         </Col>
                         <Col xs={12} md={8}>
-                          <CategoryCheckboxes
-                            selectedRsType={selectedRsType}
-                            selectedCategories={selectedCategories}
-                            onChange={setSelectedCategories}
-                          />
+       
+                           <CategoryCheckboxes
+                              selectedRsType={selectedRsType}
+                              selectedCategories={values.rs_categories}
+                              onChange={(updated) => setFieldValue('rs_categories', updated)}
+                            />
                         </Col>
                       </Row>
                     )}
@@ -291,35 +300,59 @@ const SearchProfile = () => {
                             </FormBootstrap.Group>
                           </Col>
                           <Col xs={12} md={6}>
-                            <ErrorMessage // here for alignment
-                              name="cities"
+                            <ErrorMessage
+                              name="regions"
                               component="div"
-                              style={{ visibility: 'hidden' }}
+                              style={{ color: 'red'}}
                             />
-                            <FormBootstrap.Group controlId="region">
-                              <FormBootstrap.Select
-                                value={selectedRegion}
-                                onChange={(e) => {
-                                  setSelectedRegion(e.target.value);
-                                  handleChange(e); // Add onChange handler
+                            {/* <FormBootstrap.Group controlId="regions"> */}
+                              <Select
+                                isMulti
+                                closeMenuOnSelect={false}
+                                name="regions"
+                                options={germanRegions.map((region) => ({
+                                  value: region,
+                                  label: region,
+                                }))}
+                                value={selectedRegions.map((r) => ({
+                                  label: r,
+                                  value: r,
+                                }))}
+                                onChange={(selectedOptions) => {
+                                  const selected = selectedOptions.map(
+                                    (opt) => opt.value
+                                  );
+                                  setSelectedRegions(selected);
+                                  setFieldValue('regions', selected); // sync with Formik
                                 }}
-                                name="region"
-                                className="contact-input"
-                                style={{
-                                  backgroundColor: 'transparent',
-                                  color: 'var(--home-ease-light)',
+                                classNamePrefix="contact-input"
+                                // className="contact-input"
+                                styles={{
+                                  option: (base) => ({
+                                    ...base,
+                                    color: 'black',
+                                    backgroundColor: 'transparent',
+                                    '&:hover': {
+                                      backgroundColor: '#e0e0e0',
+                                    },
+                                  }),
+                                  multiValueRemove: (provided) => ({
+                                    ...provided,
+                                    backgroundColor: 'transparent',
+                                    color: '#00796b', // X icon color
+                                    ':hover': {
+                                      backgroundColor: '#b2dfdb',
+                                      color: 'black', // X icon color on hover
+                                    },
+                                  }),
+                                  control: (base) => ({
+                                    ...base,
+                                    backgroundColor: 'transparent',
+                                    color: 'var(--home-ease-light)',
+                                  }),
                                 }}
-                              >
-                                <option value="" disabled>
-                                  Region
-                                </option>
-                                {germanRegions.map((region, index) => (
-                                  <option key={index} value={region}>
-                                    {region}
-                                  </option>
-                                ))}
-                              </FormBootstrap.Select>
-                            </FormBootstrap.Group>
+                              />
+                            {/* </FormBootstrap.Group> */}
                           </Col>
                         </Row>
                       </Col>
@@ -363,36 +396,7 @@ const SearchProfile = () => {
                         </Row>
                       </Col>
                     </Row>
-
-                    <Row className="mb-1">
-                      <Col xs={12} md={4}>
-                        <h3>Zimmer</h3>
-                      </Col>
-
-                      <Col xs={12} md={8}>
-                        <Row>
-                          <Col xs={12} md={6}>
-                            <Field
-                              id="number_of_rooms"
-                              name="number_of_rooms"
-                              placeholder="Von"
-                              type="number"
-                              className="no-spinner contact-input"
-                            />
-                          </Col>
-                          <Col xs={12} md={6}>
-                            <Field
-                              id="number_of_rooms_to"
-                              name="number_of_rooms_to"
-                              placeholder="Bis"
-                              type="number"
-                              className="no-spinner contact-input"
-                            />
-                          </Col>
-                        </Row>
-                      </Col>
-                    </Row>
-
+                    <DynamicFields selectedCategory={selectedRsType} />
                     <Row className="mb-1">
                       <Col xs={12} md={4}>
                         <Col xs={12}>

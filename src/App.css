@@ -238,7 +238,7 @@ input[type='number'].no-spinner::-webkit-inner-spin-button {
 
 .contact-input {
   background: transparent !important;
-  border: 1px solid var(--home-ease-light) !important;
+  border: 1px solid hsl(0, 0%, 80%) !important;
   color: var(--home-ease-light) !important;
   border-radius: 5px !important;
   transition: all 0.3s ease !important;
@@ -246,6 +246,7 @@ input[type='number'].no-spinner::-webkit-inner-spin-button {
   width: 100% !important;
   padding: 3px 0 3px 8px !important;
   margin-bottom: 24px;
+  height: 38px;
 }
 .contact-input:hover {
   color: white;
