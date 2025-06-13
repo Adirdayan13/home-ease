@@ -39,7 +39,6 @@ export const useSubmitSearchProfile = () => {
           if (res.errors) {
             throw new Error(res.errors[0]);
           }
-          console.log('adir data', res);
           extendedValues.client_id = res.id;
           await fetch('https://api.propstack.de/v1/saved_queries', {
             headers: {

@@ -52,7 +52,7 @@ const INVESTMENT = [ // Anlageobjekt
 ];
 
 const STORE = [ // Einzelhandel
-  { value: 'SHOWROOM_SPACE', label: 'Ausstellungsfläche' }, // TODO: Fix - go to Halle/Produktion
+  { value: ['STORE', 'SHOWROOM_SPACE'], label: 'Ausstellungsfläche' },
   { value: 'SHOPPING_CENTRE', label: 'Einkaufszentrum' },
   { value: 'FACTORY_OUTLET', label: 'Factory Outlet' },
   { value: 'DEPARTMENT_STORE', label: 'Kaufhaus' },
@@ -94,7 +94,7 @@ const INDUSTRY = [ // Halle/Produktion
   { value: 'STORAGE_HALL', label: 'Lagerhalle' },
   { value: 'SERVICE_AREA', label: 'Servicefläche' },
   { value: 'SHIPPING_STORAGE', label: 'Speditionslager' },
-  { value: 'REPAIR_SHOP', label: 'Werkstatt' }, // TODO: Fix - go to special purpose
+  { value: ['INDUSTRY', 'REPAIR_SHOP'], label: 'Werkstatt' }
 ];
 
 const GASTRONOMY = [ // Gastronomie/Hotels
@@ -121,7 +121,7 @@ const OFFICE = [ // Büro/Praxis
   { value: 'SURGERY', label: 'Praxis' },
   { value: 'SURGERY_FLOOR', label: 'Praxisetage' },
   { value: 'SURGERY_BUILDING', label: 'Praxishaus' },
-  { value: 'COMMERCIAL_CENTRE', label: 'Gewerbezentrum' }, // TODO: Fix - go to special purpose
+  { value: ['OFFICE', 'COMMERCIAL_CENTRE'], label: 'Gewerbezentrum' },
   { value: 'LIVING_AND_COMMERCIAL_BUILDING', label: 'Wohn- und Geschäftsgebäude' },
   { value: 'OFFICE_AND_COMMERCIAL_BUILDING', label: 'Büro- und Geschäftsgebäude' },
 ];
@@ -134,6 +134,10 @@ const GARAGE = [ // Garage
   { value: 'CAR_PARK', label: 'Parkhaus' },
   { value: 'UNDERGROUND_GARAGE', label: 'Tiefgarage' },
   { value: 'DOUBLE_GARAGE', label: 'Doppelgarage' },
+];
+
+const TRADE_SITE = [
+  { value: 'TRADE_SITE', label: 'TRADE_SITE', hide: true }
 ];
 
 const HOUSE = [ // Haus
@@ -278,6 +282,7 @@ export const categoryFields = {
 export const rsTypeToCategories = {
   APARTMENT: APARTMENT, // Wohnung
   HOUSE: HOUSE, // Haus
+  TRADE_SITE: TRADE_SITE,
   GARAGE: GARAGE,// Garage
   OFFICE: OFFICE, // Büro/Praxis
   GASTRONOMY: GASTRONOMY, // Gastronomie/Hotels

@@ -22,11 +22,11 @@ const validationSchema = Yup.object({
     .min(1, 'Mindestens eine Region muss ausgewählt werden')
     .required('Region ist erforderlich'),
   cities: Yup.string().required('Stadt ist erforderlich'),
-  rs_type: Yup.string().required('Objekt ist erforderlich'),
-  // rs_categories: Yup.array()
-  //   .of(Yup.string())
-  //   .min(1, 'Mindestens eine Objektart muss ausgewählt werden'),
-    // .required('Objektart ist erforderlich'),
+  rs_types: Yup.string().required('Objekt ist erforderlich'),
+  rs_categories: Yup.array()
+    .of(Yup.string())
+    .min(1, 'Mindestens eine Objektart muss ausgewählt werden')
+    .required('Objektart ist erforderlich'),
   phone: Yup.string().matches(/^\d+$/, 'Nur Zahlen erlaubt'),
   email: Yup.string()
     .email('Ungültige E-Mail-Adresse')
@@ -78,7 +78,7 @@ useEffect(() => {
               phone: '007',
               email: 'adirdayan@gmail.com',
               marketing_type: 'BUY',
-              rs_type: '',
+              rs_types: '',
               rs_categories: [],
               regions: [], // <-- new multiselect field
               cities: '',
@@ -204,13 +204,13 @@ useEffect(() => {
                       </Col>
                       <Col xs={12} md={8}>
                         <ErrorMessage
-                          name="rs_type"
+                          name="rs_types"
                           component="div"
                           style={{ color: 'red' }}
                         />
                         <FormBootstrap.Select
-                          aria-label="rs_type"
-                          name="rs_type"
+                          aria-label="rs_types"
+                          name="rs_types"
                           className="contact-input"
                           style={{
                             backgroundColor: 'transparent',
@@ -220,7 +220,7 @@ useEffect(() => {
                           onChange={(e) => {
                             const newRsType = e.target.value;
                             setSelectedRsType(newRsType); // Update local state
-                            setFieldValue('rs_type', newRsType); // Update Formik value
+                            setFieldValue('rs_types', newRsType); // Update Formik value
                           }}
                         >
                           <option value=""></option>
@@ -466,23 +466,3 @@ useEffect(() => {
 
 export default SearchProfile;
 
-/*
-salutation=
-&first_name=asd
-&last_name=asd
-&email=asd%40asd.com
-&phone=asd
-&marketing_type=BUY
-&rs_types=APARTMENT
-&cities%5B%5D=stadt
-&regions%5B%5D=Berlin
-&price=0
-&price_to=100
-&number_of_rooms=1
-&number_of_rooms_to=5
-&features%5B%5D=lift
-&note=msg
-&acceptance_7a7efd1=Akzeptiert
-&post_id=1775
-&widget_id=209450c
-*/

@@ -17,8 +17,8 @@ const CategoryCheckboxes = ({
 
   return (
     <div className="row row-cols-2 g-2">
-      {categories.map(({ value, label }) => (
-        <div key={value} className="col">
+      {categories.map(({ value, label, hide }) => (
+        <div key={value} className="col" style={{ display: hide ? 'none' : 'block' }}>
           <Form.Check
             type="checkbox"
             id={`checkbox-${value}`}
