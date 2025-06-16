@@ -24,7 +24,6 @@ const validationSchema = Yup.object({
   cities: Yup.string().required('Stadt ist erforderlich'),
   rs_types: Yup.string().required('Objekt ist erforderlich'),
   rs_categories: Yup.array()
-    .of(Yup.string())
     .min(1, 'Mindestens eine Objektart muss ausgewählt werden')
     .required('Objektart ist erforderlich'),
   phone: Yup.string().matches(/^\d+$/, 'Nur Zahlen erlaubt'),
@@ -237,7 +236,9 @@ useEffect(() => {
                         </FormBootstrap.Select>
                       </Col>
                     </Row>
-                    {selectedRsType && rsTypeToCategories?.[selectedRsType]?.length && (
+                    {selectedRsType
+                      && rsTypeToCategories?.[selectedRsType]?.length
+                      && !rsTypeToCategories?.[selectedRsType]?.[0]?.hide && (
                       <Row className="mb-1">
                         <Col xs={12} md={4}>
                           <Col xs={12}>
@@ -249,7 +250,9 @@ useEffect(() => {
                            <CategoryCheckboxes
                               selectedRsType={selectedRsType}
                               selectedCategories={values.rs_categories}
-                              onChange={(updated) => setFieldValue('rs_categories', updated)}
+                              onChange={(updated) => {
+                                setFieldValue('rs_categories', updated)
+                              }}
                             />
                         </Col>
                       </Row>

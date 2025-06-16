@@ -20,7 +20,6 @@ const INVESTMENT = [ // Anlageobjekt
   { value: 'INVEST_MULTI_FAMILY_HOUSE', label: 'Eigentumswohnung' },
   { value: 'INVEST_SINGLE_FAMILY_HOUSE', label: 'Einfamilienhaus' },
   { value: 'INVEST_FREEHOLD_FLAT', label: 'Mehrfamilienhaus' },
-  { value: 'INVEST_LIVING_BUSINESS_HOUSE', label: 'Einfamilienhaus' },
   { value: 'INVEST_LIVING_BUSINESS_HOUSE', label: 'Wohn-/Geschäftshaus' },
   { value: 'INVEST_MICRO_APARTMENTS', label: 'Micro-Apartments' },
   { value: 'INVEST_HOUSING_ESTATE', label: 'Wohnanlage' },
@@ -268,8 +267,8 @@ export const categoryFields = {
   INVESTMENT: [ // Anlageobjekt
     { value: 'living_space', label: 'Wohnfläche (m²)' },
     { value: 'living_space_to', label: 'Wohnfläche bis (m²)' },
-    { value: 'total_floor_space', label: 'Vermietbare Fläche (m²)' },
-    { value: 'total_floor_space_to', label: 'Vermietbare Fläche bis (m²)' },
+    { value: 'net_floor_space', label: 'Vermietbare Fläche (m²)' },
+    { value: 'net_floor_space_to', label: 'Vermietbare Fläche bis (m²)' },
     { value: 'plot_area', label: 'Grundstücksfläche (m²)' },
     { value: 'plot_area_to', label: 'Grundstücksfläche bis (m²)' },
     { value: 'number_of_apartments', label: 'Wohnungseinheiten' },
