@@ -441,6 +441,7 @@ useEffect(() => {
                       borderRadius: 32,
                       border: 'none',
                       outline: 'none',
+                      marginBottom: 24
                     }}
                     type="submit" // Ensure button type is submit
                     disabled={isLoading}
