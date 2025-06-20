@@ -7,7 +7,7 @@ import useSWRImmutable from 'swr/immutable';
 import { fetcher } from './utils';
 
 function App() {
-  const { data: brokers } = useSWRImmutable(
+  const { data: brokers = [] } = useSWRImmutable(
     `https://api.propstack.de/v1/brokers`,
     fetcher
   );

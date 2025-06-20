@@ -23,7 +23,7 @@ const validationSchema = Yup.object({
     .required('Region ist erforderlich'),
   cities: Yup.string().required('Stadt ist erforderlich'),
   rs_types: Yup.string().required('Objekt ist erforderlich'),
-  rs_categories: Yup.array()
+  rs_type_categories: Yup.array()
     .min(1, 'Mindestens eine Objektart muss ausgewählt werden')
     .required('Objektart ist erforderlich'),
   phone: Yup.string().matches(/^\d+$/, 'Nur Zahlen erlaubt'),
@@ -47,7 +47,7 @@ const SearchProfile = () => {
     setSelectedRegions,
     setCities,
   } = useSubmitSearchProfile();
-  
+
   const setFieldValueRef = useRef(null);
   const [selectedRsType, setSelectedRsType] = useState('');
 
@@ -56,7 +56,7 @@ useEffect(() => {
     rsTypeToCategories[selectedRsType]?.map((item) => item.value) || [];
 
   if (setFieldValueRef.current) {
-    setFieldValueRef.current('rs_categories', defaultCategories);
+    setFieldValueRef.current('rs_type_categories', defaultCategories);
   }
 }, [selectedRsType]);
 
@@ -72,13 +72,13 @@ useEffect(() => {
         ) : (
           <Formik
             initialValues={{
-              first_name: 'adir',
-              last_name: 'dayan',
-              phone: '007',
-              email: 'adirdayan@gmail.com',
+              first_name: '',
+              last_name: '',
+              phone: '',
+              email: '',
               marketing_type: 'BUY',
               rs_types: '',
-              rs_categories: [],
+              rs_type_categories: [],
               regions: [], // <-- new multiselect field
               cities: '',
               price: '',
@@ -249,9 +249,9 @@ useEffect(() => {
        
                            <CategoryCheckboxes
                               selectedRsType={selectedRsType}
-                              selectedCategories={values.rs_categories}
+                              selectedCategories={values.rs_type_categories}
                               onChange={(updated) => {
-                                setFieldValue('rs_categories', updated)
+                                setFieldValue('rs_type_categories', updated)
                               }}
                             />
                         </Col>
