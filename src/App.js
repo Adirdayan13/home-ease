@@ -1,4 +1,4 @@
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, useSearchParams } from 'react-router-dom';
 import Home from './home/Home';
 import Details from './details/Details';
 import SearchProfile from './search-profile/SearchProfile';
@@ -13,25 +13,17 @@ function App() {
     fetcher
   );
   const [language, setLanguage] = useState(null);
+  const [searchParams] = useSearchParams();
+
 
 
     useEffect(() => {
-    // Ask parent for the Weglot language
-    setTimeout(() => {
-      console.log('effect')
-      window.parent.postMessage("getWeglotLang", "*");
-    }, 2000);
-  
-    function handleMessage(event) {
-      const { wglang } = event.data;
-      if (wglang) {
-        console.log("Weglot language from parent:", wglang);
-        setLanguage(wglang)
-      }
-    }
-  
-    window.addEventListener("message", handleMessage);
-    return () => window.removeEventListener("message", handleMessage);
+     const lang = searchParams.get("lang") || "en";
+
+      if (lang) {
+        console.log("Weglot language from parent:", lang);
+        setLanguage(lang)
+      }  
   }, []);
 
   return (
