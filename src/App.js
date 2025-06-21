@@ -19,7 +19,7 @@ function App() {
 
     useEffect(() => {
       const params = new URLSearchParams(window.location.search);
-      console.log({searchParams, params})
+      console.log({ searchParams, params, locationSearch: window.location })
 
       const lang = searchParams.get("lang") || params;
 
