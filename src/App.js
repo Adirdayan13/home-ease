@@ -22,11 +22,16 @@ function App() {
           setLanguage(lang)
         }  
       }, 1500);
+      return () => {
+        const currentUrl = window.location.href;
+        document.cookie = `lastLocation=${encodeURIComponent(currentUrl)}; path=/; max-age=2592000`; // 30 days
+        console.log("Set cookie lastLocation to:", currentUrl);
+      }
   }, []);
 
   return (
     <Routes>
-      <Route path="/" element={<Home language={language} />} />
+      <Route path="/" element={<Home />} />
       <Route path="/details/:id/:title" element={<Details brokers={brokers} language={language} />} />
       <Route path="/suche-profil" element={<SearchProfile language={language} />} />
     </Routes>
