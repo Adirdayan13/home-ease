@@ -21,7 +21,8 @@ function App() {
       const params = new URLSearchParams(window.location.search);
       console.log({ searchParams, params, locationSearch: window.location })
 
-      const lang = searchParams.get("lang") || params;
+      const lang = new URLSearchParams(window.location.search).get("lang");
+
 
       if (lang) {
         console.log("Weglot language from parent:", lang);
