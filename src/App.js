@@ -18,7 +18,10 @@ function App() {
 
 
     useEffect(() => {
-     const lang = searchParams.get("lang") || "en";
+      const params = new URLSearchParams(window.location.search);
+      console.log({searchParams, params})
+
+      const lang = searchParams.get("lang") || params;
 
       if (lang) {
         console.log("Weglot language from parent:", lang);
