@@ -18,6 +18,7 @@ function App() {
     useEffect(() => {
     // Ask parent for the Weglot language
     window.parent.postMessage("getWeglotLang", "*");
+    console.log('effect')
   
     function handleMessage(event) {
       const { wglang } = event.data;
