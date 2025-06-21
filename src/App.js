@@ -15,10 +15,10 @@ function App() {
   const [language, setLanguage] = useState(null);
     useEffect(() => {
       
+      const lang = new URLSearchParams(window.location.search).get("lang");
       setTimeout(() => {
-        const lang = new URLSearchParams(window.location.search).get("lang");
+        console.log("Weglot language from parent:", lang);
         if (lang) {
-          console.log("Weglot language from parent:", lang);
           setLanguage(lang)
         }  
       }, 1500);
