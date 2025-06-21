@@ -1,4 +1,4 @@
-import { Routes, Route, useSearchParams } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 import Home from './home/Home';
 import Details from './details/Details';
 import SearchProfile from './search-profile/SearchProfile';
@@ -13,21 +13,15 @@ function App() {
     fetcher
   );
   const [language, setLanguage] = useState(null);
-  const [searchParams] = useSearchParams();
-
-
-
     useEffect(() => {
-      const params = new URLSearchParams(window.location.search);
-      console.log({ searchParams, params, locationSearch: window.location })
-
-      const lang = new URLSearchParams(window.location.search).get("lang");
-
-
-      if (lang) {
-        console.log("Weglot language from parent:", lang);
-        setLanguage(lang)
-      }  
+      
+      setTimeout(() => {
+        const lang = new URLSearchParams(window.location.search).get("lang");
+        if (lang) {
+          console.log("Weglot language from parent:", lang);
+          setLanguage(lang)
+        }  
+      }, 1500);
   }, []);
 
   return (
