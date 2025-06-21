@@ -6,7 +6,7 @@ import Contact from '../contact/Contact';
 import { useDetails } from './useDetails';
 import '../App.css';
 import AlignChildren from '../AlignChildren';
-import { translate } from '../utils';
+import { setLastLocation, translate } from '../utils';
 
   
   const Details = ({ brokers }) => {
@@ -20,6 +20,8 @@ import { translate } from '../utils';
       generateCol,
       showLabelAndValue
     } = useDetails();
+
+    setLastLocation();
 
     if (isLoading) {
       return (

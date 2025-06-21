@@ -14,7 +14,6 @@ function App() {
   );
   const [language, setLanguage] = useState(null);
     useEffect(() => {
-      
       const lang = new URLSearchParams(window.location.search).get("lang");
       setTimeout(() => {
         console.log("Weglot language from parent:", lang);
@@ -22,11 +21,6 @@ function App() {
           setLanguage(lang)
         }  
       }, 1500);
-      return () => {
-        const currentUrl = window.location.href;
-        document.cookie = `lastLocation=${encodeURIComponent(currentUrl)}; path=/; max-age=2592000`; // 30 days
-        console.log("Set cookie lastLocation to:", currentUrl);
-      }
   }, []);
 
   return (

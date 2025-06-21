@@ -2,7 +2,7 @@ import Map from './Map';
 import Card from './Card';
 import { useState } from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
-import { fetcher } from '../utils';
+import { fetcher, setLastLocation } from '../utils';
 import useSWRImmutable from 'swr/immutable';
 import AlignChildren from '../AlignChildren';
 import '../App.css';
@@ -13,6 +13,8 @@ const Home = () => {
     `https://api.propstack.de/v1/units?status=164134,164042,164043&expand=true`,
     fetcher
   );
+  
+  setLastLocation();
 
   if (isLoading) {
     return (

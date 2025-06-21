@@ -13,6 +13,7 @@ import { useSubmitSearchProfile } from './useSubmitSearchProfile';
 import CategoryCheckboxes from './CategoryCheckboxes';
 import { germanRegions, rsTypeToCategories } from './utils';
 import DynamicFields from './DynamicFields';
+import { setLastLocation } from '../utils';
 
 const validationSchema = Yup.object({
   first_name: Yup.string().required('Vorname ist erforderlich'),
@@ -34,7 +35,7 @@ const validationSchema = Yup.object({
   price_to: Yup.string().required('Preis bis ist erforderlich'),
 });
 
-const SearchProfile = () => {
+const SearchProfile = ({ language }) => {
   const {
     isSubmitted,
     isLoading,
@@ -50,6 +51,8 @@ const SearchProfile = () => {
 
   const setFieldValueRef = useRef(null);
   const [selectedRsType, setSelectedRsType] = useState('');
+
+  setLastLocation();
 
 useEffect(() => {
   const defaultCategories =

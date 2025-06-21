@@ -24,3 +24,9 @@ export const formatToCurrency = (amount, includeEuroSign) => (
 	!isNaN(parseFloat(amount)) && isFinite(amount))
 		? `${includeEuroSign ? '€ ' : ''} ${new Intl.NumberFormat('de-DE', { minimumFractionDigits: 2 }).format(amount)}`
 		: null;
+
+export const setLastLocation = () => {		
+	const currentUrl = window.location.href;
+	console.log('currentUrl', currentUrl)
+	document.cookie = `lastLocation=${encodeURIComponent(currentUrl)}; path=/; max-age=2592000`; // 30 days
+}
