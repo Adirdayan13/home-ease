@@ -1,6 +1,6 @@
 import Map from './Map';
 import Card from './Card';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
 import { fetcher, setLastLocation } from '../utils';
 import useSWRImmutable from 'swr/immutable';
@@ -13,6 +13,29 @@ const Home = () => {
     `https://api.propstack.de/v1/units?status=164134,164042,164043&expand=true`,
     fetcher
   );
+
+    useEffect(() => {
+    function handleMessage(event) {
+      const allowedOrigin = "https://www.homeease.de";
+      if (event.origin !== allowedOrigin) {
+        console.warn("Message from unauthorized origin:", event.origin);
+        return;
+      }
+
+      if (event.data && event.data.type === "localStorageData") {
+        console.log("Received localStorage data from parent:", event.data.data);
+
+        // Optionally store it in the iframe's localStorage
+        localStorage.setItem("parentLocalStorage", event.data.data);
+      }
+    }
+
+    window.addEventListener("message", handleMessage);
+
+    return () => {
+      window.removeEventListener("message", handleMessage);
+    };
+  }, []);
   
   setLastLocation();
 
