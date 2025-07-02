@@ -14,18 +14,21 @@ const Home = () => {
     fetcher
   );
 
-    useEffect(() => {
+  useEffect(() => {
+    // Send request to parent on iframe load
+    window.parent.postMessage(
+      "requestLocalStorage",
+      "https://www.homeease.de"
+    );
+
+    // Handle incoming messages
     function handleMessage(event) {
-      const allowedOrigin = "https://www.homeease.de";
-      if (event.origin !== allowedOrigin) {
-        console.warn("Message from unauthorized origin:", event.origin);
-        return;
-      }
+      if (event.origin !== "https://www.homeease.de") return;
 
       if (event.data && event.data.type === "localStorageData") {
-        console.log("Received localStorage data from parent:", event.data.data);
+        console.log("Iframe received localStorage data:", event.data.data);
 
-        // Optionally store it in the iframe's localStorage
+        // If you want, store it locally:
         localStorage.setItem("parentLocalStorage", event.data.data);
       }
     }
@@ -36,6 +39,7 @@ const Home = () => {
       window.removeEventListener("message", handleMessage);
     };
   }, []);
+
   
   setLastLocation();
 
