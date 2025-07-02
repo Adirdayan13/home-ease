@@ -16,10 +16,12 @@ const Home = () => {
 
   useEffect(() => {
     // Send request to parent on iframe load
+    console.log('posting message')
     window.parent.postMessage(
       "requestLocalStorage",
       "https://www.homeease.de"
     );
+    console.log('message posted')
 
     // Handle incoming messages
     function handleMessage(event) {
