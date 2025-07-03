@@ -36,7 +36,7 @@ const validationSchema = Yup.object({
   price_to: Yup.string().required('Preis bis ist erforderlich'),
 });
 
-const SearchProfile = ({ language = 'en' }) => {
+const SearchProfile = ({ language }) => {
   console.log({language})
   const {
     isSubmitted,

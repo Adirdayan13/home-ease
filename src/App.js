@@ -12,7 +12,7 @@ function App() {
     `https://api.propstack.de/v1/brokers`,
     fetcher
   );
-  const [language, setLanguage] = useState(null);
+  const [language, setLanguage] = useState('en');
   const langParams = new URLSearchParams(window.location.search).get("lang");
   console.log("Weglot language from parent:", langParams);
     
