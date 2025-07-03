@@ -37,6 +37,7 @@ const validationSchema = Yup.object({
 });
 
 const SearchProfile = ({ language = 'en' }) => {
+  console.log({language})
   const {
     isSubmitted,
     isLoading,
