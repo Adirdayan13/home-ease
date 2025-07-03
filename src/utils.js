@@ -27,6 +27,5 @@ export const formatToCurrency = (amount, includeEuroSign) => (
 
 export const setLastLocation = () => {		
 	const currentUrl = window.location.href;
-	console.log('currentUrl', currentUrl)
 	document.cookie = `lastLocation=${encodeURIComponent(currentUrl)}; path=/; max-age=2592000`; // 30 days
 }

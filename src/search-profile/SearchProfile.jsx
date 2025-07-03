@@ -14,6 +14,7 @@ import CategoryCheckboxes from './CategoryCheckboxes';
 import { germanRegions, rsTypeToCategories } from './utils';
 import DynamicFields from './DynamicFields';
 import { setLastLocation } from '../utils';
+import lang from './lang.json';
 
 const validationSchema = Yup.object({
   first_name: Yup.string().required('Vorname ist erforderlich'),
@@ -35,7 +36,7 @@ const validationSchema = Yup.object({
   price_to: Yup.string().required('Preis bis ist erforderlich'),
 });
 
-const SearchProfile = ({ language }) => {
+const SearchProfile = ({ language = 'en' }) => {
   const {
     isSubmitted,
     isLoading,
@@ -66,8 +67,8 @@ useEffect(() => {
   return (
     <div className="he-dark-b" style={{ paddingTop: 40, minHeight: '100vh' }}>
       <Container>
-        <h1 className="he-yellow-c">Suchprofil anlegen.</h1>
-        <h1 className="he-yellow-c mb-4">Traumimmobilie finden.</h1>
+        <h1 className="he-yellow-c">{lang?.[language].createProfileTitle}</h1>
+        <h1 className="he-yellow-c mb-4">{lang?.[language].subtitle}</h1>
         {isSubmitted ? (
           <h2 className="he-white-c">
             Vielen Dank, Ihre Anfrage wurde erfolgreich abgeschickt!

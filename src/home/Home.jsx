@@ -13,38 +13,7 @@ const Home = () => {
     `https://api.propstack.de/v1/units?status=164134,164042,164043&expand=true`,
     fetcher
   );
-
-  useEffect(() => {
-    // Send request to parent on iframe load
-    console.log('posting message')
-    window.parent.postMessage(
-      "requestLocalStorage",
-      "https://www.homeease.de"
-    );
-    console.log('message posted')
-
-    // Handle incoming messages
-    function handleMessage(event) {
-      if (event.origin !== "https://www.homeease.de") return;
-
-      if (event.data && event.data.type === "localStorageData") {
-        console.log("Iframe received localStorage data:", event.data.data);
-
-        // If you want, store it locally:
-        localStorage.setItem("parentLocalStorage", event.data.data);
-      }
-    }
-
-    window.addEventListener("message", handleMessage);
-
-    return () => {
-      window.removeEventListener("message", handleMessage);
-    };
-  }, []);
-
   
-  setLastLocation();
-
   if (isLoading) {
     return (
       <AlignChildren>
