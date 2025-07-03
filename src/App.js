@@ -15,9 +15,10 @@ function App() {
   const [language, setLanguage] = useState('en');
   const langParams = new URLSearchParams(window.location.search).get("lang");
   console.log("Weglot language from parent:", langParams);
-    
+  
   useEffect(() => {
-      setTimeout(() => {
+    setTimeout(() => {
+        const langParams = new URLSearchParams(window.location.search).get("lang");
         if (langParams) {
           setLanguage(langParams)
           localStorage.setItem('language', langParams);
