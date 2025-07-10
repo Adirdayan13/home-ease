@@ -1,0 +1,16 @@
+{
+  "en": {
+    "yes": "Yes",
+    "no": "No",
+    "select": "Please select",
+    "from": "From",
+    "to": "To"
+  },
+  "de": {
+    "yes": "Ja",
+    "no": "Nein",
+    "select": "Bitte auswählen",
+    "from": "Von",
+    "to": "Bis"
+  }
+}

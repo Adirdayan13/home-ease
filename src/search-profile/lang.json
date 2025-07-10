@@ -2,11 +2,115 @@
   "de": {
     "createProfileTitle": "Suchprofil anlegen.",
     "subtitle": "Traumimmobilie finden.",
-    "submitSuccess": "Vielen Dank, Ihre Anfrage wurde erfolgreich abgeschickt!"
+    "searchTitle": "Ihre Suchkriterien",
+    "properties": "Objekt",
+    "location": "Ort",
+    "preis": "Preis",
+    "fullname": "Vor-& Nachname",
+    "firstname": "Vorname",
+    "lastname": "Nachname",
+    "email": "E-mail*",
+    "phone": "Telefonnr.",
+    "propertyType": "Objektart",
+    "select": "Auswählen",
+    "from": "von",
+    "to": "bis",
+    "city": "Stadt",
+    "region": "Region",
+    "rooms": "Zimmer",
+    "livingArea": "Wohnfläche ",
+    "elevator": "Aufzug ",
+    "balcony": "Balkon/Terrasse",
+    "plotArea": "ploGrundstücksfläche",
+    "gfa": "BGF",
+    "lettableArea": "Vermietbare Fläche",
+    "residentialUnits": "Wohneinheiten ",
+    "commercialUnits": "Gewerbeeinheiten",
+    "barrierFree": "Barrierefrei",
+    "submitSuccess": "Vielen Dank, Ihre Anfrage wurde erfolgreich abgeschickt!",
+    "message": "Notiz",
+    "dataProtection": "Datenschutzinformation Mit der Eingabe meiner Daten und Absendung der Anfrage erkläre ich mich damit einverstanden, dass die Daten verschlüsselt an HomeEase GmbH weitergeleitet werden. Weitere Informationen erfahren Sie unter Datenschutz Verbraucher im Sinne des § 13 BGB geben uns mit der Übermittlung ihrer Telefonnummer die ausdrückliche Einverständniserklärung zur telefonischen Kontaktaufnahme",
+    "errors": {
+      "firstname": "Vorname ist erforderlich",
+      "lastname": "Nachname ist erforderlich",
+      "region": {
+        "invalid": "Ungültige Region",
+        "min": "Mindestens eine Region muss ausgewählt werden",
+        "required": "Region ist erforderlich"
+      },
+      "cities": "Stadt ist erforderlich",
+      "rstypes": "Objekt ist erforderlich",
+      "rstypescategories": {
+        "min": "Mindestens eine Objektart muss ausgewählt werden",
+        "required": "Objektart ist erforderlich"
+      },
+      "phone": "Nur Zahlen erlaubt",
+      "email": {
+        "invalid": "Ungültige E-Mail-Adresse",
+        "required": "E-Mail ist erforderlich"
+      },
+      "price": "Preis von ist erforderlich",
+      "priceto": "Preis bis ist erforderlich"
+    },
+    "submit": "Absenden",
+    "apiError": "Ein unerwarteter Fehler ist aufgetreten. Bitte versuchen Sie es erneut.",
+    "success": "Vielen Dank, Ihre Anfrage wurde erfolgreich abgeschickt!"
   },
   "en": {
     "createProfileTitle": "Create a search profile.",
     "subtitle": "Find your dream property.",
-    "submitSuccess": "Vielen Dank, Ihre Anfrage wurde erfolgreich abgeschickt!"
+    "searchTitle": "Your search criteria",
+    "properties": "Properties",
+    "location": "Location",
+    "price": "Price",
+    "fullname": "Full Name",
+    "firstname": "First Name",
+    "lastname": "Last Name",
+    "email": "E-mail*",
+    "phone": "Phone Number",
+    "propertyType": "Property type",
+    "select": "Select",
+    "from": "From",
+    "to": "To",
+    "city": "City",
+    "region": "Region",
+    "rooms": "Rooms",
+    "livingArea": "Living area",
+    "elevator": "Elevator",
+    "balcony": "Balcony/Terrace",
+    "plotArea": "Plot area",
+    "gfa": "Gross floor area (GFA)",
+    "lettableArea": "Lettable area",
+    "residentialUnits": "Residential units",
+    "commercialUnits": "Commercial units",
+    "barrierFree": "Barrier-free",
+    "submitSuccess": "Vielen Dank, Ihre Anfrage wurde erfolgreich abgeschickt!",
+    "message": "Message",
+    "dataProtection": "Data Protection Information By entering my data and submitting the inquiry, I agree that the data will be transmitted in encrypted form to HomeEase GmbH. Further information can be found under Data Protection. Consumers within the meaning of § 13 BGB give us their explicit consent to be contacted by telephone by providing their phone number.",
+    "errors": {
+      "firstname": "First name is required",
+      "lastname": "Last name is required",
+      "region": {
+        "invalid": "Invalid region",
+        "min": "At least one region must be selected",
+        "required": "Region is required"
+      },
+      "cities": "City is required",
+      "rstypes": "Property is required",
+      "rstypescategories": {
+        "min": "At least one property type must be selected",
+        "required": "Property type is required"
+      },
+      "phone": "Numbers only",
+      "email": {
+        "invalid": "Invalid email address",
+        "required": "Email is required"
+      },
+      "price": "Price from is required",
+      "priceto": "Price to is required"
+    },
+    "submit": "Submit",
+    "apiError": "An unexpected error has occurred. Please try again.",
+    "success": "Thank you, your request has been successfully submitted!"
   }
 }

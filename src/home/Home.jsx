@@ -1,8 +1,8 @@
 import Map from './Map';
 import Card from './Card';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
-import { fetcher, setLastLocation } from '../utils';
+import { fetcher } from '../utils';
 import useSWRImmutable from 'swr/immutable';
 import AlignChildren from '../AlignChildren';
 import '../App.css';

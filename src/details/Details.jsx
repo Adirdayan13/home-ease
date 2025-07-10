@@ -3,10 +3,10 @@ import CarouselComponent from './CarouselComponent';
 import { Col, Row } from 'react-bootstrap';
 import Map2 from '../home/Map';
 import Contact from '../contact/Contact';
-import { useDetails } from './useDetails';
-import '../App.css';
 import AlignChildren from '../AlignChildren';
-import { setLastLocation, translate } from '../utils';
+import { useDetails } from './useDetails';
+import { translate } from '../utils';
+import '../App.css';
 
   
   const Details = ({ brokers }) => {
@@ -20,8 +20,6 @@ import { setLastLocation, translate } from '../utils';
       generateCol,
       showLabelAndValue
     } = useDetails();
-
-    setLastLocation();
 
     if (isLoading) {
       return (

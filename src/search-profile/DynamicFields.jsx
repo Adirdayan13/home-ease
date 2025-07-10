@@ -2,10 +2,11 @@ import React from 'react';
 import { Row, Col } from 'react-bootstrap';
 import { Field, ErrorMessage } from 'formik';
 import { categoryFields } from './utils';
+import lang from './langDynamicFields.json';
 
-const DynamicFields = ({ selectedCategory }) => {
+const DynamicFields = ({ selectedCategory, language }) => {
   const fields = categoryFields[selectedCategory] || [];
-
+// console.log('fields', fields)
   const grouped = {};
   fields.forEach((field) => {
     const isTo = field.value.endsWith('_to');
@@ -22,8 +23,10 @@ const DynamicFields = ({ selectedCategory }) => {
     }
   });
 
+
   return Object.entries(grouped).map(([base, pair]) => {
-    const label = pair.from?.label || pair.to?.label;
+    console.log({ base, pair})
+    const label = pair.from?.[language] || pair.to?.[language];
     const type = pair.from?.type || pair.to?.type;
 
     return (
@@ -37,9 +40,9 @@ const DynamicFields = ({ selectedCategory }) => {
               <Col xs={12} md={6}>
                 <ErrorMessage name={base} component="div" style={{ color: 'red' }} />
                 <Field as="select" id={base} name={base} className="contact-input">
-                  <option value="">Bitte auswählen</option>
-                  <option value="true">Ja</option>
-                  <option value="false">Nein</option>
+                  <option value="">{lang[language]?.select}</option>
+                  <option value="true">{lang[language]?.yes}</option>
+                  <option value="false">{lang[language]?.no}</option>
                 </Field>
               </Col>
             ) : (
@@ -49,17 +52,17 @@ const DynamicFields = ({ selectedCategory }) => {
                   <Field
                     id={pair.from?.value}
                     name={pair.from?.value}
-                    placeholder="Von"
+                    placeholder={lang[language]?.from}
                     type="number"
                     className="no-spinner contact-input"
-                  />
+                    />
                 </Col>
                 <Col xs={12} md={6}>
                   <ErrorMessage name={pair.to?.value} component="div" style={{ color: 'red' }} />
                   <Field
                     id={pair.to?.value}
                     name={pair.to?.value}
-                    placeholder="Bis"
+                    placeholder={lang[language]?.to}
                     type="number"
                     className="no-spinner contact-input"
                   />
