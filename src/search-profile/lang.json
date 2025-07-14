@@ -86,7 +86,7 @@
     "barrierFree": "Barrier-free",
     "submitSuccess": "Vielen Dank, Ihre Anfrage wurde erfolgreich abgeschickt!",
     "message": "Message",
-    "dataProtection": "Data Protection Information By entering my data and submitting the inquiry, I agree that the data will be transmitted in encrypted form to HomeEase GmbH. Further information can be found under Data Protection. Consumers within the meaning of § 13 BGB give us their explicit consent to be contacted by telephone by providing their phone number.",
+    "dataProtection": "Data Protection Information. By entering my data and submitting the inquiry, I agree that the data will be transmitted in encrypted form to HomeEase GmbH. Further information can be found under Data Protection. Consumers within the meaning of § 13 BGB give us their explicit consent to be contacted by telephone by providing my phone number.",
     "errors": {
       "firstname": "First name is required",
       "lastname": "Last name is required",
