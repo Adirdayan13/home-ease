@@ -10,7 +10,7 @@ import '../App.css';
 const Home = () => {
   const [hovered, setHovered] = useState(null);
   const { data, error, isLoading } = useSWRImmutable(
-    `https://api.propstack.de/v1/units?status=164134,164042,164043&expand=true`,
+    `https://api.propstack.de/v1/units?status=164134,164042,164043,&expand=true&per=100`,
     fetcher
   );
   
