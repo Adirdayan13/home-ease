@@ -1,4 +1,4 @@
-export const myVeryLimitedAccessKey = process.env.REACT_APP_PROPSTACK_API_TOKEN;
+export const myVeryLimitedAccessKey = '3OvpePa234ctjeIuPIqo7T8fTTCfBOgm8JDpCsDm';
 
 export const fetcher = (url) => fetch(url, {
 	headers: { 'X-API-KEY': myVeryLimitedAccessKey },

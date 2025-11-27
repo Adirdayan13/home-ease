@@ -13,9 +13,6 @@ const Home = () => {
     `https://api.propstack.de/v1/units?status=164134,164042,164043,&expand=true&per=100`,
     fetcher
   );
-
-  const token = process.env.REACT_APP_PROPSTACK_API_TOKEN;
-  console.log(token);
   
   if (isLoading) {
     return (
