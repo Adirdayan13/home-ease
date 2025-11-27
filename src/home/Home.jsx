@@ -15,7 +15,7 @@ const Home = () => {
   );
 
   const token = process.env.REACT_APP_PROPSTACK_API_TOKEN;
-  console.log('API Token:', token);
+  console.log(token);
   
   if (isLoading) {
     return (
