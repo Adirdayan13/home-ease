@@ -1,4 +1,7 @@
-export const myVeryLimitedAccessKey = '3OvpePa234ctjeIuPIqo7T8fTTCfBOgm8JDpCsDm';
+export const myVeryLimitedAccessKey = process.env.REACT_APP_PSTACK;
+export const templateId = process.env.REACT_APP_TEMPLATE_ID;
+export const serviceId = process.env.REACT_APP_SERVICE_ID;
+export const userId = process.env.REACT_APP_USER_ID;
 
 export const fetcher = (url) => fetch(url, {
 	headers: { 'X-API-KEY': myVeryLimitedAccessKey },

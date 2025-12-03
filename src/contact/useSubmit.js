@@ -1,6 +1,8 @@
 import { useState } from 'react';
-import { myVeryLimitedAccessKey } from '../utils';
+import { serviceId, templateId, userId } from '../utils';
 import { useParams } from 'react-router-dom';
+import emailjs from '@emailjs/browser';
+import { fetchData } from './utils';
 
 // Quelle - homepage
 // Status - kunde
@@ -14,6 +16,7 @@ export const useSubmit = () => {
   const [isError, setIsError] = useState(null);
   const [isSubmitted, setIsSubmitted] = useState(false);
   const { id, title } = useParams(); // Extracts "id" from URL
+
   const submit = async (values) => {
     let client_id;
     setIsLoading(true);
@@ -23,41 +26,24 @@ export const useSubmit = () => {
     nextYear.setFullYear(nextYear.getFullYear() + 1);
     try {
       // Create Contact
-      await fetch('https://api.propstack.de/v1/contacts', {
-        headers: {
-          'X-API-KEY': myVeryLimitedAccessKey,
-          'Content-Type': 'application/json',
+      fetchData('https://api.propstack.de/v1/contacts', {
+        client: {
+          ...values,
+          item_id: id,
+          accept_contact: true,
+          created_at: today,
+          keep_data_till: nextYear,
+          gdpr_status: 0, // DSGVO-Status = Keine Angabe
+          client_reason_id: 116586, // Speichern-bis-Grund = 1 Jahr
+          client_source_id: 211813, // Quelle = Homepage
+          client_status_id: 215837, // Status = Kunde
+          group_ids: [410460], // Merkmale = Kunde: Kaufinteressent
         },
-        method: 'POST',
-        body: JSON.stringify({
-          client: {
-            ...values,
-            item_id: id,
-            accept_contact: true,
-            created_at: today,
-            keep_data_till: nextYear,
-            gdpr_status: 0, // DSGVO-Status = Keine Angabe
-            client_reason_id: 116586, // Speichern-bis-Grund = 1 Jahr
-            client_source_id: 211813, // Quelle = Homepage
-            client_status_id: 215837, // Status = Kunde
-            group_ids: [410460], // Merkmale = Kunde: Kaufinteressent
-          },
-        }),
       })
-        .then((res) => res.json())
-        .then(async (res) => {
-          client_id = res.id;
-          if (res?.errors) {
-            throw new Error(res.errors[0]);
-          }
-          // Create task
-          await fetch('https://api.propstack.de/v1/tasks', {
-            headers: {
-              'X-API-KEY': myVeryLimitedAccessKey,
-              'Content-Type': 'application/json',
-            },
-            method: 'POST',
-            body: JSON.stringify({
+        .then(
+          (res) => {client_id = res.id;
+            // Create task
+            fetchData('https://api.propstack.de/v1/tasks', {
               task: {
                 body: `
                 <p>Salutation: ${values.salutation}</p>
@@ -74,21 +60,10 @@ export const useSubmit = () => {
                 client_ids: [res.id],
                 is_reminder: true,
               },
-            }),
-          })
-            .then((res) => res.json())
-            .then(async (res) => {
-              if (res?.errors) {
-                throw new Error(res.errors[0]);
-              }
-              // Create a deal (make it qualified)
-              await fetch('https://api.propstack.de/v1/client_properties', {
-                headers: {
-                  'X-API-KEY': myVeryLimitedAccessKey,
-                  'Content-Type': 'application/json',
-                },
-                method: 'POST',
-                body: JSON.stringify({
+            })
+              .then(() => {
+                // Create a deal (make it qualified)
+                fetchData('https://api.propstack.de/v1/client_properties', {
                   client_property: {
                     client_id, // ID from contact creation
                     title: `${values.first_name} ${values.last_name} - Anfrage`,
@@ -96,23 +71,26 @@ export const useSubmit = () => {
                     deal_stage_id: 280132, // You need to find this ID in your Propstack pipeline
                   }
                 })
-              }).then((res) => res.json())
-                .then((res) => {
-                  if (res?.errors) {
-                    throw new Error(res.errors[0]);
-                  }
-                  setIsLoading(false);
-                  setIsSubmitted(true);
-                })
-                .catch((error) => {
-                  setIsError(error);
-                  setIsLoading(false);
-                  setIsSubmitted(false);
-                  console.error('Error:', error);
-                });
-            })
-            
-        });
+                  .then(() => {
+                    emailjs
+                      .send(
+                        serviceId,
+                        templateId,
+                        {
+                          ...values,
+                          title,
+                        },
+                        userId
+                      )
+                      .then((result) => console.log('Email sent:', result.text),
+                        (error) => console.error('Email error:', error.text)
+                      );
+                    setIsLoading(false);
+                    setIsSubmitted(true);
+                  })
+              });
+          }
+        );
     } catch (error) {
       setIsError(error);
       setIsLoading(false);
